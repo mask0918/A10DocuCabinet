@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bst.pidms.dao.PermissionMapper">
+    <resultMap id="BaseResultMap" type="com.bst.pidms.entity.Permission">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="url" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </constructor>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_permission
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.bst.pidms.entity.Permission" keyProperty="id">
+    insert into tb_permission (id, url, name
+      )
+    values (#{id,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}
+      )
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.bst.pidms.entity.Permission">
+    update tb_permission
+    set url = #{url,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, url, name
+    from tb_permission
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, url, name
+    from tb_permission
+  </select>
+    <select id="selectByUrl" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, url, name
+    from tb_permission
+    where url = #{url,jdbcType=VARCHAR}
+  </select>
+    <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, url, name
+    from tb_permission
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+</mapper>
