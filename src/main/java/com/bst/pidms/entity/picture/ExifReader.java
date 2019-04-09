@@ -28,9 +28,7 @@ public class ExifReader {
 
     public static void readEXIF(PicInfo picInfo) throws Exception {
         File jpegFile = new File("C:\\Users\\BST\\Desktop\\cloud.ico");
-//        Metadata metadata = JpegMetadataReader.readMetadata(jpegFile);
         Metadata metadata = ImageMetadataReader.readMetadata(jpegFile);
-
 
         for (Directory directory : metadata.getDirectories()) {
             for (Tag tag : directory.getTags()) {
@@ -70,7 +68,6 @@ public class ExifReader {
         System.out.println(picInfo);
         String address = MapUtils.getAddress(picInfo.getGpsLongitude(), picInfo.getGpsLatitude());
         System.out.println(address);
-
 
 
     }
