@@ -1,15 +1,14 @@
 package com.bst.pidms.entity.picture;
 
-import com.drew.imaging.jpeg.JpegMetadataReader;
+import com.bst.pidms.utils.MapUtils;
+import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @Author: BST
@@ -23,17 +22,56 @@ public class ExifReader {
 //        file.get
 //    }
 
+    public static void main(String[] args) throws Exception {
+        readEXIF(new PicInfo());
+    }
 
     public static void readEXIF(PicInfo picInfo) throws Exception {
-        File jpegFile = new File("C:\\Users\\BST\\Desktop\\3213.JPG");
-        Metadata metadata = JpegMetadataReader.readMetadata(jpegFile);
+        File jpegFile = new File("C:\\Users\\BST\\Desktop\\cloud.ico");
+//        Metadata metadata = JpegMetadataReader.readMetadata(jpegFile);
+        Metadata metadata = ImageMetadataReader.readMetadata(jpegFile);
+
+
         for (Directory directory : metadata.getDirectories()) {
             for (Tag tag : directory.getTags()) {
-//                if (tag.getTagName().equals("File Name")) picInfo.setName(tag.getDescription());
-//                if(tag.getTagName().equals("File Size")) picInfo.setSize(tag.getDescription());
-
+                System.out.println(tag);
+                if (tag.getTagName().equals("GPS Latitude")) {
+                    picInfo.setGpsLatitude(tag.getDescription());
+                    continue;
+                }
+                if (tag.getTagName().equals("GPS Longitude")) {
+                    picInfo.setGpsLongitude(tag.getDescription());
+                    continue;
+                }
+                if (tag.getTagName().equals("Image Height")) {
+                    picInfo.setHeight(Integer.valueOf(tag.getDescription().replace(" pixels", "")));
+                    continue;
+                }
+                if (tag.getTagName().equals("Image Width")) {
+                    picInfo.setWidth(Integer.valueOf(tag.getDescription().replace(" pixels", "")));
+                    continue;
+                }
+                if (tag.getTagName().equals("Model")) {
+                    picInfo.setModal(tag.getDescription());
+                    continue;
+                }
+                if (tag.getTagName().equals("Aperture Value")) {
+                    picInfo.setAperture(tag.getDescription());
+                    continue;
+                }
+                if (tag.getTagName().equals("Date/Time")) {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
+                    Date date = simpleDateFormat.parse(tag.getDescription());
+                    picInfo.setCreateTime(date.getTime());
+                    continue;
+                }
             }
-
         }
+        System.out.println(picInfo);
+        String address = MapUtils.getAddress(picInfo.getGpsLongitude(), picInfo.getGpsLatitude());
+        System.out.println(address);
+
+
+
     }
 }

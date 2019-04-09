@@ -52,7 +52,7 @@ public class PermissionController {
         return "success";
     }
 
-    @RequestMapping(value = "modifyper", method = RequestMethod.POST)
+    @RequestMapping(value = "/modifyper", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> modifyPermission(@RequestParam("id") Integer id, @RequestParam("url") String url, @RequestParam("name") String name) {
         Map<String, Object> map = new HashMap<String, Object>();

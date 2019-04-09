@@ -1,16 +1,5 @@
 package com.bst.pidms.entity.picture;
 
-import com.drew.imaging.jpeg.JpegMetadataReader;
-import com.drew.metadata.Directory;
-import com.drew.metadata.Metadata;
-import com.drew.metadata.Tag;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-
 /**
  * @Author: BST
  * @Date: 2019/4/6 14:21
@@ -20,14 +9,11 @@ public class PicInfo {
     private Integer width;
     //    器材
     private String modal;
-    private Integer createTime;
-    private Integer modifyTime;
+    private Long createTime;
     //    光圈
     private String aperture;
-    private String gpsLatitudeRef;
     private String gpsLatitude;
-    private String gpsLongtitudeRef;
-    private String gpsLongtitude;
+    private String gpsLongitude;
 
 
     public Integer getHeight() {
@@ -54,21 +40,14 @@ public class PicInfo {
         this.modal = modal;
     }
 
-    public Integer getCreateTime() {
+    public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Integer getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(Integer modifyTime) {
-        this.modifyTime = modifyTime;
-    }
 
     public String getAperture() {
         return aperture;
@@ -78,13 +57,6 @@ public class PicInfo {
         this.aperture = aperture;
     }
 
-    public String getGpsLatitudeRef() {
-        return gpsLatitudeRef;
-    }
-
-    public void setGpsLatitudeRef(String gpsLatitudeRef) {
-        this.gpsLatitudeRef = gpsLatitudeRef;
-    }
 
     public String getGpsLatitude() {
         return gpsLatitude;
@@ -94,20 +66,26 @@ public class PicInfo {
         this.gpsLatitude = gpsLatitude;
     }
 
-    public String getGpsLongtitudeRef() {
-        return gpsLongtitudeRef;
+
+    public String getGpsLongitude() {
+        return gpsLongitude;
     }
 
-    public void setGpsLongtitudeRef(String gpsLongtitudeRef) {
-        this.gpsLongtitudeRef = gpsLongtitudeRef;
+    public void setGpsLongitude(String gpsLongitude) {
+        this.gpsLongitude = gpsLongitude;
     }
 
-    public String getGpsLongtitude() {
-        return gpsLongtitude;
-    }
-
-    public void setGpsLongtitude(String gpsLongtitude) {
-        this.gpsLongtitude = gpsLongtitude;
+    @Override
+    public String toString() {
+        return "PicInfo{" +
+                "height=" + height +
+                ", width=" + width +
+                ", modal='" + modal + '\'' +
+                ", createTime=" + createTime +
+                ", aperture='" + aperture + '\'' +
+                ", gpsLatitude='" + gpsLatitude + '\'' +
+                ", gpsLongitude='" + gpsLongitude + '\'' +
+                '}';
     }
 }
 
