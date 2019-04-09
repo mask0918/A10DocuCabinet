@@ -38,6 +38,7 @@ public class FileController {
 
         File dir = new File("D:\\InsightPIDMS\\" + user.toString());
         if (!dir.exists()) dir.mkdir();
+
         File toFile = new File(dir.getAbsolutePath() + "\\" + file.getOriginalFilename().toLowerCase());
         toFile.createNewFile();
         file.transferTo(toFile);
