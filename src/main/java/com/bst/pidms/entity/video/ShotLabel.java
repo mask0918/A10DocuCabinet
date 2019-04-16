@@ -8,10 +8,9 @@ import java.util.List;
  * @Author: BST
  * @Date: 2019/4/5 13:44
  */
-@JSONType(orders = {"shotlabel", "category", "segments"})
+@JSONType(orders = {"shotlabel","segments"})
 public class ShotLabel {
     private String shotlabel;
-    private String category;
     private List<Segment> segments;
 
     public String getShotlabel() {
@@ -20,14 +19,6 @@ public class ShotLabel {
 
     public void setShotlabel(String shotlabel) {
         this.shotlabel = shotlabel;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public List<Segment> getSegments() {

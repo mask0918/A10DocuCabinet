@@ -4,69 +4,263 @@
     <resultMap id="BaseResultMap" type="com.bst.pidms.entity.OwnFile">
         <constructor>
             <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="url" javaType="java.lang.String" jdbcType="VARCHAR"/>
             <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="catalog_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="category" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="size" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="server_time" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="upload_time" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="keyword" javaType="java.lang.String" jdbcType="CHAR"/>
-            <arg column="tag" javaType="java.lang.String" jdbcType="CHAR"/>
+            <arg column="size" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="server_time" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="upload_time" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="keyword" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="tag" javaType="java.lang.String" jdbcType="VARCHAR"/>
             <arg column="info" javaType="java.lang.String" jdbcType="CHAR"/>
-            <arg column="collection" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="attention" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="collection" javaType="java.lang.Byte" jdbcType="TINYINT"/>
+            <arg column="attention" javaType="java.lang.Byte" jdbcType="TINYINT"/>
             <arg column="downloads" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="views" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="scale" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-            <arg column="recycle" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="recycle" javaType="java.lang.Byte" jdbcType="TINYINT"/>
         </constructor>
     </resultMap>
+    <sql id="Base_Column_List">
+    id, name, url, user_id, catalog_id, category, size, server_time, upload_time, keyword, 
+    tag, info, collection, attention, downloads, views, scale, recycle
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_file
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectCategory" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select *
+    from tb_file
+    where category=#{category,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select *
+    from tb_file
+  </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_file
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.bst.pidms.entity.OwnFile">
-    insert into tb_file (id, user_id, catalog_id, 
-      category, size, server_time, 
-      upload_time, keyword, tag, 
-      info, collection, attention, 
-      downloads, views, scale, 
-      recycle)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{catalogId,jdbcType=INTEGER}, 
-      #{category,jdbcType=INTEGER}, #{size,jdbcType=INTEGER}, #{serverTime,jdbcType=INTEGER}, 
-      #{uploadTime,jdbcType=INTEGER}, #{keyword,jdbcType=CHAR}, #{tag,jdbcType=CHAR}, 
-      #{info,jdbcType=CHAR}, #{collection,jdbcType=INTEGER}, #{attention,jdbcType=INTEGER}, 
-      #{downloads,jdbcType=INTEGER}, #{views,jdbcType=INTEGER}, #{scale,jdbcType=INTEGER}, 
-      #{recycle,jdbcType=INTEGER})
+    <insert id="insert" parameterType="com.bst.pidms.entity.OwnFile" keyProperty="id">
+    insert into tb_file (id, name, url, 
+      user_id, catalog_id, category, 
+      size, server_time, upload_time, 
+      keyword, tag, info, collection, 
+      attention, downloads, views, 
+      scale, recycle)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{catalogId,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, 
+      #{size,jdbcType=BIGINT}, #{serverTime,jdbcType=BIGINT}, #{uploadTime,jdbcType=BIGINT}, 
+      #{keyword,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{info,jdbcType=CHAR}, #{collection,jdbcType=TINYINT}, 
+      #{attention,jdbcType=TINYINT}, #{downloads,jdbcType=INTEGER}, #{views,jdbcType=INTEGER}, 
+      #{scale,jdbcType=INTEGER}, #{recycle,jdbcType=TINYINT})
   </insert>
+    <insert id="insertSelective" parameterType="com.bst.pidms.entity.OwnFile" keyProperty="id">
+        insert into tb_file
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="catalogId != null">
+                catalog_id,
+            </if>
+            <if test="category != null">
+                category,
+            </if>
+            <if test="size != null">
+                size,
+            </if>
+            <if test="serverTime != null">
+                server_time,
+            </if>
+            <if test="uploadTime != null">
+                upload_time,
+            </if>
+            <if test="keyword != null">
+                keyword,
+            </if>
+            <if test="tag != null">
+                tag,
+            </if>
+            <if test="info != null">
+                info,
+            </if>
+            <if test="collection != null">
+                collection,
+            </if>
+            <if test="attention != null">
+                attention,
+            </if>
+            <if test="downloads != null">
+                downloads,
+            </if>
+            <if test="views != null">
+                views,
+            </if>
+            <if test="scale != null">
+                scale,
+            </if>
+            <if test="recycle != null">
+                recycle,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="catalogId != null">
+                #{catalogId,jdbcType=INTEGER},
+            </if>
+            <if test="category != null">
+                #{category,jdbcType=INTEGER},
+            </if>
+            <if test="size != null">
+                #{size,jdbcType=BIGINT},
+            </if>
+            <if test="serverTime != null">
+                #{serverTime,jdbcType=BIGINT},
+            </if>
+            <if test="uploadTime != null">
+                #{uploadTime,jdbcType=BIGINT},
+            </if>
+            <if test="keyword != null">
+                #{keyword,jdbcType=VARCHAR},
+            </if>
+            <if test="tag != null">
+                #{tag,jdbcType=VARCHAR},
+            </if>
+            <if test="info != null">
+                #{info,jdbcType=CHAR},
+            </if>
+            <if test="collection != null">
+                #{collection,jdbcType=TINYINT},
+            </if>
+            <if test="attention != null">
+                #{attention,jdbcType=TINYINT},
+            </if>
+            <if test="downloads != null">
+                #{downloads,jdbcType=INTEGER},
+            </if>
+            <if test="views != null">
+                #{views,jdbcType=INTEGER},
+            </if>
+            <if test="scale != null">
+                #{scale,jdbcType=INTEGER},
+            </if>
+            <if test="recycle != null">
+                #{recycle,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.bst.pidms.entity.OwnFile">
+        update tb_file
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="catalogId != null">
+                catalog_id = #{catalogId,jdbcType=INTEGER},
+            </if>
+            <if test="category != null">
+                category = #{category,jdbcType=INTEGER},
+            </if>
+            <if test="size != null">
+                size = #{size,jdbcType=BIGINT},
+            </if>
+            <if test="serverTime != null">
+                server_time = #{serverTime,jdbcType=BIGINT},
+            </if>
+            <if test="uploadTime != null">
+                upload_time = #{uploadTime,jdbcType=BIGINT},
+            </if>
+            <if test="keyword != null">
+                keyword = #{keyword,jdbcType=VARCHAR},
+            </if>
+            <if test="tag != null">
+                tag = #{tag,jdbcType=VARCHAR},
+            </if>
+            <if test="info != null">
+                info = #{info,jdbcType=CHAR},
+            </if>
+            <if test="collection != null">
+                collection = #{collection,jdbcType=TINYINT},
+            </if>
+            <if test="attention != null">
+                attention = #{attention,jdbcType=TINYINT},
+            </if>
+            <if test="downloads != null">
+                downloads = #{downloads,jdbcType=INTEGER},
+            </if>
+            <if test="views != null">
+                views = #{views,jdbcType=INTEGER},
+            </if>
+            <if test="scale != null">
+                scale = #{scale,jdbcType=INTEGER},
+            </if>
+            <if test="recycle != null">
+                recycle = #{recycle,jdbcType=TINYINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <update id="updateByPrimaryKey" parameterType="com.bst.pidms.entity.OwnFile">
     update tb_file
-    set user_id = #{userId,jdbcType=INTEGER},
+    set name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
       catalog_id = #{catalogId,jdbcType=INTEGER},
       category = #{category,jdbcType=INTEGER},
-      size = #{size,jdbcType=INTEGER},
-      server_time = #{serverTime,jdbcType=INTEGER},
-      upload_time = #{uploadTime,jdbcType=INTEGER},
-      keyword = #{keyword,jdbcType=CHAR},
-      tag = #{tag,jdbcType=CHAR},
+      size = #{size,jdbcType=BIGINT},
+      server_time = #{serverTime,jdbcType=BIGINT},
+      upload_time = #{uploadTime,jdbcType=BIGINT},
+      keyword = #{keyword,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
       info = #{info,jdbcType=CHAR},
-      collection = #{collection,jdbcType=INTEGER},
-      attention = #{attention,jdbcType=INTEGER},
+      collection = #{collection,jdbcType=TINYINT},
+      attention = #{attention,jdbcType=TINYINT},
       downloads = #{downloads,jdbcType=INTEGER},
       views = #{views,jdbcType=INTEGER},
       scale = #{scale,jdbcType=INTEGER},
-      recycle = #{recycle,jdbcType=INTEGER}
+      recycle = #{recycle,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, user_id, catalog_id, category, size, server_time, upload_time, keyword, 
-    tag, info, collection, attention, downloads, views, scale, recycle
-    from tb_file
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-    <select id="selectAll" resultMap="BaseResultMap">
-    select id, user_id, catalog_id, category, size, server_time, upload_time, keyword, 
-    tag, info, collection, attention, downloads, views, scale, recycle
-    from tb_file
-  </select>
+    <update id="setCollectStatus" parameterType="java.lang.Integer">
+        update tb_file
+        set collection = #{collection,jdbcType=TINYINT}
+        where id =#{id,jdbcType=INTEGER}
+    </update>
+    <update id="setAttentionStatus" parameterType="java.lang.Integer">
+        update tb_file
+        set attention = #{attention,jdbcType=TINYINT}
+        where id =#{id,jdbcType=INTEGER}
+    </update>
 </mapper>

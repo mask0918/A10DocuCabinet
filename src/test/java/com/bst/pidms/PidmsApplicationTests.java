@@ -1,27 +1,29 @@
 package com.bst.pidms;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.bst.pidms.dao.BindRolePermissionMapper;
-import com.bst.pidms.entity.OwnFile;
+import com.bst.pidms.dao.OwnFileMapper;
+import com.bst.pidms.entity.Catalog;
+import com.bst.pidms.service.CatalogService;
 import com.bst.pidms.service.OwnFileService;
 import com.bst.pidms.service.PermissionService;
 import com.bst.pidms.service.UserService;
+import org.jodconverter.DocumentConverter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.File;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest()
 public class PidmsApplicationTests {
 
-    @Autowired
-    BindRolePermissionMapper mapper;
 
     @Autowired
     UserService userService;
@@ -35,40 +37,33 @@ public class PidmsApplicationTests {
     @Autowired
     OwnFileService ownFileService;
 
+    @Autowired
+    CatalogService catalogService;
 
-    @Test
-    public void getFile() {
-        OwnFile ownFile = ownFileService.getFileById(1);
-        String keyword = ownFile.getKeyword();
-        List<String> strings = JSONObject.parseArray(keyword, String.class);
-        for (String string : strings) {
-            System.out.println(string);
+    @Autowired
+    OwnFileMapper ownFileMapper;
+
+    @javax.annotation.Resource
+    private DocumentConverter documentConverter;
+
+    public Catalog recursiveTree(int cid) {
+        // 根据cid获取节点对象(SELECT * FROM tb_tree t WHERE t.cid=?)
+        Catalog node = catalogService.getContactById(cid);
+        // 查询cid下的所有子节点(SELECT * FROM tb_tree t WHERE t.pid=?)
+        List<Catalog> childTreeNodes = catalogService.getContactsByParentId(cid);
+        // 遍历子节点
+        for (Catalog child : childTreeNodes) {
+            Catalog n = recursiveTree(child.getId()); //递归
+            node.getNodes().add(n);
         }
-
+        return node;
     }
 
-
-//    @Test
-//    public void insert(){
-//        User user = userService.getUserById(6);
-////        Permission per = permissionService.getPerByName("上传文档");
-//        resource.save(user);
-//
-//    }
-
-
-//    @Test
-//    public void find() {
-//
-//        System.out.println(resource.findById(1));
-//
-//        QueryBuilder termQueryBuilder = QueryBuilders.termQuery("username", "小贝");
-//        Iterable<User> search = resource.search(termQueryBuilder);
-//        ArrayList<User> users = Lists.newArrayList(search);
-//        System.out.println("size:" + users.size());
-//        for (User user : users) {
-//            System.out.println(user);
-//        }
-//    }
-
+    @Test
+    public void zzz() {
+        Catalog catalog = recursiveTree(1);
+        System.out.println(JSONObject.toJSONString(catalog));
+    }
 }
+
+

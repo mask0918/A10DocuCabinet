@@ -150,8 +150,8 @@
         <!--</table>-->
 
         <table
-                tableName="tb_file"
-                domainObjectName="OwnFile"
+                tableName="tb_catalog"
+                domainObjectName="Catalog"
                 enableCountByExample="true"
                 enableUpdateByExample="false"
                 enableDeleteByExample="false"

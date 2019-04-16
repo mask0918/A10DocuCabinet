@@ -1,9 +1,13 @@
 package com.bst.pidms.entity.video;
 
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONType;
+import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Author: BST
@@ -30,4 +34,5 @@ public class VideoResults {
     public void setShotLabels(List<ShotLabel> shotLabels) {
         this.shotLabels = shotLabels;
     }
+
 }

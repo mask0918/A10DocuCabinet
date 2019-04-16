@@ -1,6 +1,8 @@
 package com.bst.pidms.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Catalog implements Serializable {
     private Integer id;
@@ -9,17 +11,16 @@ public class Catalog implements Serializable {
 
     private String name;
 
-    private Integer empty;
-
     private Integer pid;
+
+    private List<Catalog> nodes = new ArrayList<Catalog>();
 
     private static final long serialVersionUID = 1L;
 
-    public Catalog(Integer id, Integer userId, String name, Integer empty, Integer pid) {
+    public Catalog(Integer id, Integer userId, String name, Integer pid) {
         this.id = id;
         this.userId = userId;
         this.name = name;
-        this.empty = empty;
         this.pid = pid;
     }
 
@@ -51,14 +52,6 @@ public class Catalog implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getEmpty() {
-        return empty;
-    }
-
-    public void setEmpty(Integer empty) {
-        this.empty = empty;
-    }
-
     public Integer getPid() {
         return pid;
     }
@@ -67,18 +60,22 @@ public class Catalog implements Serializable {
         this.pid = pid;
     }
 
+    public List<Catalog> getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(List<Catalog> nodes) {
+        this.nodes = nodes;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", name=").append(name);
-        sb.append(", empty=").append(empty);
-        sb.append(", pid=").append(pid);
-        sb.append("]");
-        return sb.toString();
+        return "Catalog{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", pid=" + pid +
+                ", nodes=" + nodes +
+                '}';
     }
 }

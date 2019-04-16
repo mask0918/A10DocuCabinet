@@ -19,7 +19,7 @@ public enum FileType {
         return value;
     }
 
-    private static final HashMap<String, String> mFileTypes = new HashMap<String, String>();
+    public static final HashMap<String, String> mFileTypes = new HashMap<String, String>();
 
     static {
         // DOCUMENT
@@ -31,6 +31,8 @@ public enum FileType {
         mFileTypes.put("xlsx", "DOCUMENT");
         mFileTypes.put("ppt", "DOCUMENT");
         mFileTypes.put("pptx", "DOCUMENT");
+        mFileTypes.put("xml", "DOCUMENT");
+        mFileTypes.put("md", "DOCUMENT");
         // IMAGE
         mFileTypes.put("jpg", "IMAGE");
         mFileTypes.put("jpeg", "IMAGE");
@@ -70,6 +72,7 @@ public enum FileType {
         mFileTypes.put("dat", "VIDEO");
         mFileTypes.put("rmvb", "VIDEO");
         mFileTypes.put("3gp", "VIDEO");
+        mFileTypes.put("mts", "VIDEO");
 
 //        mFileTypes.put("41433130", "dwg"); // CAD
 //        mFileTypes.put("7B5C727466", "rtf"); // 日记本

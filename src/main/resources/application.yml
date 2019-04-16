@@ -28,3 +28,9 @@ mybatis:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     use-generated-keys: true
   mapper-locations: classpath*:/mapper/**Mapper.xml
+jodconverter:
+  local:
+    enabled: true
+    office-home: "C:\\Program Files (x86)\\OpenOffice 4"
+    max-tasks-per-process: 100
+    port-numbers: 8100

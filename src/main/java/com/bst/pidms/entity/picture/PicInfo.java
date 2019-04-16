@@ -1,5 +1,7 @@
 package com.bst.pidms.entity.picture;
 
+import java.util.List;
+
 /**
  * @Author: BST
  * @Date: 2019/4/6 14:21
@@ -12,9 +14,77 @@ public class PicInfo {
     private Long createTime;
     //    光圈
     private String aperture;
-    private String gpsLatitude;
-    private String gpsLongitude;
+    private String location;
+    private List<Color> colors;
 
+    public static class Color {
+        private Double score;
+        private Integer red;
+        private Integer green;
+        private Integer blue;
+
+        public Color(Double score, Integer red, Integer green, Integer blue) {
+            this.score = score;
+            this.red = red;
+            this.green = green;
+            this.blue = blue;
+        }
+
+        @Override
+        public String toString() {
+            return "Color{" +
+                    "score=" + score +
+                    ", red=" + red +
+                    ", green=" + green +
+                    ", blue=" + blue +
+                    '}';
+        }
+
+        public Double getScore() {
+            return score;
+        }
+
+        public void setScore(Double score) {
+            this.score = score;
+        }
+
+        public Integer getRed() {
+            return red;
+        }
+
+        public void setRed(Integer red) {
+            this.red = red;
+        }
+
+        public Integer getGreen() {
+            return green;
+        }
+
+        public void setGreen(Integer green) {
+            this.green = green;
+        }
+
+        public Integer getBlue() {
+            return blue;
+        }
+
+        public void setBlue(Integer blue) {
+            this.blue = blue;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "PicInfo{" +
+                "height=" + height +
+                ", width=" + width +
+                ", modal='" + modal + '\'' +
+                ", createTime=" + createTime +
+                ", aperture='" + aperture + '\'' +
+                ", location='" + location + '\'' +
+                ", colors=" + colors +
+                '}';
+    }
 
     public Integer getHeight() {
         return height;
@@ -48,7 +118,6 @@ public class PicInfo {
         this.createTime = createTime;
     }
 
-
     public String getAperture() {
         return aperture;
     }
@@ -57,35 +126,20 @@ public class PicInfo {
         this.aperture = aperture;
     }
 
-
-    public String getGpsLatitude() {
-        return gpsLatitude;
+    public String getLocation() {
+        return location;
     }
 
-    public void setGpsLatitude(String gpsLatitude) {
-        this.gpsLatitude = gpsLatitude;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-
-    public String getGpsLongitude() {
-        return gpsLongitude;
+    public List<Color> getColors() {
+        return colors;
     }
 
-    public void setGpsLongitude(String gpsLongitude) {
-        this.gpsLongitude = gpsLongitude;
-    }
-
-    @Override
-    public String toString() {
-        return "PicInfo{" +
-                "height=" + height +
-                ", width=" + width +
-                ", modal='" + modal + '\'' +
-                ", createTime=" + createTime +
-                ", aperture='" + aperture + '\'' +
-                ", gpsLatitude='" + gpsLatitude + '\'' +
-                ", gpsLongitude='" + gpsLongitude + '\'' +
-                '}';
+    public void setColors(List<Color> colors) {
+        this.colors = colors;
     }
 }
 

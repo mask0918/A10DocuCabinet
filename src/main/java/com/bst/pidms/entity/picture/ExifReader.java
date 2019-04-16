@@ -1,12 +1,15 @@
 package com.bst.pidms.entity.picture;
 
+import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.utils.MapUtils;
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
+import com.drew.metadata.MetadataReader;
 import com.drew.metadata.Tag;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,29 +19,19 @@ import java.util.Date;
  */
 public class ExifReader {
 
-//    public static void main(String[] args) {
-//        PicInfo picInfo = new PicInfo();
-//        MultipartFile file = null;
-//        file.get
-//    }
-
-    public static void main(String[] args) throws Exception {
-        readEXIF(new PicInfo());
-    }
-
-    public static void readEXIF(PicInfo picInfo) throws Exception {
-        File jpegFile = new File("C:\\Users\\BST\\Desktop\\cloud.ico");
-        Metadata metadata = ImageMetadataReader.readMetadata(jpegFile);
+    public static PicInfo readEXIF(File file) throws Exception {
+        PicInfo picInfo = new PicInfo();
+        Metadata metadata = ImageMetadataReader.readMetadata(file);
+        String latitude = null, longitude = null;
 
         for (Directory directory : metadata.getDirectories()) {
             for (Tag tag : directory.getTags()) {
-                System.out.println(tag);
                 if (tag.getTagName().equals("GPS Latitude")) {
-                    picInfo.setGpsLatitude(tag.getDescription());
+                    latitude = tag.getDescription();
                     continue;
                 }
                 if (tag.getTagName().equals("GPS Longitude")) {
-                    picInfo.setGpsLongitude(tag.getDescription());
+                    longitude = tag.getDescription();
                     continue;
                 }
                 if (tag.getTagName().equals("Image Height")) {
@@ -61,14 +54,16 @@ public class ExifReader {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
                     Date date = simpleDateFormat.parse(tag.getDescription());
                     picInfo.setCreateTime(date.getTime());
+//                    ownFile.setServerTime(date.getTime());
                     continue;
                 }
             }
         }
-        System.out.println(picInfo);
-        String address = MapUtils.getAddress(picInfo.getGpsLongitude(), picInfo.getGpsLatitude());
-        System.out.println(address);
-
+        if (longitude != null) {
+            String address = MapUtils.getAddress(longitude, latitude);
+            picInfo.setLocation(address);
+        }
+        return picInfo;
 
     }
 }

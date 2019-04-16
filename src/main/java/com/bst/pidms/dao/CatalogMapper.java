@@ -1,6 +1,7 @@
 package com.bst.pidms.dao;
 
 import com.bst.pidms.entity.Catalog;
+
 import java.util.List;
 
 public interface CatalogMapper {
@@ -11,6 +12,8 @@ public interface CatalogMapper {
     Catalog selectByPrimaryKey(Integer id);
 
     List<Catalog> selectAll();
+
+    List<Catalog> selectByParentId(Integer pid);
 
     int updateByPrimaryKey(Catalog record);
 }
