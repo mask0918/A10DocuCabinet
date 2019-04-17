@@ -24,6 +24,8 @@ public interface OwnFileMapper {
 
     List<OwnFile> selectCategory(Integer category);
 
+    List<OwnFile> selectByCatalogId(Integer id);
+
     int setCollectStatus(@Param("id") Integer id, @Param("collection") Integer collection);
 
     int setAttentionStatus(@Param("id") Integer id, @Param("attention") Integer attention);

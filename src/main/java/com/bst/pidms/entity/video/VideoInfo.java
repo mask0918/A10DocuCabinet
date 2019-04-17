@@ -1,5 +1,8 @@
 package com.bst.pidms.entity.video;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.annotation.JSONType;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
@@ -10,6 +13,7 @@ import java.util.regex.Pattern;
  * @Author: BST
  * @Date: 2019/4/15 15:01
  */
+@JSONType(orders = {"height", "width", "duration", "code", "bitrate", "wordCloudUrl", "videoResults"})
 public class VideoInfo {
 
     Integer height;

@@ -34,6 +34,11 @@ public class OwnFileServiceImpl implements OwnFileService {
     }
 
     @Override
+    public List<OwnFile> getByCatalog(Integer id) {
+        return ownFileMapper.selectByCatalogId(id);
+    }
+
+    @Override
     public List<OwnFile> getAll() {
         return ownFileMapper.selectAll();
     }

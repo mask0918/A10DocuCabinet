@@ -2,6 +2,7 @@ package com.bst.pidms.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bst.pidms.entity.FileType;
+import com.bst.pidms.entity.Label;
 import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.entity.docu.DocuInfo;
 import com.bst.pidms.entity.picture.ExifReader;
@@ -9,9 +10,12 @@ import com.bst.pidms.entity.picture.GoogleVision;
 import com.bst.pidms.entity.picture.PicInfo;
 import com.bst.pidms.entity.reader.OfficeReader;
 import com.bst.pidms.entity.video.*;
+import com.bst.pidms.service.BindLabelFileService;
+import com.bst.pidms.service.LabelService;
 import com.bst.pidms.service.OwnFileService;
 import com.google.common.base.Joiner;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.*;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -21,6 +25,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.jodconverter.DocumentConverter;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +48,7 @@ import java.util.stream.Collectors;
  * @Author: BST
  * @Date: 2019/4/3 14:50
  */
+@Slf4j
 @Controller
 public class FileController {
 
@@ -54,10 +60,17 @@ public class FileController {
     @Autowired
     OwnFileService ownFileService;
 
+    @Autowired
+    BindLabelFileService bindLabelFileService;
+
+    @Autowired
+    LabelService labelService;
+
     // 上传文件
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     @Transactional
+
     public Map<String, Boolean> aaa(@RequestParam("uploadfile") MultipartFile file, @RequestParam("tag") String tags, HttpSession session) throws Exception {
 
         Map<String, Boolean> map = new HashMap<>();
@@ -101,6 +114,8 @@ public class FileController {
             // 设置用户自定义标签
             ownFile.setTag(tags.replace(" ", ","));
 
+        List<String> topLabels = new ArrayList<>();
+
         String category = FileType.mFileTypes.get(suffix);
         if (category != null) {
             switch (category) {
@@ -108,11 +123,19 @@ public class FileController {
                     ownFile.setCategory(FileType.DOCUMENT.getValue());
                     String info = OfficeReader.getInfo(toFile.getAbsolutePath(), suffix);
                     String keywords = getKeywords(host + "/keywords", info, prefix);
+                    String[] split = keywords.split(" ");
+                    int temp = 0;
+                    for (String s : split) {
+                        // 默认为3个标签
+                        if (temp > 2) break;
+                        topLabels.add(s);
+                        temp++;
+                    }
                     ownFile.setKeyword(keywords);
                     DocuInfo docuInfo = new DocuInfo();
                     docuInfo.setInfo(info);
                     if (suffix != "pdf") {
-                        documentConverter.convert(toFile).to(new File(toFile.getParent() + "\\DOCUMENT\\" + prefix + ".pdf")).execute();
+                        documentConverter.convert(toFile).to(new File(toFile.getParent() + "\\" + prefix + ".pdf")).execute();
                     }
                     // 词云图片
                     docuInfo.setWordCloudUrl("http://ppxlrdgsm.bkt.clouddn.com/" + prefix + ".png");
@@ -124,7 +147,13 @@ public class FileController {
                     if (picInfo.getCreateTime() != null) ownFile.setServerTime(picInfo.getCreateTime());
                     Map<String, Object> fileMap = GoogleVision.Vision_Java(toFile);
                     picInfo.setColors((List<PicInfo.Color>) fileMap.get("colors"));
-                    ownFile.setKeyword(Joiner.on(",").join((List<String>) fileMap.get("labels")));
+                    List<String> labels = (List<String>) fileMap.get("labels");
+                    for (String s : labels) {
+                        // 默认为3个标签
+                        if (labels.indexOf(s) > 2) break;
+                        topLabels.add(s);
+                    }
+                    ownFile.setKeyword(Joiner.on(",").join(labels));
                     ownFile.setInfo(JSONObject.toJSONString(picInfo));
                     break;
                 case "AUDIO":
@@ -144,11 +173,18 @@ public class FileController {
                             themeSet.add(videolabel);
                         }
                     }
-                    themeSet.add(suffix);
                     for (ShotLabel shotLabel : videoResults.getShotLabels()) {
                         String shotlabel = shotLabel.getShotlabel();
                         if (!set.contains(shotlabel)) set.add(shotlabel);
                     }
+                    int temp1 = 0;
+                    for (Object o : themeSet) {
+                        // 默认为3个标签
+                        if (temp1 > 2) break;
+                        topLabels.add((String) o);
+                        temp1++;
+                    }
+                    themeSet.add(suffix);
                     ownFile.setKeyword(Joiner.on(",").join(themeSet));
                     getKeywords(host + "/wordcloud", Joiner.on(" ").join(set), prefix + "_wordcloud");
                     // 词云图片
@@ -157,8 +193,16 @@ public class FileController {
                     break;
             }
         } else ownFile.setCategory(FileType.OTHER.getValue());
+
         ownFile.setUrl(user.toString() + "/" + category + "/" + fileName);
         ownFileService.addFile(ownFile);
+        log.info("topLabels : {}", topLabels);
+        for (String topLabel : topLabels) {
+            // 默认UserID=1;
+            Label temp = new Label();
+            Integer id = labelService.addLabelIfNotExist(1, topLabel, true);
+            bindLabelFileService.addBind(id, ownFile.getId(), ownFile.getCategory());
+        }
         map.put("success", true);
         return map;
     }

@@ -150,8 +150,8 @@
         <!--</table>-->
 
         <table
-                tableName="tb_catalog"
-                domainObjectName="Catalog"
+                tableName="tb_label"
+                domainObjectName="Label"
                 enableCountByExample="true"
                 enableUpdateByExample="false"
                 enableDeleteByExample="false"
@@ -161,6 +161,19 @@
                     name="useActualColumnNames"
                     value="false"/>
         </table>
+
+        <!--<table-->
+                <!--tableName="tb_label_file"-->
+                <!--domainObjectName="BindLabelFile"-->
+                <!--enableCountByExample="true"-->
+                <!--enableUpdateByExample="false"-->
+                <!--enableDeleteByExample="false"-->
+                <!--enableSelectByExample="false"-->
+                <!--selectByExampleQueryId="false">-->
+            <!--<property-->
+                    <!--name="useActualColumnNames"-->
+                    <!--value="false"/>-->
+        <!--</table>-->
 
 
     </context>

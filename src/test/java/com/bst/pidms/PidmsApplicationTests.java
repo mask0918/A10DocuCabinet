@@ -1,8 +1,10 @@
 package com.bst.pidms;
 
 import com.alibaba.fastjson.JSONObject;
+import com.bst.pidms.dao.LabelMapper;
 import com.bst.pidms.dao.OwnFileMapper;
 import com.bst.pidms.entity.Catalog;
+import com.bst.pidms.entity.Label;
 import com.bst.pidms.service.CatalogService;
 import com.bst.pidms.service.OwnFileService;
 import com.bst.pidms.service.PermissionService;
@@ -43,27 +45,32 @@ public class PidmsApplicationTests {
     @Autowired
     OwnFileMapper ownFileMapper;
 
+    @Autowired
+    LabelMapper labelMapper;
+
+
     @javax.annotation.Resource
     private DocumentConverter documentConverter;
 
-    public Catalog recursiveTree(int cid) {
-        // 根据cid获取节点对象(SELECT * FROM tb_tree t WHERE t.cid=?)
-        Catalog node = catalogService.getContactById(cid);
-        // 查询cid下的所有子节点(SELECT * FROM tb_tree t WHERE t.pid=?)
-        List<Catalog> childTreeNodes = catalogService.getContactsByParentId(cid);
-        // 遍历子节点
-        for (Catalog child : childTreeNodes) {
-            Catalog n = recursiveTree(child.getId()); //递归
-            node.getNodes().add(n);
-        }
-        return node;
-    }
+    //    public Catalog recursiveTree(int cid) {
+//        // 根据cid获取节点对象(SELECT * FROM tb_tree t WHERE t.cid=?)
+//        Catalog node = catalogService.getContactById(cid);
+//        // 查询cid下的所有子节点(SELECT * FROM tb_tree t WHERE t.pid=?)
+//        List<Catalog> childTreeNodes = catalogService.getContactsByParentId(cid);
+//        // 遍历子节点
+//        for (Catalog child : childTreeNodes) {
+//            Catalog n = recursiveTree(child.getId()); //递归
+//            node.getNodes().add(n);
+//        }
+//        return node;
+//    }
+//
+//    @Test
+//    public void zzz() {
+//        Catalog catalog = recursiveTree(1);
+//        System.out.println(JSONObject.toJSONString(catalog));
+//    }
 
-    @Test
-    public void zzz() {
-        Catalog catalog = recursiveTree(1);
-        System.out.println(JSONObject.toJSONString(catalog));
-    }
 }
 
 

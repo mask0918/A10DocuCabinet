@@ -78,13 +78,12 @@ public class GoogleVision {
                     colorList.add(new PicInfo.Color(color.getScore() / sum, (int) red, (int) green, (int) blue));
                 }
 
-
                 for (EntityAnnotation annotation : res.getLabelAnnotationsList()) {
                     if (annotation.getScore() < 0.7) continue;
-                    if (picLabel.size() > 6) break;
-                    picLabel.add(TranslateUtils.YoudaoTranslate(annotation.getDescription()));
+                    if (picLabel.size() > 8) break;
+                    String s = TranslateUtils.YoudaoTranslate(annotation.getDescription());
+                    picLabel.add(s);
                 }
-                System.out.println("===========================");
             }
             map.put("colors", colorList);
             map.put("labels", picLabel);

@@ -38,6 +38,11 @@
     from tb_file
     where category=#{category,jdbcType=INTEGER}
   </select>
+    <select id="selectByCatalogId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select *
+        from tb_file
+        where catalog_id=#{catalogIsd,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
     select *
     from tb_file

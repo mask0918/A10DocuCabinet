@@ -15,9 +15,12 @@ public interface OwnFileService {
 
     public List<OwnFile> getCategory(Integer category);
 
+    public List<OwnFile> getByCatalog(Integer id);
+
     public List<OwnFile> getAll();
 
-    public void setCollect(Integer id,Integer flag);
+    public void setCollect(Integer id, Integer flag);
 
-    public void setAttention(Integer id,Integer flag);
+    public void setAttention(Integer id, Integer flag);
+
 }
