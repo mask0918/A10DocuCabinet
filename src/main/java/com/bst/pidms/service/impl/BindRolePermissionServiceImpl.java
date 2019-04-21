@@ -36,5 +36,4 @@ public class BindRolePermissionServiceImpl implements BindRolePermissionService 
     public void delBind(Integer id) {
         bindRolePermissionMapper.deleteByPrimaryKey(id);
     }
-
 }

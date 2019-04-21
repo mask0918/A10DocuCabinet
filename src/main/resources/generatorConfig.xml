@@ -150,9 +150,9 @@
         <!--</table>-->
 
         <table
-                tableName="tb_label"
-                domainObjectName="Label"
-                enableCountByExample="true"
+                tableName="tb_timeline"
+                domainObjectName="Timeline"
+                enableCountByExample="false"
                 enableUpdateByExample="false"
                 enableDeleteByExample="false"
                 enableSelectByExample="false"
@@ -161,6 +161,33 @@
                     name="useActualColumnNames"
                     value="false"/>
         </table>
+
+        <table
+                tableName="tb_file_timeline"
+                domainObjectName="BindFileTimeline"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableDeleteByExample="false"
+                enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <property
+                    name="useActualColumnNames"
+                    value="false"/>
+        </table>
+
+        <table
+                tableName="tb_comment"
+                domainObjectName="Comment"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableDeleteByExample="false"
+                enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <property
+                    name="useActualColumnNames"
+                    value="false"/>
+        </table>
+
 
         <!--<table-->
                 <!--tableName="tb_label_file"-->

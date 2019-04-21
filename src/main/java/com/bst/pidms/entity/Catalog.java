@@ -1,16 +1,26 @@
 package com.bst.pidms.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Document(indexName = "catelog", type = "catalog", shards = 1, replicas = 0)
 public class Catalog implements Serializable {
+    @Id
     private Integer id;
 
+    @Field(type = FieldType.Integer)
     private Integer userId;
 
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String name;
 
+    @Field(type = FieldType.Integer)
     private Integer pid;
 
     private List<Catalog> nodes = new ArrayList<Catalog>();

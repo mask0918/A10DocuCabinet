@@ -33,6 +33,12 @@ public class CatalogController {
     @Autowired
     OwnFileService ownFileService;
 
+    /**
+     * 遍历目录树
+     *
+     * @param cid
+     * @return
+     */
     @RequestMapping(value = "catalogtree", method = RequestMethod.GET)
     public Catalog recursive(Integer cid) {
         cid = 1;
@@ -53,6 +59,12 @@ public class CatalogController {
         return node;
     }
 
+    /**
+     * 获取子目录和子文件
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "catalogcontent", method = RequestMethod.GET)
     public Map<String, Object> getCatalog(@RequestParam("id") Integer id) {
         List<Catalog> contactsByParentId = catalogService.getContactsByParentId(id);
@@ -62,5 +74,37 @@ public class CatalogController {
         map.put("files", byCatalog);
         return map;
     }
+
+    /**
+     * 新增目录
+     *
+     * @param pId
+     * @param name
+     * @return
+     */
+    @RequestMapping(value = "createcatalog", method = RequestMethod.POST)
+    public Map<String, Object> createCatalog(@RequestParam("pid") Integer pId, @RequestParam("name") String name) {
+        Map<String, Object> map = new HashMap<>();
+        Integer userId = 1;
+        Integer integer = catalogService.addCatalog(userId, pId, name);
+        map.put("success", true);
+        map.put("id", integer);
+        return map;
+    }
+
+    /**
+     * 删除目录
+     * i
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "deletecatalog", method = RequestMethod.DELETE)
+    public Map<String, Object> deleteCatalog(@RequestParam("id") Integer id) {
+        Map<String, Object> map = new HashMap<>();
+        catalogService.delCatalog(id);
+        map.put("success", true);
+        return map;
+    }
+
 
 }

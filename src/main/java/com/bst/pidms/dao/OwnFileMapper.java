@@ -2,7 +2,10 @@ package com.bst.pidms.dao;
 
 import com.bst.pidms.entity.Contact;
 import com.bst.pidms.entity.OwnFile;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.cache.annotation.*;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 import java.util.List;
 import java.util.Map;
@@ -21,6 +24,8 @@ public interface OwnFileMapper {
     int updateByPrimaryKeySelective(OwnFile record);
 
     int updateByPrimaryKey(OwnFile record);
+
+    List<OwnFile> selectForeachByIds(List<Integer> ids);
 
     List<OwnFile> selectCategory(Integer category);
 

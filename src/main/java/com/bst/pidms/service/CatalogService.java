@@ -13,4 +13,10 @@ public interface CatalogService {
 
     Catalog getContactById(Integer id);
 
+    Integer addCatalog(Integer userId, Integer pId, String name);
+
+    void delCatalog(Integer id);
+
+    List<Catalog> getAll();
+
 }

@@ -28,6 +28,8 @@ public class VideoInfo {
 
     String wordCloudUrl;
 
+    String thumbUrl;
+
     VideoResults videoResults;
 
     @Override
@@ -39,8 +41,17 @@ public class VideoInfo {
                 ", code='" + code + '\'' +
                 ", bitrate='" + bitrate + '\'' +
                 ", wordCloudUrl='" + wordCloudUrl + '\'' +
+                ", thumbUrl='" + thumbUrl + '\'' +
                 ", videoResults=" + videoResults +
                 '}';
+    }
+
+    public String getThumbUrl() {
+        return thumbUrl;
+    }
+
+    public void setThumbUrl(String thumbUrl) {
+        this.thumbUrl = thumbUrl;
     }
 
     public Integer getHeight() {

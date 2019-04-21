@@ -3,6 +3,7 @@ package com.bst.pidms.service.impl;
 import com.bst.pidms.dao.CatalogMapper;
 import com.bst.pidms.entity.Catalog;
 import com.bst.pidms.service.CatalogService;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,25 @@ public class CatalogServiceImpl implements CatalogService {
     @Override
     public Catalog getContactById(Integer id) {
         return catalogMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public Integer addCatalog(Integer userId, Integer pId, String name) {
+        Catalog catalog = new Catalog();
+        catalog.setUserId(userId);
+        catalog.setPid(pId);
+        catalog.setName(name);
+        catalogMapper.insert(catalog);
+        return catalog.getId();
+    }
+
+    @Override
+    public void delCatalog(Integer id) {
+        catalogMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Catalog> getAll() {
+        return catalogMapper.selectAll();
     }
 }

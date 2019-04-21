@@ -17,4 +17,6 @@ public interface BindLabelFileMapper {
     int updateByPrimaryKey(BindLabelFile record);
 
     int selectCountByCategory(@Param("labelId") Integer labelId, @Param("category") Integer category);
+
+    List<Integer> selectFileIdByLabelId(Integer id);
 }

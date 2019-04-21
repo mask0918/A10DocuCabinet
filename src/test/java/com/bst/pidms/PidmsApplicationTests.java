@@ -1,25 +1,30 @@
 package com.bst.pidms;
 
-import com.alibaba.fastjson.JSONObject;
 import com.bst.pidms.dao.LabelMapper;
 import com.bst.pidms.dao.OwnFileMapper;
 import com.bst.pidms.entity.Catalog;
-import com.bst.pidms.entity.Label;
+import com.bst.pidms.entity.Comment;
+import com.bst.pidms.entity.OwnFile;
+import com.bst.pidms.esmapper.EsCatalogMapper;
+import com.bst.pidms.esmapper.EsFileMapper;
 import com.bst.pidms.service.CatalogService;
 import com.bst.pidms.service.OwnFileService;
 import com.bst.pidms.service.PermissionService;
 import com.bst.pidms.service.UserService;
+import com.google.common.collect.Lists;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.jodconverter.DocumentConverter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.File;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 
 @RunWith(SpringRunner.class)
@@ -34,7 +39,7 @@ public class PidmsApplicationTests {
     PermissionService permissionService;
 
     @Autowired
-    Resource resource;
+    EsFileMapper esFileMapper;
 
     @Autowired
     OwnFileService ownFileService;
@@ -48,29 +53,60 @@ public class PidmsApplicationTests {
     @Autowired
     LabelMapper labelMapper;
 
+    @Autowired
+    EsCatalogMapper esCatalogMapper;
+
+    @Autowired
+    ElasticsearchTemplate elasticsearchTemplate;
 
     @javax.annotation.Resource
     private DocumentConverter documentConverter;
 
-    //    public Catalog recursiveTree(int cid) {
-//        // 根据cid获取节点对象(SELECT * FROM tb_tree t WHERE t.cid=?)
-//        Catalog node = catalogService.getContactById(cid);
-//        // 查询cid下的所有子节点(SELECT * FROM tb_tree t WHERE t.pid=?)
-//        List<Catalog> childTreeNodes = catalogService.getContactsByParentId(cid);
-//        // 遍历子节点
-//        for (Catalog child : childTreeNodes) {
-//            Catalog n = recursiveTree(child.getId()); //递归
-//            node.getNodes().add(n);
-//        }
-//        return node;
-//    }
-//
-//    @Test
-//    public void zzz() {
-//        Catalog catalog = recursiveTree(1);
-//        System.out.println(JSONObject.toJSONString(catalog));
-//    }
+    @Test
+    public void ES() {
+        elasticsearchTemplate.createIndex(OwnFile.class);
+        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+        // 添加基本分词查询
+        queryBuilder.withQuery(QueryBuilders.matchQuery("name", "银行革命"));
+        System.out.println(QueryBuilders.matchQuery("name", "银行革命").toString());
+        System.out.println(System.currentTimeMillis());
 
+        Page<OwnFile> search = esFileMapper.search(queryBuilder.build());
+        System.out.println(System.currentTimeMillis());
+        OwnFile ownFile = search.getContent().get(0);
+
+
+        OwnFile ownFile1 = ownFileMapper.selectByPrimaryKey(33);
+
+        search.getContent().add(ownFile1);
+
+        Set<OwnFile> zz = new HashSet<>(search.getContent());
+
+        System.out.println(zz.size());
+    }
+
+    @Test
+    public void addSelective() {
+        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+        // 添加基本分词查询
+        BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
+        boolQueryBuilder.must(QueryBuilders.multiMatchQuery("大街上的狗夏天自然", "tag", "keyword"));
+        queryBuilder.withQuery(boolQueryBuilder);
+        Iterable<OwnFile> search = esFileMapper.search(queryBuilder.build());
+        List<OwnFile> ownFiles = Lists.newArrayList(search);
+        for (OwnFile ownFile : ownFiles) {
+            System.out.println(ownFile.getId());
+        }
+
+    }
+
+
+    @Test
+    public void addIndex() {
+        elasticsearchTemplate.createIndex(Comment.class);
+//        List<Catalog> all = catalogService.getAll();
+//        esCatalogMapper.saveAll(all);
+    }
 }
 
 

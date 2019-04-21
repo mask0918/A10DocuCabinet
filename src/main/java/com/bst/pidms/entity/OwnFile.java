@@ -1,46 +1,73 @@
 package com.bst.pidms.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+@Document(indexName = "0418", type = "file", shards = 1, replicas = 0)
 public class OwnFile implements Serializable {
+    @Id
     private Integer id;
 
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String name;
 
+    @Field(type = FieldType.Keyword)
     private String url;
 
+    @Field(type = FieldType.Integer)
     private Integer userId;
 
+    @Field(type = FieldType.Integer)
     private Integer catalogId;
 
+    @Field(type = FieldType.Integer)
     private Integer category;
 
+    @Field(type = FieldType.Long)
     private Long size;
 
+    @Field(type = FieldType.Long)
     private Long serverTime;
 
+    @Field(type = FieldType.Long)
     private Long uploadTime;
 
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String keyword;
 
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String tag;
 
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String info;
 
+    @Field(type = FieldType.Integer)
     private Byte collection;
 
+    @Field(type = FieldType.Integer)
     private Byte attention;
 
+    @Field(type = FieldType.Integer)
     private Integer downloads;
 
+    @Field(type = FieldType.Integer)
     private Integer views;
 
+    @Field(type = FieldType.Integer)
     private Integer scale;
 
+    @Field(type = FieldType.Integer)
     private Byte recycle;
+
+    private List<Comment> comments;
 
 
     private static final long serialVersionUID = 1L;
@@ -67,12 +94,10 @@ public class OwnFile implements Serializable {
     }
 
     public String sortByMonth() {
-        Date date = new Date(uploadTime);
+        Date date = new Date(this.uploadTime);
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        return String.format("%d年%2d月", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH));
-
-//        return cal.get(Calendar.YEAR) * 100 + cal.get(Calendar.MONTH);
+        return String.format("%d年%02d月", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH));
     }
 
     public OwnFile() {
@@ -223,31 +248,42 @@ public class OwnFile implements Serializable {
         this.recycle = recycle;
     }
 
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", url=").append(url);
-        sb.append(", userId=").append(userId);
-        sb.append(", catalogId=").append(catalogId);
-        sb.append(", category=").append(category);
-        sb.append(", size=").append(size);
-        sb.append(", serverTime=").append(serverTime);
-        sb.append(", uploadTime=").append(uploadTime);
-        sb.append(", keyword=").append(keyword);
-        sb.append(", tag=").append(tag);
-        sb.append(", info=").append(info);
-        sb.append(", collection=").append(collection);
-        sb.append(", attention=").append(attention);
-        sb.append(", downloads=").append(downloads);
-        sb.append(", views=").append(views);
-        sb.append(", scale=").append(scale);
-        sb.append(", recycle=").append(recycle);
-        sb.append("]");
-        return sb.toString();
+        return "OwnFile{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                ", userId=" + userId +
+                ", catalogId=" + catalogId +
+                ", category=" + category +
+                ", size=" + size +
+                ", serverTime=" + serverTime +
+                ", uploadTime=" + uploadTime +
+                ", keyword='" + keyword + '\'' +
+                ", tag='" + tag + '\'' +
+                ", info='" + info + '\'' +
+                ", collection=" + collection +
+                ", attention=" + attention +
+                ", downloads=" + downloads +
+                ", views=" + views +
+                ", scale=" + scale +
+                ", recycle=" + recycle +
+                ", comments=" + comments +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        OwnFile p = (OwnFile) obj;
+        return this.id == p.id;
     }
 }

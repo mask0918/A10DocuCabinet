@@ -15,6 +15,7 @@ public class PicInfo {
     //    光圈
     private String aperture;
     private String location;
+    private String ocrInfo;
     private List<Color> colors;
 
     public static class Color {
@@ -73,19 +74,6 @@ public class PicInfo {
         }
     }
 
-    @Override
-    public String toString() {
-        return "PicInfo{" +
-                "height=" + height +
-                ", width=" + width +
-                ", modal='" + modal + '\'' +
-                ", createTime=" + createTime +
-                ", aperture='" + aperture + '\'' +
-                ", location='" + location + '\'' +
-                ", colors=" + colors +
-                '}';
-    }
-
     public Integer getHeight() {
         return height;
     }
@@ -134,12 +122,34 @@ public class PicInfo {
         this.location = location;
     }
 
+    public String getOcrInfo() {
+        return ocrInfo;
+    }
+
+    public void setOcrInfo(String ocrInfo) {
+        this.ocrInfo = ocrInfo;
+    }
+
     public List<Color> getColors() {
         return colors;
     }
 
     public void setColors(List<Color> colors) {
         this.colors = colors;
+    }
+
+    @Override
+    public String toString() {
+        return "PicInfo{" +
+                "height=" + height +
+                ", width=" + width +
+                ", modal='" + modal + '\'' +
+                ", createTime=" + createTime +
+                ", aperture='" + aperture + '\'' +
+                ", location='" + location + '\'' +
+                ", ocrInfo='" + ocrInfo + '\'' +
+                ", colors=" + colors +
+                '}';
     }
 }
 

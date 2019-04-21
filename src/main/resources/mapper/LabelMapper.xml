@@ -13,7 +13,7 @@
     delete from tb_label
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.bst.pidms.entity.Label">
+    <insert id="insert" parameterType="com.bst.pidms.entity.Label" keyProperty="id">
     insert into tb_label (id, user_id, name, 
       insight)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 

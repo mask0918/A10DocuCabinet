@@ -21,18 +21,18 @@ public class IndexController {
         return "welcome";
     }
 
-//    登录流程
+    //    登录流程
     @RequestMapping(value = "/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, Map<String, Object> map, HttpSession httpSession) {
         if ("admin".equals(username) && "123456".equals(password)) {
             httpSession.setAttribute("loginUser", username);
+            httpSession.setMaxInactiveInterval(-1);
             return "index";
         } else {
             map.put("msg", "用户名密码错误!");
             return "welcome";
         }
     }
-
 
 
 }

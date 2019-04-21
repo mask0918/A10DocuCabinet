@@ -41,4 +41,9 @@ from tb_label_file
 where label_id = #{labelId,jdbcType=INTEGER}
 and category = #{category,jdbcType=INTEGER}
 </select>
+    <select id="selectFileIdByLabelId" resultType="java.lang.Integer">
+select file_id
+from tb_label_file
+where label_id=#{labelId,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.bst.pidms.dao;
 
 import com.bst.pidms.entity.Comment;
+
 import java.util.List;
 
 public interface CommentMapper {
@@ -13,4 +14,6 @@ public interface CommentMapper {
     List<Comment> selectAll();
 
     int updateByPrimaryKey(Comment record);
+
+    List<Comment> selectByFileId(Integer fileId);
 }

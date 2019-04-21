@@ -1,6 +1,5 @@
 server:
   port: 8080
-
 spring:
   thymeleaf:
     prefix: classpath:/templates/
@@ -23,6 +22,19 @@ spring:
     multipart:
       max-file-size: 2048MB
       max-request-size: 2048MB
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 1s
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

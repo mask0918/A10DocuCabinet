@@ -1,6 +1,5 @@
-package com.bst.pidms.entity;
+package com.bst.pidms.enums;
 
-import java.io.File;
 import java.util.HashMap;
 
 /**
@@ -15,11 +14,21 @@ public enum FileType {
         this.value = value;
     }
 
+
     public int getValue() {
         return value;
     }
 
     public static final HashMap<String, String> mFileTypes = new HashMap<String, String>();
+
+    public static FileType fileEnum(int code) {
+        for (FileType fileEnum : FileType.values()) {
+            if (code == fileEnum.getValue()) {
+                return fileEnum;
+            }
+        }
+        return null;
+    }
 
     static {
         // DOCUMENT
