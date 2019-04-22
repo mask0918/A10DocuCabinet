@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bst.pidms.dao.MailboxMapper">
+    <resultMap id="BaseResultMap" type="com.bst.pidms.entity.Mailbox">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="title" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="time" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="sender" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="recipient" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <arg column="file_index" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="content" javaType="java.lang.String" jdbcType="LONGVARCHAR"/>
+        </constructor>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_mailbox
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.bst.pidms.entity.Mailbox" keyProperty="id">
+    insert into tb_mailbox (id, title, time, 
+      sender, recipient, user_id, 
+      file_index, content)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{time,jdbcType=BIGINT}, 
+      #{sender,jdbcType=VARCHAR}, #{recipient,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{fileIndex,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.bst.pidms.entity.Mailbox">
+    update tb_mailbox
+    set title = #{title,jdbcType=VARCHAR},
+      time = #{time,jdbcType=BIGINT},
+      sender = #{sender,jdbcType=VARCHAR},
+      recipient = #{recipient,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      file_index = #{fileIndex,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, title, time, sender, recipient, user_id, file_index, content
+    from tb_mailbox
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select id, title, time, sender, recipient, user_id, file_index, content
+    from tb_mailbox
+  </select>
+    <select id="selectByUser" resultMap="BaseResultMap">
+    select id, title, time, sender, recipient, user_id, file_index, content
+    from tb_mailbox
+    where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+</mapper>

@@ -1,16 +1,15 @@
 package com.bst.pidms;
 
+import com.bst.pidms.dao.CommentMapper;
 import com.bst.pidms.dao.LabelMapper;
 import com.bst.pidms.dao.OwnFileMapper;
 import com.bst.pidms.entity.Catalog;
 import com.bst.pidms.entity.Comment;
 import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.esmapper.EsCatalogMapper;
+import com.bst.pidms.esmapper.EsCommentMapper;
 import com.bst.pidms.esmapper.EsFileMapper;
-import com.bst.pidms.service.CatalogService;
-import com.bst.pidms.service.OwnFileService;
-import com.bst.pidms.service.PermissionService;
-import com.bst.pidms.service.UserService;
+import com.bst.pidms.service.*;
 import com.google.common.collect.Lists;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -55,6 +54,13 @@ public class PidmsApplicationTests {
 
     @Autowired
     EsCatalogMapper esCatalogMapper;
+
+    @Autowired
+    EsCommentMapper esCommentMapper;
+
+    @Autowired
+    CommentMapper commentMapper;
+
 
     @Autowired
     ElasticsearchTemplate elasticsearchTemplate;
@@ -103,9 +109,16 @@ public class PidmsApplicationTests {
 
     @Test
     public void addIndex() {
-        elasticsearchTemplate.createIndex(Comment.class);
+//        elasticsearchTemplate.createIndex(Comment.class);
+//        List<Comment> commentList = commentMapper.selectAll();
+//        esCommentMapper.saveAll(commentList);
+//        elasticsearchTemplate.createIndex(Catalog.class);
 //        List<Catalog> all = catalogService.getAll();
 //        esCatalogMapper.saveAll(all);
+//        elasticsearchTemplate.createIndex(OwnFile.class);
+        List<OwnFile> all1 = ownFileService.getAll();
+        esFileMapper.saveAll(all1);
+
     }
 }
 

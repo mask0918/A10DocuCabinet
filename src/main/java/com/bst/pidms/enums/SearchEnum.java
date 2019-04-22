@@ -5,7 +5,7 @@ package com.bst.pidms.enums;
  * @Date: 2019/4/21 11:46
  */
 public enum SearchEnum {
-    PATH("路径搜索", 1), SENTIMENT("语义检索", 2), KEYTAG("关键词标签搜索", 3),
+    PATH("路径搜索", 1), SENTIMENT("内容检索", 2), KEYTAG("关键词标签搜索", 3),
     COMMENT("评论搜索", 4), NAME("文件名搜索", 5), ALL("全部搜索", 6);
     private String name;
     private final int index;

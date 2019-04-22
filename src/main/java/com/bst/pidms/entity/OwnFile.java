@@ -11,7 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-@Document(indexName = "0418", type = "file", shards = 1, replicas = 0)
+@Document(indexName = "ownfile", type = "file", shards = 1, replicas = 0)
 public class OwnFile implements Serializable {
     @Id
     private Integer id;
