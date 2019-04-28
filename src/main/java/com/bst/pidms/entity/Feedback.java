@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Feedback implements Serializable {
     private Integer id;
 
-    private Integer time;
+    private Long time;
 
     private String title;
 
@@ -15,7 +15,7 @@ public class Feedback implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Feedback(Integer id, Integer time, String title, String content, Integer userId) {
+    public Feedback(Integer id, Long time, String title, String content, Integer userId) {
         this.id = id;
         this.time = time;
         this.title = title;
@@ -35,11 +35,11 @@ public class Feedback implements Serializable {
         this.id = id;
     }
 
-    public Integer getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 

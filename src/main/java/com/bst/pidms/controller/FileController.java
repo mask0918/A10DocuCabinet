@@ -5,9 +5,11 @@ import com.bst.pidms.enums.FileType;
 import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.esmapper.EsCommentMapper;
 import com.bst.pidms.service.*;
+import com.bst.pidms.enums.opEnum;
 import com.bst.pidms.utils.RedisUtils;
 import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -43,6 +45,9 @@ public class FileController {
 
     @Autowired
     LabelService labelService;
+
+    @Autowired
+    HistoryService historyService;
 
 
     // 上传文件
@@ -89,7 +94,7 @@ public class FileController {
         ownFile.setCategory(FileType.valueOf(category).getValue());
         if (tags != null)
             // 设置用户自定义标签
-            ownFile.setTag(tags);
+            ownFile.setTag(String.join("|", tags.split(" ")));
         // 同步添加到数据库
         ownFileService.addFile(ownFile);
         log.info("First add successfully ...");
@@ -116,6 +121,10 @@ public class FileController {
             timelineService.addBindTimelineFile(ownFile.getId(), id);
         }
         map.put("success", true);
+        StringBuffer sb = new StringBuffer();
+        sb.append(opEnum.UPLOAD_FILE.getName());
+        sb.append("\"" + ownFile.getName() + "\"");
+        historyService.addHistory(System.currentTimeMillis(), sb.toString(), ownFile.getUserId());
         return map;
     }
 
@@ -250,6 +259,14 @@ public class FileController {
         return collect;
     }
 
+    @RequestMapping(value = "deletefile", method = RequestMethod.POST)
+    public Map<String, Object> delFile(@RequestParam("id") Integer id) {
+        Map<String, Object> map = new HashMap<>();
+        ownFileService.deleteFileById(id);
+        map.put("success", true);
+        return map;
+    }
+
     /**
      * 添加/取消收藏
      *
@@ -259,17 +276,15 @@ public class FileController {
      */
     @RequestMapping(value = "collect", method = RequestMethod.POST)
     public Map<String, Boolean> setCollection(@RequestParam("id") Integer id, @RequestParam("collect") Integer collect) {
+        Integer userId = 1;
         Map<String, Boolean> map = new HashMap<>();
         ownFileService.setCollect(id, collect ^ 1);
         map.put("success", true);
-        return map;
-    }
-
-    @RequestMapping(value = "deletefile", method = RequestMethod.DELETE)
-    public Map<String, Object> delFile(@RequestParam("id") Integer id) {
-        Map<String, Object> map = new HashMap<>();
-        ownFileService.deleteFileById(id);
-        map.put("success", true);
+        StringBuffer sb = new StringBuffer();
+        if (collect == 1) sb.append(opEnum.NOCOLLECT.getName());
+        if (collect == 0) sb.append(opEnum.COLLECT.getName());
+        sb.append("\"" + ownFileService.getFileById(id).getName() + "\"");
+        historyService.addHistory(System.currentTimeMillis(), sb.toString(), userId);
         return map;
     }
 
@@ -283,9 +298,15 @@ public class FileController {
      */
     @RequestMapping(value = "attention", method = RequestMethod.POST)
     public Map<String, Boolean> setAttention(@RequestParam("id") Integer id, @RequestParam("attention") Integer attention) {
+        Integer userId = 1;
         Map<String, Boolean> map = new HashMap<>();
         ownFileService.setAttention(id, attention ^ 1);
         map.put("success", true);
+        StringBuffer sb = new StringBuffer();
+        if (attention == 1) sb.append(opEnum.NOATTENTION.getName());
+        if (attention == 0) sb.append(opEnum.ATTENTION.getName());
+        sb.append("\"" + ownFileService.getFileById(id).getName() + "\"");
+        historyService.addHistory(System.currentTimeMillis(), sb.toString(), userId);
         return map;
     }
 
@@ -304,41 +325,49 @@ public class FileController {
 
     @RequestMapping(value = "addtag", method = RequestMethod.POST)
     public Map<String, Object> addTag(@RequestParam("id") Integer id, @RequestParam("name") String name) {
+        Integer userId = 1;
         Map<String, Object> map = new HashMap<>();
         OwnFile fileById = ownFileService.getFileById(id);
-        String[] split = fileById.getTag().split(" ");
+        String[] split = fileById.getTag().split("|");
         String[] split1 = name.split(" ");
-        StringBuffer sb = new StringBuffer();
-        for (String s : split) {
-            sb.append(s).append(" ");
-        }
-        for (String s : split1) {
-            sb.append(s).append(" ");
-        }
-        fileById.setTag(sb.toString());
+        String[] strings = ArrayUtils.addAll(split, split1);
+        fileById.setTag(String.join("|", strings));
         ownFileService.updateFile(fileById);
+        StringBuffer sb = new StringBuffer();
+        sb.append(opEnum.ADD_TAG.getName());
+        sb.append("\"" + fileById.getName() + "\" 的标签 ");
+        sb.append("\"" + name + "\"");
+        historyService.addHistory(System.currentTimeMillis(), sb.toString(), userId);
         map.put("success", true);
         return map;
     }
 
     @RequestMapping(value = "deltag", method = RequestMethod.POST)
     public Map<String, Object> delTag(@RequestParam("id") Integer id, @RequestParam("name") String name) {
-        log.info("name :{}", name);
+        Integer userId = 1;
         Map<String, Object> map = new HashMap<>();
         OwnFile fileById = ownFileService.getFileById(id);
-        String[] split = fileById.getTag().split(" ");
-        StringBuffer sb = new StringBuffer();
-        for (String s : split) {
-            log.info("split :{}", s);
-            if (s.equals(name)) {
-                log.info("!!!!!!!!!!!!!!!");
-                continue;
-            }
-            sb.append(s).append(" ");
-        }
-        fileById.setTag(sb.toString());
+        String tag = fileById.getTag();
+        fileById.setTag(tag.replace(name, ""));
         ownFileService.updateFile(fileById);
+        StringBuffer sb = new StringBuffer();
+        sb.append(opEnum.DELETE_TAG.getName());
+        sb.append("\"" + fileById.getName() + "\" 的标签 ");
+        sb.append("\"" + name + "\"");
+        historyService.addHistory(System.currentTimeMillis(), sb.toString(), userId);
         map.put("success", true);
         return map;
+    }
+
+    @GetMapping("getcollections")
+    public List<OwnFile> getCollects() {
+        Integer userId = 1;
+        return ownFileService.getIfCollect(userId);
+    }
+
+    @GetMapping("getattentions")
+    public List<OwnFile> getAttentions() {
+        Integer userId = 1;
+        return ownFileService.getIfAttenton(userId);
     }
 }

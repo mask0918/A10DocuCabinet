@@ -1,8 +1,12 @@
 package com.bst.pidms.controller;
 
 import com.bst.pidms.entity.Comment;
+import com.bst.pidms.entity.OwnFile;
+import com.bst.pidms.enums.opEnum;
 import com.bst.pidms.esmapper.EsCommentMapper;
 import com.bst.pidms.service.CommentService;
+import com.bst.pidms.service.HistoryService;
+import com.bst.pidms.service.OwnFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +31,15 @@ public class CommentController {
     @Autowired
     EsCommentMapper esCommentMapper;
 
+    @Autowired
+    HistoryService historyService;
+
+    @Autowired
+    OwnFileService ownFileService;
+
     @RequestMapping(value = "addcomment", method = RequestMethod.POST)
     public Map<String, Object> addComment(@RequestParam("id") Integer id, @RequestParam("content") String content) {
+        Integer userId = 1;
         Map<String, Object> map = new HashMap<>();
         Comment comment = new Comment();
         comment.setFileId(id);
@@ -37,15 +48,25 @@ public class CommentController {
         commentService.addComment(comment);
         esCommentMapper.save(comment);
         map.put("success", true);
+        StringBuffer sb = new StringBuffer();
+        sb.append(opEnum.ADD_COMMENT.getName());
+        sb.append("\"" + ownFileService.getFileById(id).getName() + "\" 的评论 ");
+        sb.append("\"" + content + "\"");
+        historyService.addHistory(System.currentTimeMillis(), sb.toString(), userId);
         return map;
     }
 
     @RequestMapping(value = "delcomment", method = RequestMethod.POST)
     public Map<String, Object> delComment(@RequestParam("cid") Integer id) {
+        Integer userId = 1;
         Map<String, Object> map = new HashMap<>();
         commentService.delComment(id);
         esCommentMapper.deleteById(id);
         map.put("success", true);
+        StringBuffer sb = new StringBuffer();
+        sb.append(opEnum.DELETE_COMMENT.getName());
+        sb.append(commentService.getCommentById(id).getContent());
+        historyService.addHistory(System.currentTimeMillis(), sb.toString(), userId);
         return map;
     }
 

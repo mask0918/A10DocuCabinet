@@ -2,8 +2,11 @@ package com.bst.pidms.controller;
 
 import com.bst.pidms.entity.Catalog;
 import com.bst.pidms.entity.OwnFile;
+import com.bst.pidms.entity.User;
+import com.bst.pidms.esmapper.EsCatalogMapper;
 import com.bst.pidms.service.CatalogService;
 import com.bst.pidms.service.OwnFileService;
+import com.bst.pidms.utils.SessionUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +36,7 @@ public class CatalogController {
 
     @Autowired
     OwnFileService ownFileService;
+
 
     /**
      * 遍历目录树
@@ -66,12 +71,17 @@ public class CatalogController {
      * @return
      */
     @RequestMapping(value = "catalogcontent", method = RequestMethod.GET)
-    public Map<String, Object> getCatalog(@RequestParam("id") Integer id) {
+    public Map<String, Object> getCatalog(@RequestParam("id") Integer id, HttpSession session) {
+        User user = SessionUtil.getInstance().getUser();
+        System.out.println("罗昌文" + user);
         List<Catalog> contactsByParentId = catalogService.getContactsByParentId(id);
         List<OwnFile> byCatalog = ownFileService.getByCatalog(id);
         Map<String, Object> map = new HashMap<>();
         map.put("catalogs", contactsByParentId);
         map.put("files", byCatalog);
+        User aa = (User) session.getAttribute("ss");
+        System.out.println(aa);
+        map.put("li", aa);
         return map;
     }
 
@@ -95,6 +105,7 @@ public class CatalogController {
     /**
      * 删除目录
      * i
+     *
      * @param id
      * @return
      */

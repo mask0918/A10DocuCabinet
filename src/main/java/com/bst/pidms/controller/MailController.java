@@ -1,9 +1,11 @@
 package com.bst.pidms.controller;
 
+import com.bst.pidms.entity.Contact;
 import com.bst.pidms.entity.Mailbox;
 import com.bst.pidms.entity.OwnFile;
-import com.bst.pidms.service.MailboxService;
-import com.bst.pidms.service.OwnFileService;
+import com.bst.pidms.entity.User;
+import com.bst.pidms.enums.opEnum;
+import com.bst.pidms.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +31,34 @@ import java.util.Map;
 @Slf4j
 public class MailController {
     @Autowired
+    UserService userService;
+
+    @Autowired
+    ContactService contactService;
+
+    @Autowired
     MailboxService mailboxService;
 
     @Autowired
     OwnFileService ownFileService;
+
+    @Autowired
+    HistoryService historyService;
+
+    @GetMapping("mailinfo")
+    public Map<String, Object> mailPageInfo() {
+        Map<String, Object> map = new HashMap<>();
+        Integer userId = 1;
+        User user = userService.getUserById(userId);
+        map.put("acc", user.getMailAcc());
+        map.put("pwd", user.getMailPwd());
+        map.put("smtp", user.getSmtp());
+        List<Contact> contacts = contactService.getContactsByUserId(userId);
+        map.put("contacts", contacts);
+        List<Mailbox> mails = mailboxService.getAll(userId);
+        map.put("mails", mails);
+        return map;
+    }
 
     @PostMapping("sendmail")
     public Map<String, Object> sendMail(@RequestParam("rec") String rec, @RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("ids") Integer[] ids) {
@@ -42,46 +68,36 @@ public class MailController {
         mailSender.setHost("smtp.qq.com");
         mailSender.setUsername("bst-w@qq.com");
         mailSender.setPassword("qynlaunfuagncacb");
-        MimeMessage mimeMessage = mailSender.createMimeMessage();
+//        MimeMessage mimeMessage = mailSender.createMimeMessage();
         Map<String, Object> map = new HashMap<>();
-        try {
-            log.info("Content , {}", content);
-            log.info("ids , {}", ArrayUtils.toString(ids));
-            Mailbox mailbox = new Mailbox();
-            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true, "GBK");
-            messageHelper.setFrom("bst-w@qq.com");
-            messageHelper.setTo(rec);
-            messageHelper.setSubject(title);
-            messageHelper.setText(content, true);
-            for (Integer id : ids) {
-                OwnFile fileById = ownFileService.getFileById(id);
-                if (fileById != null) {
-                    messageHelper.addAttachment(fileById.getName(), new File("D:/InsightPIDMS/" + fileById.getUrl()));
-                }
-            }
-            mailSender.send(mimeMessage);
-            mailbox.setContent(content);
-            mailbox.setUserId(userId);
-            mailbox.setRecipient(rec);
-            mailbox.setTitle(title);
-            mailbox.setTime(System.currentTimeMillis());
-            mailbox.setSender("bst-w@qq.com");
-            mailbox.setFileIndex(ArrayUtils.toString(ids));
-            mailboxService.sendMail(mailbox);
-            map.put("success", true);
-            return map;
-        } catch (MessagingException e) {
-            e.getMessage();
-        }
-        map.put("success", false);
+        Mailbox mailbox = new Mailbox();
+//            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true, "GBK");
+//            messageHelper.setFrom("bst-w@qq.com");
+//            messageHelper.setTo(rec);
+//            messageHelper.setSubject(title);
+//            messageHelper.setText(content, true);
+//            for (Integer id : ids) {
+//                OwnFile fileById = ownFileService.getFileById(id);
+//                if (fileById != null) {
+//                    messageHelper.addAttachment(fileById.getName(), new File("D:/InsightPIDMS/" + fileById.getUrl()));
+//                }
+//            }
+//            mailSender.send(mimeMessage);
+        mailbox.setContent(content);
+        mailbox.setUserId(userId);
+        mailbox.setRecipient(rec);
+        mailbox.setTitle(title);
+        mailbox.setTime(System.currentTimeMillis());
+        mailbox.setSender("bst-w@qq.com");
+        mailbox.setFileIndex(ArrayUtils.toString(ids));
+        mailboxService.sendMail(mailSender, mailbox, ids);
+        map.put("success", true);
+        StringBuffer sb = new StringBuffer();
+        sb.append(opEnum.SEND_MAIL.getName());
+        sb.append("发送邮箱至 ");
+        sb.append("\"" + rec + "\"");
+        historyService.addHistory(System.currentTimeMillis(), sb.toString(), userId);
         return map;
-    }
-
-    @GetMapping("getmails")
-    public List<Mailbox> getSendMails() {
-        Integer userId = 1;
-        List<Mailbox> mailboxList = mailboxService.getAll(userId);
-        return mailboxList;
     }
 
 }

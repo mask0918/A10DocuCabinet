@@ -1,6 +1,8 @@
 package com.bst.pidms.service;
 
 import com.bst.pidms.entity.Mailbox;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.List;
 
@@ -11,5 +13,5 @@ import java.util.List;
 public interface MailboxService {
     public List<Mailbox> getAll(Integer userId);
 
-    public void sendMail(Mailbox mailbox);
+    public void sendMail(JavaMailSenderImpl mailSender, Mailbox mailbox, Integer[] ids);
 }

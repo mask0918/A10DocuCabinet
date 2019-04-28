@@ -27,6 +27,10 @@ public interface OwnFileService {
 
     public List<OwnFile> getFilingInfo(Integer labelId);
 
+    public List<OwnFile> getIfCollect(Integer userId);
+
+    public List<OwnFile> getIfAttenton(Integer userId);
+
     public void setCollect(Integer id, Integer flag);
 
     public void setAttention(Integer id, Integer flag);

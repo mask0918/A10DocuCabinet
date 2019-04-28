@@ -1,6 +1,7 @@
 package com.bst.pidms.dao;
 
 import com.bst.pidms.entity.Contact;
+
 import java.util.List;
 
 public interface ContactMapper {
@@ -11,6 +12,8 @@ public interface ContactMapper {
     Contact selectByPrimaryKey(Integer id);
 
     List<Contact> selectAll();
+
+    List<Contact> selectByUser(Integer id);
 
     int updateByPrimaryKey(Contact record);
 }

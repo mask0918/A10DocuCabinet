@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(indexName = "catelog", type = "catalog", shards = 1, replicas = 0)
+@Document(indexName = "catalog", type = "catalog", shards = 1, replicas = 0)
 public class Catalog implements Serializable {
     @Id
     private Integer id;

@@ -1,14 +1,24 @@
 package com.bst.pidms.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 import java.io.Serializable;
 
+@Document(indexName = "label", type = "label", shards = 1, replicas = 0)
 public class Label implements Serializable {
+    @Id
     private Integer id;
 
+    @Field(type = FieldType.Integer)
     private Integer userId;
 
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String name;
 
+    @Field(type = FieldType.Boolean)
     private Boolean insight;
 
     private static final long serialVersionUID = 1L;

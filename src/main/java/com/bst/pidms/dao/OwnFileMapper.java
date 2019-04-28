@@ -19,6 +19,10 @@ public interface OwnFileMapper {
 
     OwnFile selectByPrimaryKey(Integer id);
 
+    List<OwnFile> selectIfCollect(Integer userId);
+
+    List<OwnFile> selectIfAttention(Integer userId);
+
     List<OwnFile> selectAll();
 
     int updateByPrimaryKeySelective(OwnFile record);

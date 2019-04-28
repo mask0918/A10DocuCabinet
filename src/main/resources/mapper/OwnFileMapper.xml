@@ -41,11 +41,23 @@
     <select id="selectByCatalogId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select *
         from tb_file
-        where catalog_id=#{catalogIsd,jdbcType=INTEGER}
+        where catalog_id=#{catalogId,jdbcType=INTEGER}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
     select *
     from tb_file
+  </select>
+    <select id="selectIfCollect" resultMap="BaseResultMap">
+    select *
+    from tb_file
+    where collection = 1
+    and user_id=#{userId,jdbcType=INTEGER}
+  </select>
+    <select id="selectIfAttention" resultMap="BaseResultMap">
+    select *
+    from tb_file
+    where attention = 1
+    and user_id=#{userId,jdbcType=INTEGER}
   </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_file

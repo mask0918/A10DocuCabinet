@@ -11,6 +11,7 @@ import com.bst.pidms.entity.picture.GoogleVision;
 import com.bst.pidms.entity.picture.PicInfo;
 import com.bst.pidms.entity.reader.OfficeReader;
 import com.bst.pidms.entity.video.*;
+import com.bst.pidms.esmapper.EsFileMapper;
 import com.bst.pidms.service.BindLabelFileService;
 import com.bst.pidms.service.LabelService;
 import com.bst.pidms.service.OwnFileService;
@@ -39,12 +40,15 @@ import java.util.*;
 public class OwnFileServiceImpl implements OwnFileService {
 
 
-    static final String host = "http://vxm3qx.natappfree.cc/";
+    static final String host = "http://hwtya6.natappfree.cc/";
 
     static final String qiniuUrl = "http://ppxlrdgsm.bkt.clouddn.com/";
 
     @Resource
     DocumentConverter documentConverter;
+
+    @Autowired
+    EsFileMapper esFileMapper;
 
     @Autowired
     private OwnFileMapper ownFileMapper;
@@ -63,6 +67,7 @@ public class OwnFileServiceImpl implements OwnFileService {
 
     @Override
     public void updateFile(OwnFile ownFile) {
+        esFileMapper.save(ownFile);
         ownFileMapper.updateByPrimaryKeySelective(ownFile);
     }
 
@@ -74,11 +79,13 @@ public class OwnFileServiceImpl implements OwnFileService {
     @Override
     public void addFile(OwnFile file) {
         ownFileMapper.insertSelective(file);
+        esFileMapper.save(file);
     }
 
     @Override
     public void deleteFileById(Integer id) {
         ownFileMapper.deleteByPrimaryKey(id);
+        esFileMapper.deleteById(id);
     }
 
     @Override
@@ -104,13 +111,25 @@ public class OwnFileServiceImpl implements OwnFileService {
     }
 
     @Override
+    public List<OwnFile> getIfCollect(Integer userId) {
+        return ownFileMapper.selectIfCollect(userId);
+    }
+
+    @Override
+    public List<OwnFile> getIfAttenton(Integer userId) {
+        return ownFileMapper.selectIfAttention(userId);
+    }
+
+    @Override
     public void setCollect(Integer id, Integer flag) {
         ownFileMapper.setCollectStatus(id, flag);
+        esFileMapper.save(getFileById(id));
     }
 
     @Override
     public void setAttention(Integer id, Integer flag) {
         ownFileMapper.setAttentionStatus(id, flag);
+        esFileMapper.save(getFileById(id));
     }
 
     @Override
@@ -131,7 +150,7 @@ public class OwnFileServiceImpl implements OwnFileService {
                 if (labels.indexOf(s) > 2) break;
                 topLabels.add(s);
             }
-            ownFile.setKeyword(Joiner.on(" ").join(labels));
+            ownFile.setKeyword(Joiner.on("|").join(labels));
             ownFile.setInfo(JSONObject.toJSONString(picInfo));
             String s = ownFile.sortByMonth();
             Integer id = timelineService.addTimelineIfNotExist(s);
@@ -139,8 +158,8 @@ public class OwnFileServiceImpl implements OwnFileService {
         } catch (Exception e) {
             e.getMessage();
         } finally {
-
             ownFileMapper.updateByPrimaryKeySelective(ownFile);
+            esFileMapper.save(ownFile);
             for (String topLabel : topLabels) {
                 // 默认UserID=1;
                 Label temp = new Label();
@@ -194,7 +213,7 @@ public class OwnFileServiceImpl implements OwnFileService {
                 temp1++;
             }
             themeSet.add(suffix);
-            ownFile.setKeyword(Joiner.on(",").join(themeSet));
+            ownFile.setKeyword(Joiner.on("|").join(themeSet));
             NLPUtils.getKeywords(host + "wordcloud", Joiner.on(" ").join(set), prefix + "_wordcloud");
             // 词云图片
             videoInfo.setWordCloudUrl(qiniuUrl + prefix + "_wordcloud.png");
@@ -203,6 +222,7 @@ public class OwnFileServiceImpl implements OwnFileService {
             e.getMessage();
         } finally {
             ownFileMapper.updateByPrimaryKeySelective(ownFile);
+            esFileMapper.save(ownFile);
             for (String topLabel : topLabels) {
                 // 默认UserID=1;
                 Label temp = new Label();
@@ -222,7 +242,7 @@ public class OwnFileServiceImpl implements OwnFileService {
         try {
             String info = OfficeReader.getInfo(file.getAbsolutePath(), suffix);
             String keywords = NLPUtils.getKeywords(host + "keywords", info, prefix);
-            String[] split = keywords.split(" ");
+            String[] split = keywords.split("|");
             int temp = 0;
             for (String s : split) {
                 // 默认为3个标签
@@ -243,9 +263,9 @@ public class OwnFileServiceImpl implements OwnFileService {
             e.getMessage();
         } finally {
             ownFileMapper.updateByPrimaryKeySelective(ownFile);
+            esFileMapper.save(ownFile);
             for (String topLabel : topLabels) {
                 // 默认UserID=1;
-                Label temp = new Label();
                 Integer id = labelService.addLabelIfNotExist(1, topLabel, true);
                 bindLabelFileService.addBind(id, ownFile.getId(), ownFile.getCategory());
             }

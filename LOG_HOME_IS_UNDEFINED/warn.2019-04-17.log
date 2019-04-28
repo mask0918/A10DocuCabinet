@@ -1,2 +1,0 @@
-2019-04-17 13:17:10.912  WARN 52496 --- [OfficeProcessThread-0] org.jodconverter.office.OfficeProcess    : Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
-2019-04-17 13:17:19.852  WARN 52496 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.

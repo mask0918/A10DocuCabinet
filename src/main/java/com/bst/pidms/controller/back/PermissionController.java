@@ -1,4 +1,4 @@
-package com.bst.pidms.controller;
+package com.bst.pidms.controller.back;
 
 import com.bst.pidms.entity.Permission;
 import com.bst.pidms.service.PermissionService;

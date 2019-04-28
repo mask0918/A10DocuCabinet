@@ -12,6 +12,8 @@ import java.util.List;
 public interface ContactService {
     List<Contact> getContacts();
 
+    List<Contact> getContactsByUserId(Integer id);
+
     Contact getContactById(Integer id);
 
     void addContact(Contact contact);

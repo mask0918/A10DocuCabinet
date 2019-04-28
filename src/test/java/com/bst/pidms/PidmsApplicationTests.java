@@ -5,12 +5,15 @@ import com.bst.pidms.dao.LabelMapper;
 import com.bst.pidms.dao.OwnFileMapper;
 import com.bst.pidms.entity.Catalog;
 import com.bst.pidms.entity.Comment;
+import com.bst.pidms.entity.Label;
 import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.esmapper.EsCatalogMapper;
 import com.bst.pidms.esmapper.EsCommentMapper;
 import com.bst.pidms.esmapper.EsFileMapper;
+import com.bst.pidms.esmapper.EsLabelMapper;
 import com.bst.pidms.service.*;
 import com.google.common.collect.Lists;
+import org.elasticsearch.ElasticsearchSecurityException;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.jodconverter.DocumentConverter;
@@ -54,6 +57,9 @@ public class PidmsApplicationTests {
 
     @Autowired
     EsCatalogMapper esCatalogMapper;
+
+    @Autowired
+    EsLabelMapper esLabelMapper;
 
     @Autowired
     EsCommentMapper esCommentMapper;
@@ -118,7 +124,21 @@ public class PidmsApplicationTests {
 //        elasticsearchTemplate.createIndex(OwnFile.class);
         List<OwnFile> all1 = ownFileService.getAll();
         esFileMapper.saveAll(all1);
+//        elasticsearchTemplate.createIndex(Label.class);
+//        List<Label> labels = labelMapper.selectAll();
+//        esLabelMapper.saveAll(labels);
+    }
 
+    @Test
+    public void zz() {
+        List<OwnFile> all = ownFileService.getAll();
+        for (OwnFile ownFile : all) {
+            String tag = ownFile.getKeyword();
+            String[] split = tag.split(" ");
+            String join = String.join("|", split);
+            ownFile.setKeyword(join);
+            ownFileService.updateFile(ownFile);
+        }
     }
 }
 

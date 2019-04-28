@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class History implements Serializable {
     private Integer id;
 
-    private Integer time;
+    private Long time;
 
     private String record;
 
@@ -13,7 +13,7 @@ public class History implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public History(Integer id, Integer time, String record, Integer userId) {
+    public History(Integer id, Long time, String record, Integer userId) {
         this.id = id;
         this.time = time;
         this.record = record;
@@ -32,11 +32,11 @@ public class History implements Serializable {
         this.id = id;
     }
 
-    public Integer getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 

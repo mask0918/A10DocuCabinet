@@ -2,6 +2,7 @@ package com.bst.pidms.service.impl;
 
 import com.bst.pidms.dao.CatalogMapper;
 import com.bst.pidms.entity.Catalog;
+import com.bst.pidms.esmapper.EsCatalogMapper;
 import com.bst.pidms.service.CatalogService;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import java.util.List;
 public class CatalogServiceImpl implements CatalogService {
     @Autowired
     CatalogMapper catalogMapper;
+
+    @Autowired
+    EsCatalogMapper esCatalogMapper;
 
     @Override
     public List<Catalog> getContactsByParentId(Integer pid) {
@@ -35,12 +39,14 @@ public class CatalogServiceImpl implements CatalogService {
         catalog.setPid(pId);
         catalog.setName(name);
         catalogMapper.insert(catalog);
+        esCatalogMapper.save(catalog);
         return catalog.getId();
     }
 
     @Override
     public void delCatalog(Integer id) {
         catalogMapper.deleteByPrimaryKey(id);
+        esCatalogMapper.deleteById(id);
     }
 
     @Override

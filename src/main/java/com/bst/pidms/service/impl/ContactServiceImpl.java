@@ -23,6 +23,11 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
+    public List<Contact> getContactsByUserId(Integer id) {
+        return contactMapper.selectByUser(id);
+    }
+
+    @Override
     public Contact getContactById(Integer id) {
         return contactMapper.selectByPrimaryKey(id);
     }

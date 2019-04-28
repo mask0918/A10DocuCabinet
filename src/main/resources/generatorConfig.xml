@@ -150,8 +150,8 @@
         <!--</table>-->
 
         <table
-                tableName="tb_mailbox"
-                domainObjectName="Mailbox"
+                tableName="tb_feedback"
+                domainObjectName="Feedback"
                 enableCountByExample="false"
                 enableUpdateByExample="false"
                 enableDeleteByExample="false"

@@ -4,6 +4,7 @@ import com.bst.pidms.dao.BindLabelFileMapper;
 import com.bst.pidms.dao.LabelMapper;
 import com.bst.pidms.entity.Label;
 import com.bst.pidms.entity.OwnFile;
+import com.bst.pidms.esmapper.EsLabelMapper;
 import com.bst.pidms.service.LabelService;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class LabelServiceImpl implements LabelService {
     @Autowired
     BindLabelFileMapper bindLabelFileMapper;
 
+    @Autowired
+    EsLabelMapper esLabelMapper;
+
     @Override
     public Integer addLabelIfNotExist(Integer userId, String name, Boolean insight) {
         Label temp = new Label();
@@ -38,6 +42,7 @@ public class LabelServiceImpl implements LabelService {
         label.setName(name);
         label.setInsight(insight);
         labelMapper.insert(label);
+        esLabelMapper.save(label);
         return label.getId();
     }
 

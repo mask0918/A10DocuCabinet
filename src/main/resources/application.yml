@@ -47,5 +47,4 @@ jodconverter:
     max-tasks-per-process: 100
     port-numbers: 8100
 logging:
-  file: pidms.log
   config: classpath:logging-spring.xml

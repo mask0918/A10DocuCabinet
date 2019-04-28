@@ -1,6 +1,7 @@
 package com.bst.pidms.dao;
 
 import com.bst.pidms.entity.History;
+
 import java.util.List;
 
 public interface HistoryMapper {
@@ -13,4 +14,6 @@ public interface HistoryMapper {
     List<History> selectAll();
 
     int updateByPrimaryKey(History record);
+
+    List<History> selectByUser(Integer userId);
 }
