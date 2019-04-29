@@ -6,6 +6,7 @@ import com.bst.pidms.entity.Role;
 import com.bst.pidms.enums.opEnum;
 import com.bst.pidms.service.ContactService;
 import com.bst.pidms.service.HistoryService;
+import com.bst.pidms.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,8 +42,12 @@ public class ContactController {
     @RequestMapping(value = "/delcontact", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> delContact(@RequestParam("id") Integer id) {
-        Integer userId = 1;
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) {
+            map.put("success", false);
+            return map;
+        }
         contactService.delContact(id);
         map.put("success", true);
         StringBuffer sb = new StringBuffer();
@@ -56,8 +61,12 @@ public class ContactController {
     @RequestMapping(value = "/addcontact", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> addContact(@RequestParam("name") String name, @RequestParam("email") String email) {
-        Integer userId = 1;
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) {
+            map.put("success", false);
+            return map;
+        }
         Contact contact = new Contact();
         contact.setRemark(name);
         contact.setEmail(email);

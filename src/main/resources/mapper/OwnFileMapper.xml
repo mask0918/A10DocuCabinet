@@ -36,7 +36,8 @@
     <select id="selectCategory" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select *
     from tb_file
-    where category=#{category,jdbcType=INTEGER}
+    where category=#{id,jdbcType=INTEGER}
+    and user_id=#{userId,jdbcType=INTEGER}
   </select>
     <select id="selectByCatalogId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select *
@@ -292,5 +293,17 @@
             </if>
             <if test="list==null or list.size==0">and 1=0</if>
         </where>
+    </select>
+    <select id="selectTimelineByUserId" parameterType="java.lang.Integer" resultType="java.lang.String">
+     SELECT FROM_UNIXTIME(upload_time/1000,'%Y年%m月') days
+     FROM tb_file
+     where user_id=#{userId,jdbcType=INTEGER}
+     group by FROM_UNIXTIME(upload_time/1000,'%Y%m')
+    </select>
+    <select id="selectFileByTimeline" resultMap="BaseResultMap">
+     SELECT *
+     FROM tb_file
+     where user_id=#{userId,jdbcType=INTEGER}
+     and FROM_UNIXTIME(upload_time/1000,'%Y年%m月')=#{timeline,jdbcType=VARCHAR}
     </select>
 </mapper>

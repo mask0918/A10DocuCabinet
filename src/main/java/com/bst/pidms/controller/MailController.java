@@ -6,6 +6,7 @@ import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.entity.User;
 import com.bst.pidms.enums.opEnum;
 import com.bst.pidms.service.*;
+import com.bst.pidms.utils.SessionUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,8 @@ public class MailController {
     @GetMapping("mailinfo")
     public Map<String, Object> mailPageInfo() {
         Map<String, Object> map = new HashMap<>();
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         User user = userService.getUserById(userId);
         map.put("acc", user.getMailAcc());
         map.put("pwd", user.getMailPwd());
@@ -62,27 +64,18 @@ public class MailController {
 
     @PostMapping("sendmail")
     public Map<String, Object> sendMail(@RequestParam("rec") String rec, @RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("ids") Integer[] ids) {
-        Integer userId = 1;
+        Map<String, Object> map = new HashMap<>();
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) {
+            map.put("success", false);
+            return map;
+        }
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         // 设置参数
         mailSender.setHost("smtp.qq.com");
         mailSender.setUsername("bst-w@qq.com");
         mailSender.setPassword("qynlaunfuagncacb");
-//        MimeMessage mimeMessage = mailSender.createMimeMessage();
-        Map<String, Object> map = new HashMap<>();
         Mailbox mailbox = new Mailbox();
-//            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true, "GBK");
-//            messageHelper.setFrom("bst-w@qq.com");
-//            messageHelper.setTo(rec);
-//            messageHelper.setSubject(title);
-//            messageHelper.setText(content, true);
-//            for (Integer id : ids) {
-//                OwnFile fileById = ownFileService.getFileById(id);
-//                if (fileById != null) {
-//                    messageHelper.addAttachment(fileById.getName(), new File("D:/InsightPIDMS/" + fileById.getUrl()));
-//                }
-//            }
-//            mailSender.send(mimeMessage);
         mailbox.setContent(content);
         mailbox.setUserId(userId);
         mailbox.setRecipient(rec);

@@ -8,6 +8,7 @@ import com.bst.pidms.esmapper.EsFileMapper;
 import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.enums.FileType;
 import com.bst.pidms.service.OwnFileService;
+import com.bst.pidms.utils.SessionUtil;
 import com.google.common.collect.Lists;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.BoolQueryBuilder;
@@ -99,8 +100,14 @@ public class ElasticsearchController {
     }
 
     public List<OwnFile> keytagSearch(String content) {
+        BoolQueryBuilder bqb = QueryBuilders.boolQuery();
+        bqb.must(QueryBuilders.termQuery("userId", SessionUtil.getInstance().getIdNumber()));
+        bqb.must(QueryBuilders.multiMatchQuery(content, "keyword", "tag"));
+
         SearchQuery queryBuilder = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.multiMatchQuery(content, "keyword", "tag"))
+                .withQuery(bqb)
+//                .withQuery(QueryBuilders.termQuery("userId", SessionUtil.getInstance().getIdNumber()))
+//                .withQuery(QueryBuilders.multiMatchQuery(content, "keyword", "tag"))
 //                .withPageable(PageRequest.of(0, 5))
                 .withHighlightFields(new HighlightBuilder.Field("keyword")
                                 .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
@@ -165,8 +172,13 @@ public class ElasticsearchController {
     }
 
     public List<OwnFile> nameSearch(String content) {
+        BoolQueryBuilder bqb = QueryBuilders.boolQuery();
+        bqb.must(QueryBuilders.termQuery("userId", SessionUtil.getInstance().getIdNumber()));
+        bqb.must(QueryBuilders.queryStringQuery(content).defaultField("name"));
+
         SearchQuery queryBuilder = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.queryStringQuery(content).defaultField("name"))
+                .withQuery(bqb)
+//                .withQuery(QueryBuilders.queryStringQuery(content).defaultField("name"))
                 .withPageable(PageRequest.of(0, 5))
                 .withHighlightFields(new HighlightBuilder.Field("name")
                         .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
@@ -218,16 +230,13 @@ public class ElasticsearchController {
     }
 
     public List<Catalog> pathSearch(String content) {
-//        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
-//        // 添加基本分词查询
-//        BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
-//        boolQueryBuilder.must(QueryBuilders.multiMatchQuery(content, "name"));
-//        queryBuilder.withQuery(boolQueryBuilder);
-//        Iterable<Catalog> search = esCatalogMapper.search(queryBuilder.build());
-//        List<Catalog> catalogs = Lists.newArrayList(search);
-//        return catalogs;
+        BoolQueryBuilder bqb = QueryBuilders.boolQuery();
+        bqb.must(QueryBuilders.termQuery("userId", SessionUtil.getInstance().getIdNumber()));
+        bqb.must(QueryBuilders.queryStringQuery(content).defaultField("name"));
+
         SearchQuery queryBuilder = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.queryStringQuery(content).defaultField("name"))
+                .withQuery(bqb)
+//                .withQuery(QueryBuilders.queryStringQuery(content).defaultField("name"))
                 .withPageable(PageRequest.of(0, 5))
                 .withHighlightFields(new HighlightBuilder.Field("name")
                         .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
@@ -260,9 +269,14 @@ public class ElasticsearchController {
     }
 
     public List<Label> labelSearch(String content) {
+        BoolQueryBuilder bqb = QueryBuilders.boolQuery();
+        bqb.must(QueryBuilders.termQuery("userId", SessionUtil.getInstance().getIdNumber()));
+        bqb.must(QueryBuilders.queryStringQuery(content).defaultField("name"));
+
         SearchQuery queryBuilder = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.queryStringQuery(content).defaultField("name"))
-                .withPageable(PageRequest.of(0, 5))
+                .withQuery(bqb)
+//                .withQuery(QueryBuilders.queryStringQuery(content).defaultField("name"))
+//                .withPageable(PageRequest.of(0, 5))
                 .withHighlightFields(new HighlightBuilder.Field("name")
                         .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
                 ).build();
@@ -297,6 +311,8 @@ public class ElasticsearchController {
         // 添加基本分词查询
         BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
         boolQueryBuilder.must(QueryBuilders.multiMatchQuery(content, "info"));
+        boolQueryBuilder.must(QueryBuilders.termQuery("userId", SessionUtil.getInstance().getIdNumber()));
+
         queryBuilder.withQuery(boolQueryBuilder);
         Iterable<OwnFile> search = esFileMapper.search(queryBuilder.build());
         List<OwnFile> ownFiles = Lists.newArrayList(search);

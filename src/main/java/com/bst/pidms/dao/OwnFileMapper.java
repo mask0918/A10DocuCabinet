@@ -31,9 +31,13 @@ public interface OwnFileMapper {
 
     List<OwnFile> selectForeachByIds(List<Integer> ids);
 
-    List<OwnFile> selectCategory(Integer category);
+    List<OwnFile> selectCategory(@Param("id") Integer category, @Param("userId") Integer userId);
 
     List<OwnFile> selectByCatalogId(Integer id);
+
+    List<String> selectTimelineByUserId(Integer userId);
+
+    List<OwnFile> selectFileByTimeline(@Param("userId") Integer userId, @Param("timeline") String date);
 
     int setCollectStatus(@Param("id") Integer id, @Param("collection") Integer collection);
 

@@ -16,4 +16,6 @@ public interface CatalogMapper {
     List<Catalog> selectByParentId(Integer pid);
 
     int updateByPrimaryKey(Catalog record);
+
+    Integer selectRootByUserId(Integer userId);
 }

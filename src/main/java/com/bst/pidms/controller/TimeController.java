@@ -2,10 +2,10 @@ package com.bst.pidms.controller;
 
 import com.bst.pidms.entity.Comment;
 import com.bst.pidms.entity.OwnFile;
-import com.bst.pidms.entity.Timeline;
 import com.bst.pidms.enums.FileType;
 import com.bst.pidms.service.CommentService;
-import com.bst.pidms.service.TimelineService;
+import com.bst.pidms.service.OwnFileService;
+import com.bst.pidms.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,20 +24,24 @@ import java.util.stream.Collectors;
 @RestController
 public class TimeController {
     @Autowired
-    TimelineService timelineService;
+    OwnFileService ownFileService;
 
     @Autowired
     CommentService commentService;
 
     @RequestMapping(value = "gettimeline", method = RequestMethod.GET)
-    public List<Timeline> getTimeBook() {
-        return timelineService.getAll();
+    public List<String> getTimeBook() {
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
+        return ownFileService.getTimeline(userId);
     }
 
     @RequestMapping(value = "gettimefile", method = RequestMethod.GET)
-    public Map<String, Object> getTimeBookFile(@RequestParam("id") Integer timeId) {
+    public Map<String, Object> getTimeBookFile(@RequestParam("time") String time) {
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         Map<String, Object> map = new HashMap<>();
-        List<OwnFile> list = timelineService.getFilesById(timeId);
+        List<OwnFile> list = ownFileService.getFileByTimeline(userId, time);
         for (OwnFile ownFile : list) {
             List<Comment> comments = commentService.getComments(ownFile.getId());
             ownFile.setComments(comments);

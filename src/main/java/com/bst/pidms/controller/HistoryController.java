@@ -2,6 +2,7 @@ package com.bst.pidms.controller;
 
 import com.bst.pidms.entity.History;
 import com.bst.pidms.service.HistoryService;
+import com.bst.pidms.utils.SessionUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,14 @@ public class HistoryController {
     public PageInfo<History> getAllHistories(@PathVariable("id") Integer pageNum) {
         Integer pageSize = 9;
         PageHelper.startPage(pageNum, pageSize);
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         List<History> allById = historyService.getAllById(userId);
         PageInfo<History> historyPageInfo = new PageInfo<>(allById);
         return historyPageInfo;
     }
 
-    public void addHistory(Long time, String record, Integer userId) {
-        historyService.addHistory(time, record, userId);
-    }
+//    public void addHistory(Long time, String record, Integer userId) {
+//        historyService.addHistory(time, record, userId);
+//    }
 }

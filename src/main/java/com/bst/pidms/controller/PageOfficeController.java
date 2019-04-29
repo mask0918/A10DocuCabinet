@@ -1,9 +1,11 @@
 package com.bst.pidms.controller;
 
 import com.bst.pidms.entity.OwnFile;
+import com.bst.pidms.entity.User;
 import com.bst.pidms.enums.opEnum;
 import com.bst.pidms.service.HistoryService;
 import com.bst.pidms.service.OwnFileService;
+import com.bst.pidms.utils.SessionUtil;
 import com.zhuozhengsoft.pageoffice.FileSaver;
 import com.zhuozhengsoft.pageoffice.OpenModeType;
 import com.zhuozhengsoft.pageoffice.PageOfficeCtrl;
@@ -69,6 +71,8 @@ public class PageOfficeController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView showWord(@PathVariable("id") Integer id, HttpServletRequest request, Map<String, Object> map) {
+        User user = SessionUtil.getInstance().getUser();
+        if (user == null) return null;
         String fileName = ownFileService.getFileById(id).getName();
         //--- PageOffice的调用代码 开始 -----
         PageOfficeCtrl poCtrl = new PageOfficeCtrl(request);
@@ -87,7 +91,7 @@ public class PageOfficeController {
         if (substring.equals("ppt") || substring.equals("pptx")) openModeType = OpenModeType.pptNormalEdit;
 
         System.out.println(openModeType.toString());
-        poCtrl.webOpen("D:\\InsightPIDMS\\zzz\\DOCUMENT\\" + fileName, openModeType, "洞见");
+        poCtrl.webOpen("D:\\InsightPIDMS\\" + user.getUsername() + "\\DOCUMENT\\" + fileName, openModeType, "洞见");
         poCtrl.setCaption("Insight!!!!!!!!!!!冲冲");
         map.put("pageoffice", poCtrl.getHtmlCode("PageOfficeCtrl1"));
         //--- PageOffice的调用代码 结束 -----
@@ -104,11 +108,12 @@ public class PageOfficeController {
      */
     @RequestMapping("/save/{id}")
     public void saveFile(@PathVariable("id") Integer id, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        Integer userId = 1;
+        User user = SessionUtil.getInstance().getUser();
+        Integer userId = user.getId();
         FileSaver fs = new FileSaver(request, response);
         //保存文件
         String fileName = ownFileService.getFileById(id).getName();
-        String path = "D:\\InsightPIDMS\\zzz\\DOCUMENT\\" + fileName;
+        String path = "D:\\InsightPIDMS\\" + user.getUsername() + "\\DOCUMENT\\" + fileName;
         fs.saveToFile(path);
         fs.close();
         documentConverter.convert(new File(path)).to(new File(path.substring(0, path.lastIndexOf(".")) + ".pdf")).execute();

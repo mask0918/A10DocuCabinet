@@ -53,4 +53,9 @@ public class CatalogServiceImpl implements CatalogService {
     public List<Catalog> getAll() {
         return catalogMapper.selectAll();
     }
+
+    @Override
+    public Integer getRootId(Integer userId) {
+        return catalogMapper.selectRootByUserId(userId);
+    }
 }

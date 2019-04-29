@@ -15,20 +15,17 @@ import com.bst.pidms.esmapper.EsFileMapper;
 import com.bst.pidms.service.BindLabelFileService;
 import com.bst.pidms.service.LabelService;
 import com.bst.pidms.service.OwnFileService;
-import com.bst.pidms.service.TimelineService;
 import com.bst.pidms.utils.NLPUtils;
 import com.bst.pidms.utils.ThumbUtils;
 import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
 import org.jodconverter.DocumentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.File;
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -55,9 +52,6 @@ public class OwnFileServiceImpl implements OwnFileService {
 
     @Autowired
     private LabelService labelService;
-
-    @Autowired
-    private TimelineService timelineService;
 
     @Autowired
     BindLabelFileMapper bindLabelFileMapper;
@@ -89,8 +83,18 @@ public class OwnFileServiceImpl implements OwnFileService {
     }
 
     @Override
-    public List<OwnFile> getCategory(Integer id) {
-        return ownFileMapper.selectCategory(id);
+    public List<OwnFile> getCategory(Integer id, Integer userId) {
+        return ownFileMapper.selectCategory(id, userId);
+    }
+
+    @Override
+    public List<String> getTimeline(Integer userId) {
+        return ownFileMapper.selectTimelineByUserId(userId);
+    }
+
+    @Override
+    public List<OwnFile> getFileByTimeline(Integer userId, String date) {
+        return ownFileMapper.selectFileByTimeline(userId, date);
     }
 
     @Override
@@ -152,9 +156,6 @@ public class OwnFileServiceImpl implements OwnFileService {
             }
             ownFile.setKeyword(Joiner.on("|").join(labels));
             ownFile.setInfo(JSONObject.toJSONString(picInfo));
-            String s = ownFile.sortByMonth();
-            Integer id = timelineService.addTimelineIfNotExist(s);
-            timelineService.addBindTimelineFile(ownFile.getId(), id);
         } catch (Exception e) {
             e.getMessage();
         } finally {

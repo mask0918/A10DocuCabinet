@@ -19,4 +19,6 @@ public interface CatalogService {
 
     List<Catalog> getAll();
 
+    Integer getRootId(Integer userId);
+
 }

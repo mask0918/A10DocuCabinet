@@ -1,12 +1,14 @@
 package com.bst.pidms.controller;
 
 import com.bst.pidms.entity.Comment;
+import com.bst.pidms.entity.User;
 import com.bst.pidms.enums.FileType;
 import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.esmapper.EsCommentMapper;
 import com.bst.pidms.service.*;
 import com.bst.pidms.enums.opEnum;
 import com.bst.pidms.utils.RedisUtils;
+import com.bst.pidms.utils.SessionUtil;
 import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
@@ -35,9 +37,6 @@ public class FileController {
     OwnFileService ownFileService;
 
     @Autowired
-    TimelineService timelineService;
-
-    @Autowired
     CommentService commentService;
 
     @Autowired
@@ -57,8 +56,7 @@ public class FileController {
 
         Map<String, Boolean> map = new HashMap<>();
 
-        Object user = session.getAttribute("loginUser");
-        user = "zzz";
+        User user = SessionUtil.getInstance().getUser();
 
         if (user == null || file.getSize() == 0) {
             map.put("success", false);
@@ -67,7 +65,7 @@ public class FileController {
         String fileName = file.getOriginalFilename().toLowerCase();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
         // 创建用户文件夹
-        File dir = new File("D:\\InsightPIDMS\\" + user.toString());
+        File dir = new File("D:\\InsightPIDMS\\" + user.getUsername());
         if (!dir.exists()) dir.mkdir();
         File dir1 = new File(dir.getAbsolutePath() + "\\" + FileType.mFileTypes.get(suffix));
         if (!dir1.exists()) dir1.mkdir();
@@ -114,11 +112,6 @@ public class FileController {
                 break;
             case "OTHER":
                 ownFileService.getOtherResults(ownFile, toFile);
-        }
-        if (category != "IMAGE") {
-            String s = ownFile.sortByMonth();
-            Integer id = timelineService.addTimelineIfNotExist(s);
-            timelineService.addBindTimelineFile(ownFile.getId(), id);
         }
         map.put("success", true);
         StringBuffer sb = new StringBuffer();
@@ -179,7 +172,9 @@ public class FileController {
      */
     @RequestMapping(value = "imageinfo", method = RequestMethod.GET)
     public List<OwnFile> getAllImage() {
-        List<OwnFile> all = ownFileService.getCategory(FileType.IMAGE.getValue());
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
+        List<OwnFile> all = ownFileService.getCategory(FileType.IMAGE.getValue(), userId);
         for (OwnFile ownFile : all) {
             List<Comment> comments = commentService.getComments(ownFile.getId());
             ownFile.setComments(comments);
@@ -194,7 +189,9 @@ public class FileController {
      */
     @RequestMapping(value = "docuinfo", method = RequestMethod.GET)
     public List<OwnFile> getAllDocu() {
-        List<OwnFile> all = ownFileService.getCategory(FileType.DOCUMENT.getValue());
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
+        List<OwnFile> all = ownFileService.getCategory(FileType.DOCUMENT.getValue(), userId);
         for (OwnFile ownFile : all) {
             List<Comment> comments = commentService.getComments(ownFile.getId());
             ownFile.setComments(comments);
@@ -209,7 +206,9 @@ public class FileController {
      */
     @RequestMapping(value = "videoinfo", method = RequestMethod.GET)
     public List<OwnFile> getAllVideo() {
-        List<OwnFile> all = ownFileService.getCategory(FileType.VIDEO.getValue());
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
+        List<OwnFile> all = ownFileService.getCategory(FileType.VIDEO.getValue(), userId);
         for (OwnFile ownFile : all) {
             List<Comment> comments = commentService.getComments(ownFile.getId());
             ownFile.setComments(comments);
@@ -224,7 +223,9 @@ public class FileController {
      */
     @RequestMapping(value = "audioinfo", method = RequestMethod.GET)
     public List<OwnFile> getAllAudio() {
-        List<OwnFile> all = ownFileService.getCategory(FileType.AUDIO.getValue());
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
+        List<OwnFile> all = ownFileService.getCategory(FileType.AUDIO.getValue(), userId);
         for (OwnFile ownFile : all) {
             List<Comment> comments = commentService.getComments(ownFile.getId());
             ownFile.setComments(comments);
@@ -239,7 +240,9 @@ public class FileController {
      */
     @RequestMapping(value = "otherinfo", method = RequestMethod.GET)
     public List<OwnFile> getAllOther() {
-        List<OwnFile> all = ownFileService.getCategory(FileType.OTHER.getValue());
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
+        List<OwnFile> all = ownFileService.getCategory(FileType.OTHER.getValue(), userId);
         for (OwnFile ownFile : all) {
             List<Comment> comments = commentService.getComments(ownFile.getId());
             ownFile.setComments(comments);
@@ -253,8 +256,10 @@ public class FileController {
      * @return
      */
     @RequestMapping(value = "sortimage", method = RequestMethod.GET)
-    public Map<String, List<OwnFile>> mmp() {
-        List<OwnFile> ownFiles = ownFileService.getCategory(FileType.IMAGE.getValue());
+    public Map<String, List<OwnFile>> tiemstamp() {
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
+        List<OwnFile> ownFiles = ownFileService.getCategory(FileType.IMAGE.getValue(), userId);
         Map<String, List<OwnFile>> collect = ownFiles.stream().collect(Collectors.groupingBy(OwnFile::sortByMonth));
         return collect;
     }
@@ -276,7 +281,8 @@ public class FileController {
      */
     @RequestMapping(value = "collect", method = RequestMethod.POST)
     public Map<String, Boolean> setCollection(@RequestParam("id") Integer id, @RequestParam("collect") Integer collect) {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         Map<String, Boolean> map = new HashMap<>();
         ownFileService.setCollect(id, collect ^ 1);
         map.put("success", true);
@@ -298,7 +304,8 @@ public class FileController {
      */
     @RequestMapping(value = "attention", method = RequestMethod.POST)
     public Map<String, Boolean> setAttention(@RequestParam("id") Integer id, @RequestParam("attention") Integer attention) {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         Map<String, Boolean> map = new HashMap<>();
         ownFileService.setAttention(id, attention ^ 1);
         map.put("success", true);
@@ -310,22 +317,23 @@ public class FileController {
         return map;
     }
 
-    /**
-     * 预览文件
-     *
-     * @param name
-     * @return
-     */
-    @RequestMapping(value = "preview/{name}", method = RequestMethod.GET)
-    public String mmp3(@PathVariable String name) {
-        if (name.endsWith("docx") || name.endsWith("doc") || name.endsWith("xls") || name.endsWith("xlsx") || name.endsWith("ppt") || name.endsWith("pptx"))
-            name = name.substring(0, name.lastIndexOf(".") + 1).concat("pdf");
-        return "testpreview/zzz/" + name;
-    }
+//    /**
+//     * 预览文件
+//     *
+//     * @param name
+//     * @return
+//     */
+//    @RequestMapping(value = "preview/{name}", method = RequestMethod.GET)
+//    public String mmp3(@PathVariable String name) {
+//        if (name.endsWith("docx") || name.endsWith("doc") || name.endsWith("xls") || name.endsWith("xlsx") || name.endsWith("ppt") || name.endsWith("pptx"))
+//            name = name.substring(0, name.lastIndexOf(".") + 1).concat("pdf");
+//        return "testpreview/zzz/" + name;
+//    }
 
     @RequestMapping(value = "addtag", method = RequestMethod.POST)
     public Map<String, Object> addTag(@RequestParam("id") Integer id, @RequestParam("name") String name) {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         Map<String, Object> map = new HashMap<>();
         OwnFile fileById = ownFileService.getFileById(id);
         String[] split = fileById.getTag().split("|");
@@ -344,7 +352,8 @@ public class FileController {
 
     @RequestMapping(value = "deltag", method = RequestMethod.POST)
     public Map<String, Object> delTag(@RequestParam("id") Integer id, @RequestParam("name") String name) {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         Map<String, Object> map = new HashMap<>();
         OwnFile fileById = ownFileService.getFileById(id);
         String tag = fileById.getTag();
@@ -361,13 +370,15 @@ public class FileController {
 
     @GetMapping("getcollections")
     public List<OwnFile> getCollects() {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         return ownFileService.getIfCollect(userId);
     }
 
     @GetMapping("getattentions")
     public List<OwnFile> getAttentions() {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         return ownFileService.getIfAttenton(userId);
     }
 }

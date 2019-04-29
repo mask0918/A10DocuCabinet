@@ -1,6 +1,7 @@
 package com.bst.pidms.controller;
 
 import com.bst.pidms.entity.User;
+import com.bst.pidms.service.CatalogService;
 import com.bst.pidms.service.UserService;
 import com.bst.pidms.utils.MD5;
 import com.bst.pidms.utils.SessionUtil;
@@ -25,6 +26,9 @@ import java.util.Map;
 public class LoginController {
     @Autowired
     UserService userService;
+
+    @Autowired
+    CatalogService catalogService;
 
 //    @PostMapping("validation")
 //    public Map<String, Object> validUser(@RequestParam("username") String name, @RequestParam("password") String pwd, HttpSession httpSession) {
@@ -57,15 +61,21 @@ public class LoginController {
         if (!userByName.getPassword().equals(MD5.md5(pwd))) {
             map.put("success", false);
             map.put("errMsg", "密码错误!");
-        } else map.put("success", true);
+        } else {
+            map.put("success", true);
+            map.put("root", catalogService.getRootId(userByName.getId()));
+        }
         SessionUtil.getInstance().setSessionMap(userByName);
         //设置Session过期时间
         SessionUtil.getInstance().setSessionTimeout();
+
         return map;
     }
 
     @GetMapping("zz")
-    public Map<String, Object> zzz() {
+    public Map<String, Object> zzz(HttpSession session) {
+        User zzz = (User) session.getAttribute("user");
+        System.out.println("李雅静" + zzz);
         User user = SessionUtil.getInstance().getUser();
         System.out.println("罗昌文" + user);
         Map<String, Object> map = new HashMap<>();

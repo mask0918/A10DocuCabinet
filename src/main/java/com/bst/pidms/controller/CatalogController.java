@@ -71,17 +71,12 @@ public class CatalogController {
      * @return
      */
     @RequestMapping(value = "catalogcontent", method = RequestMethod.GET)
-    public Map<String, Object> getCatalog(@RequestParam("id") Integer id, HttpSession session) {
-        User user = SessionUtil.getInstance().getUser();
-        System.out.println("罗昌文" + user);
+    public Map<String, Object> getCatalog(@RequestParam("id") Integer id) {
         List<Catalog> contactsByParentId = catalogService.getContactsByParentId(id);
         List<OwnFile> byCatalog = ownFileService.getByCatalog(id);
         Map<String, Object> map = new HashMap<>();
         map.put("catalogs", contactsByParentId);
         map.put("files", byCatalog);
-        User aa = (User) session.getAttribute("ss");
-        System.out.println(aa);
-        map.put("li", aa);
         return map;
     }
 
@@ -95,7 +90,11 @@ public class CatalogController {
     @RequestMapping(value = "createcatalog", method = RequestMethod.POST)
     public Map<String, Object> createCatalog(@RequestParam("pid") Integer pId, @RequestParam("name") String name) {
         Map<String, Object> map = new HashMap<>();
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) {
+            map.put("success", false);
+            return map;
+        }
         Integer integer = catalogService.addCatalog(userId, pId, name);
         map.put("success", true);
         map.put("id", integer);
@@ -109,7 +108,7 @@ public class CatalogController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "deletecatalog", method = RequestMethod.DELETE)
+    @RequestMapping(value = "deletecatalog", method = RequestMethod.POST)
     public Map<String, Object> deleteCatalog(@RequestParam("id") Integer id) {
         Map<String, Object> map = new HashMap<>();
         catalogService.delCatalog(id);

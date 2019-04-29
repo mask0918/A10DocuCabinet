@@ -7,6 +7,7 @@ import com.bst.pidms.esmapper.EsCommentMapper;
 import com.bst.pidms.service.CommentService;
 import com.bst.pidms.service.HistoryService;
 import com.bst.pidms.service.OwnFileService;
+import com.bst.pidms.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,8 +40,12 @@ public class CommentController {
 
     @RequestMapping(value = "addcomment", method = RequestMethod.POST)
     public Map<String, Object> addComment(@RequestParam("id") Integer id, @RequestParam("content") String content) {
-        Integer userId = 1;
         Map<String, Object> map = new HashMap<>();
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) {
+            map.put("success", false);
+            return map;
+        }
         Comment comment = new Comment();
         comment.setFileId(id);
         comment.setContent(content);
@@ -58,8 +63,12 @@ public class CommentController {
 
     @RequestMapping(value = "delcomment", method = RequestMethod.POST)
     public Map<String, Object> delComment(@RequestParam("cid") Integer id) {
-        Integer userId = 1;
         Map<String, Object> map = new HashMap<>();
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) {
+            map.put("success", false);
+            return map;
+        }
         commentService.delComment(id);
         esCommentMapper.deleteById(id);
         map.put("success", true);

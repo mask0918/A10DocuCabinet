@@ -140,6 +140,12 @@ public class PidmsApplicationTests {
             ownFileService.updateFile(ownFile);
         }
     }
+
+    @Test
+    public void hhe() {
+        System.out.println(catalogService.getRootId(1));
+        System.out.println(catalogService.getRootId(3));
+    }
 }
 
 

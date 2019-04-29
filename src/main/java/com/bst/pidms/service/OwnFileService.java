@@ -19,7 +19,11 @@ public interface OwnFileService {
 
     public void deleteFileById(Integer id);
 
-    public List<OwnFile> getCategory(Integer category);
+    public List<OwnFile> getCategory(Integer category, Integer userId);
+
+    public List<String> getTimeline(Integer userId);
+
+    public List<OwnFile> getFileByTimeline(Integer userId, String date);
 
     public List<OwnFile> getByCatalog(Integer id);
 

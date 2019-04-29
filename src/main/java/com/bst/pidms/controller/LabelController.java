@@ -5,6 +5,7 @@ import com.bst.pidms.entity.Label;
 import com.bst.pidms.service.BindLabelFileService;
 import com.bst.pidms.service.LabelService;
 import com.bst.pidms.service.OwnFileService;
+import com.bst.pidms.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,7 +38,8 @@ public class LabelController {
      */
     @RequestMapping("getinsight")
     public List<Label> getIntellgenceFiling() {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         List<Label> labelInsight = labelService.getLabel(userId, null, true);
         return labelInsight;
     }
@@ -49,7 +51,8 @@ public class LabelController {
      */
     @RequestMapping("getdefined")
     public List<Label> getWithoutIntellgenceFiling() {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         List<Label> labelInsight = labelService.getLabel(userId, null, false);
         return labelInsight;
     }
@@ -61,7 +64,8 @@ public class LabelController {
      */
     @RequestMapping("getdocuinsight")
     public List<Label> getDocuFiling() {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         List<Label> labels = labelService.getLabelByCategory(userId, FileType.DOCUMENT.getValue(), true);
         return labels;
     }
@@ -73,7 +77,8 @@ public class LabelController {
      */
     @RequestMapping("getimageinsight")
     public List<Label> getImageFiling() {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         List<Label> labels = labelService.getLabelByCategory(userId, FileType.IMAGE.getValue(), true);
         return labels;
     }
@@ -85,7 +90,8 @@ public class LabelController {
      */
     @RequestMapping("getvideoinsight")
     public List<Label> getVideoFiling() {
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         List<Label> labels = labelService.getLabelByCategory(userId, FileType.VIDEO.getValue(), true);
         return labels;
     }
@@ -93,7 +99,8 @@ public class LabelController {
     @RequestMapping(value = "createdefined", method = RequestMethod.POST)
     public Map<String, Object> createDefined(@RequestParam("name") String name, @RequestParam("ids") Integer[] ids, @RequestParam("category") Integer[] categories) {
         Map<String, Object> map = new HashMap<>();
-        Integer userId = 1;
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
         Integer id = labelService.addLabelIfNotExist(userId, name, false);
         for (int i = 0; i < ids.length; i++) {
             bindLabelFileService.addBind(id, ids[i], categories[i]);
