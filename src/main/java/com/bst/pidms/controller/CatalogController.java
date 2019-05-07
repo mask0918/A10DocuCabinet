@@ -41,14 +41,14 @@ public class CatalogController {
     /**
      * 遍历目录树
      *
-     * @param cid
      * @return
      */
     @RequestMapping(value = "catalogtree", method = RequestMethod.GET)
-    public Catalog recursive(Integer cid) {
-        cid = 1;
-        Catalog catalog = recursiveTree(cid);
-        return catalog;
+    public Catalog recursive() {
+        User user = SessionUtil.getInstance().getUser();
+        if (user == null) return null;
+        Integer cid = catalogService.getRootId(user.getId());
+        return recursiveTree(cid);
     }
 
     public Catalog recursiveTree(Integer cid) {

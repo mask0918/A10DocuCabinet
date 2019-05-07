@@ -1,13 +1,14 @@
 package com.bst.pidms.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.bst.pidms.entity.OwnFile;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 /**
  * @Author: BST
@@ -53,5 +54,25 @@ public class MapUtils {
         System.out.println(date.getTime());
     }
 
+    public static Map<String, List<OwnFile>> sortMapByKey(Map<String, List<OwnFile>> oriMap, final boolean isRise) {
+        if (oriMap == null || oriMap.isEmpty()) {
+            return null;
+        }
+//        Map<String, List<OwnFile>> sortMap = new TreeMap<>(new Comparator<String>() {
+////            @Override
+////            public int compare(String o1, String o2) {
+////                if (isRise) {
+////                    // 升序排序
+////                    return o1.compareTo(o2);
+////                } else {
+////                    // 降序排序
+////                    return o2.compareTo(o1);
+////                }
+////            }
+////        });
+        Map<String, List<OwnFile>> sortMap = new TreeMap<>((String o1, String o2) -> (o2.compareTo(o1)));
+        sortMap.putAll(oriMap);
+        return sortMap;
+    }
 
 }

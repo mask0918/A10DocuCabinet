@@ -97,11 +97,22 @@ public class OwnFile implements Serializable {
         Date date = new Date(this.uploadTime);
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        return String.format("%d年%02d月", cal.get(Calendar.YEAR), cal.get(Calendar.MONTH));
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        return String.format("%d年%02d月", year, month);
     }
 
     public OwnFile() {
         super();
+        this.keyword = "";
+        this.tag = "";
+        this.info = "";
+        this.collection = 0;
+        this.attention = 0;
+        this.downloads = 0;
+        this.views = 0;
+        this.scale = 0;
+        this.recycle = 0;
     }
 
     public Integer getId() {

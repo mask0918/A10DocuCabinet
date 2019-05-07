@@ -109,6 +109,19 @@ public class LabelController {
         return map;
     }
 
+    @RequestMapping(value = "createdefinedapp", method = RequestMethod.POST)
+    public Map<String, Object> createDefinedApp(@RequestParam("name") String name, @RequestParam("ids") List<String> ids, @RequestParam("category") List<String> categories) {
+        Map<String, Object> map = new HashMap<>();
+        Integer userId = SessionUtil.getInstance().getIdNumber();
+        if (userId == -1) return null;
+        Integer id = labelService.addLabelIfNotExist(userId, name, false);
+        for (int i = 0; i < ids.size(); i++) {
+            bindLabelFileService.addBind(id, Integer.parseInt(ids.get(i)), Integer.parseInt(categories.get(i)));
+        }
+        map.put("success", true);
+        return map;
+    }
+
     @RequestMapping(value = "movedefined", method = RequestMethod.POST)
     public Map<String, Object> moveDefined(@RequestParam("id") Integer id, @RequestParam("ids") Integer[] ids, @RequestParam("category") Integer[] categories) {
         Map<String, Object> map = new HashMap<>();

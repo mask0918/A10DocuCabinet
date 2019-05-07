@@ -7,6 +7,7 @@ import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.esmapper.EsCommentMapper;
 import com.bst.pidms.service.*;
 import com.bst.pidms.enums.opEnum;
+import com.bst.pidms.utils.MapUtils;
 import com.bst.pidms.utils.RedisUtils;
 import com.bst.pidms.utils.SessionUtil;
 import com.google.common.base.Joiner;
@@ -52,7 +53,7 @@ public class FileController {
     // 上传文件
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @Transactional
-    public Map<String, Boolean> aaa(@RequestParam("filelocation") Integer catalogId, @RequestParam("uploadfile") MultipartFile file, @RequestParam("tag") String tags, HttpSession session) throws Exception {
+    public Map<String, Boolean> aaa(@RequestParam("filelocation") Integer catalogId, @RequestParam("uploadfile") MultipartFile file, @RequestParam("tag") String tags) throws Exception {
 
         Map<String, Boolean> map = new HashMap<>();
 
@@ -84,10 +85,10 @@ public class FileController {
         // 设置目录id
         ownFile.setCatalogId(catalogId);
         // 设置用户id
-        ownFile.setUserId(1);
+        ownFile.setUserId(user.getId());
         // 设置文件url
         String category = FileType.mFileTypes.get(suffix) != null ? FileType.mFileTypes.get(suffix) : "OTHER";
-        ownFile.setUrl(user.toString() + "/" + category + "/" + fileName);
+        ownFile.setUrl(user.getUsername() + "/" + category + "/" + fileName);
         // 设置文件类型
         ownFile.setCategory(FileType.valueOf(category).getValue());
         if (tags != null)
@@ -105,7 +106,7 @@ public class FileController {
             case "IMAGE":
                 ownFileService.getImageResults(ownFile, toFile);
             case "AUDIO":
-                // TODO: 2019/4/18
+                ownFileService.getAudioResults(ownFile, toFile);
                 break;
             case "VIDEO":
                 ownFileService.getVideoResults(ownFile, toFile);
@@ -255,13 +256,24 @@ public class FileController {
      *
      * @return
      */
+//    @RequestMapping(value = "sortimage", method = RequestMethod.GET)
+//    public Map<String, List<OwnFile>> tiemstamp() {
+//        Integer userId = SessionUtil.getInstance().getIdNumber();
+//        if (userId == -1) return null;
+//        List<OwnFile> ownFiles = ownFileService.getCategory(FileType.IMAGE.getValue(), userId);
+//        TreeMap<String, List<OwnFile>> collect = ownFiles.stream().collect(Collectors.groupingBy(OwnFile::sortByMonth, TreeMap::new, Collectors.toList()));
+////        collect = ((TreeMap) collect).descendingMap();
+//        return collect.descendingMap();
+//    }
     @RequestMapping(value = "sortimage", method = RequestMethod.GET)
     public Map<String, List<OwnFile>> tiemstamp() {
         Integer userId = SessionUtil.getInstance().getIdNumber();
         if (userId == -1) return null;
         List<OwnFile> ownFiles = ownFileService.getCategory(FileType.IMAGE.getValue(), userId);
-        Map<String, List<OwnFile>> collect = ownFiles.stream().collect(Collectors.groupingBy(OwnFile::sortByMonth));
-        return collect;
+        Map<String, List<OwnFile>> collect = ownFiles.stream().collect(Collectors.groupingBy(OwnFile::sortByMonth, LinkedHashMap::new, Collectors.toList()));
+//        return collect;
+        return MapUtils.sortMapByKey(collect, false);
+//        return collect;
     }
 
     @RequestMapping(value = "deletefile", method = RequestMethod.POST)

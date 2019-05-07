@@ -6,7 +6,12 @@
     <meta name="description" content="www.divmb.com creativity">
     <meta name="author" content="www.divmb.com">
     <link rel="shortcut icon" href="assets/images/favicon_1.ico">
-    <title>全响应式后台模板,整套交互页面 | DIV模板</title>
+    <title>洞见 · 平台管理端</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts-en.common.js"></script>
+
+    <!-- ION Slider -->
+    <link href="assets/plugins/ion-rangeslider/ion.rangeSlider.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/ion-rangeslider/ion.rangeSlider.skinFlat.css" rel="stylesheet" type="text/css"/>
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="assets/plugins/morris/morris.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -15,10 +20,6 @@
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
     <link href="assets/css/pages.css" rel="stylesheet" type="text/css"/>
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
     <script src="assets/js/modernizr.min.js"></script>
 </head>
 <body class="fixed-left">
@@ -28,8 +29,9 @@
     <div class="topbar">
         <!-- LOGO -->
         <div class="topbar-left">
-            <div class="text-center"><a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Ub<i
-                    class="md md-album"></i>ld</span></a></div>
+            <div class="text-center">
+                <a href="index.html" class="logo"><img src="assets/images/logo_w.png" style="width: 50%;margin: 10px;"></a>
+            </div>
         </div>
         <!-- Button mobile view to collapse sidebar menu -->
         <div class="navbar navbar-default" role="navigation">
@@ -171,45 +173,40 @@
             <div id="sidebar-menu">
                 <ul>
                     <li class="text-muted menu-title">Welcome!</li>
-                    <li class="has_sub"><a href="#" class="waves-effect active"><i class="ti-home"></i>
+                    <li><a href="login" class="waves-effect active"><i class="ti-home"></i>
                         <span> 首页 </span>
                     </a>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-paint-bucket"></i>
+                    <li class="has_sub"><a href="#" class="waves-effect  "><i class=" ti-list"></i>
                         <span> RBAC管理 </span> <img src="assets/images/下拉.png" width="16px"
                                                    style="position:absolute;right:25px;padding-top:3px;"></a>
                         <ul class="list-unstyled">
-                            <li><a href="permissionmanage">权限管理</a></li>
-                            <li><a href="rolemanage">角色管理</a></li>
-                            <li><a href="usermanage">用户管理</a></li>
+                            <li><a href="permissionmanage"><i class=" ti-lock"></i>权限管理</a></li>
+                            <li><a href="rolemanage"><i class="  ti-target"></i>角色管理</a></li>
+                            <li><a href="usermanage"><i class=" ti-user"></i>用户管理</a></li>
                         </ul>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-light-bulb"></i><span>
+                    <li class="has_sub"><a href="#" class="waves-effect"><i class=" ti-files"></i><span>
 										文档管理 </span> <img src="assets/images/下拉.png" width="16px"
                                                           style="position:absolute;right:25px;padding-top:3px;"></a>
                         <ul class="list-unstyled">
-                            <li><a href="components-grid.html">文档信息</a></li>
-                            <li><a href="components-widgets.html">标签管理</a></li>
-                            <li><a href="components-nestable-list.html">评论管理</a></li>
-                            <li><a href="components-range-sliders.html">历史记录</a></li>
+                            <li><a href="documanage"><i class=" ti-file"></i>文档信息</a></li>
+                            <li><a href="oplog"><i class=" ti-book"></i>操作记录</a></li>
                         </ul>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i
-                            class="ti-pencil-alt"></i><span> 消息通知 </span></a>
+                    <li><a href="contactmanage" class="waves-effect"><i class="ti-email"></i><span> 邮箱管理
+									</span></a>
                     </li>
-                    <li class="has_sub"><a href="contactmanage" class="waves-effect"><i class="ti-pencil-alt"></i><span> 邮箱管理 </span></a>
+                    <li><a href="taboo" class="waves-effect"><i class=" ti-panel"></i><span> 敏感词管理 </span></a>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-menu-alt"></i><span> 敏感词管理 </span></a>
+                    <li><a href="feedback" class="waves-effect"><i class=" ti-pencil-alt"></i><span> 意见反馈 </span></a>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i
-                            class="ti-location-pin"></i><span> 意见反馈 </span></a>
-                    </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-bar-chart"></i><span>
+                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-settings"></i><span>
 										系统运维 </span><img src="assets/images/下拉.png" width="16px"
                                                          style="position:absolute;right:25px;padding-top:3px;"></i></a>
                         <ul class="list-unstyled">
-                            <li><a href="chart-flot.html"><i class="ti-bar-chart"></i>系统日志</a></li>
-                            <li><a href="chart-morris.html"><i class="ti-bar-chart"></i>系统维护</a></li>
+                            <li><a href="systemlog"><i class=" ti-clipboard"></i>系统日志</a></li>
+                            <li><a href="#"><i class=" ti-server"></i>系统维护</a></li>
                         </ul>
                     </li>
 
@@ -227,272 +224,98 @@
         <!-- Start content -->
         <div class="content">
             <div class="container">
-                <!-- Page-Title -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4 class="page-title">Dashboard</h4>
-                        <p class="text-muted page-title-alt">Welcome to www.divmb.com !</p>
+
+                <div class="card-box widget-inline">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget-inline-box text-center">
+                                <h3><i class="text-primary md md-data-usage"></i> <b>8654</b></h3>
+                                <h4 class="text-muted">服务器余量</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget-inline-box text-center">
+                                <h3><i class="text-custom md md-attach-money"></i> <b>21550</b></h3>
+                                <h4 class="text-muted">昨日收益</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget-inline-box text-center">
+                                <h3><i class="text-pink md md-account-child"></i> <b>8916</b></h3>
+                                <h4 class="text-muted">系统用户数</h4>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget-inline-box text-center b-0">
+                                <h3><i class="text-purple md md-visibility"></i> <b>12589</b></h3>
+                                <h4 class="text-muted">访问统计</h4>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="widget-bg-color-icon card-box fadeInDown animated">
-                            <div class="bg-icon bg-icon-info pull-left"><i class="md md-attach-money text-info"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">31,570</b></h3>
-                                <p class="text-muted">Total Revenue</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="widget-bg-color-icon card-box">
-                            <div class="bg-icon bg-icon-pink pull-left"><i
-                                    class="md md-add-shopping-cart text-pink"></i></div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">280</b></h3>
-                                <p class="text-muted">Today's Sales</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="widget-bg-color-icon card-box">
-                            <div class="bg-icon bg-icon-purple pull-left"><i class="md md-equalizer text-purple"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">0.16</b>%</h3>
-                                <p class="text-muted">Conversion</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="widget-bg-color-icon card-box">
-                            <div class="bg-icon bg-icon-success pull-left"><i
-                                    class="md md-remove-red-eye text-success"></i></div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">64,570</b></h3>
-                                <p class="text-muted">Today's Visits</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card-box">
                             <h4 class="text-dark header-title m-t-0 m-b-30">Total Revenue</h4>
-                            <div class="widget-chart text-center">
-                                <input class="knob" data-width="150" data-height="150" data-linecap=round
-                                       data-fgColor="#fb6d9d" value="80"
-                                       data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15"/>
-                                <h5 class="text-muted m-t-20">Total sales made today</h5>
-                                <h2 class="font-600">$75</h2>
-                                <ul class="list-inline m-t-15">
-                                    <li>
-                                        <h5 class="text-muted m-t-20">Target</h5>
-                                        <h4 class="m-b-0">$1000</h4>
-                                    </li>
-                                    <li>
-                                        <h5 class="text-muted m-t-20">Last week</h5>
-                                        <h4 class="m-b-0">$523</h4>
-                                    </li>
-                                    <li>
-                                        <h5 class="text-muted m-t-20">Last Month</h5>
-                                        <h4 class="m-b-0">$965</h4>
-                                    </li>
-                                </ul>
+                            <div style="height: 520px;">
+                                <div style="display: flex;height: 50px;">
+                                    <div style="font-size: 16px;width: 30%;margin-left: 20px;margin-left: 20px;">CPU&nbsp;&nbsp;&nbsp;</div>
+                                    <div style="background-color: #eb9f9f; height:50%;width: 90px;border-radius: 8px 0px 0px 8px;"></div>
+                                    <div style="background-color: #d0d0d0; height:50%;width: 110px;border-radius: 0px 8px 8px 0px;"></div>
+                                    <div style="margin-left: 15px;font-size: 18px;"><b>45%</b></div>
+                                </div>
+                                <div style="display: flex;height: 50px;">
+                                    <div style="font-size: 16px;width: 30%;margin-left: 20px;">内存&nbsp;&nbsp;&nbsp;
+                                    </div>
+                                    <div style="background-color: #f1bbba; height:50%;width: 128px;border-radius: 8px 0px 0px 8px;"></div>
+                                    <div style="background-color: #d0d0d0; height:50%;width: 72px;border-radius: 0px 8px 8px 0px;"></div>
+                                    <div style="margin-left: 15px;font-size: 18px;"><b>64%</b></div>
+                                </div>
+                                <div style="display: flex;height: 50px;">
+                                    <div style="font-size: 16px;width: 30%;margin-left: 20px;">磁盘使用率&nbsp;&nbsp;&nbsp;
+                                    </div>
+                                    <div style="background-color: #f8ecc9; height:50%;width: 28px;border-radius: 8px 0px 0px 8px;"></div>
+                                    <div style="background-color: #d0d0d0; height:50%;width: 172px;border-radius: 0px 8px 8px 0px;"></div>
+                                    <div style="margin-left: 15px;font-size: 18px;"><b>14%</b></div>
+                                </div>
+                                <div style="display: flex;height: 50px;">
+                                    <div style="font-size: 16px;width: 30%;margin-left: 20px;">Redis命中率&nbsp;&nbsp;&nbsp;</div>
+                                    <div style="background-color: #a79c8e; height:50%;width: 192px;border-radius: 8px 0px 0px 8px;"></div>
+                                    <div style="background-color: #d0d0d0; height:50%;width: 8px;border-radius: 0px 8px 8px 0px;"></div>
+                                    <div style="margin-left: 15px;font-size: 18px;"><b>96%</b></div>
+                                </div>
+                                <div id="chart1" style="width: 400px; height: 350px;margin-bottom: 20px;"></div>
+
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-8">
                         <div class="card-box">
                             <h4 class="text-dark header-title m-t-0">Sales Analytics</h4>
-                            <div class="text-center">
-                                <ul class="list-inline chart-detail-list">
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #5fbeaa;"></i>Desktops</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #5d9cec;"></i>Tablets</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #dcdcdc;"></i>Mobiles</h5>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div id="morris-bar-stacked" style="height: 303px;"></div>
+                            <div id="chart2" style="width: 950px; height: 540px;padding-top: 20px;"></div>
                         </div>
                     </div>
                 </div>
-                <!-- end row -->
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card-box">
-                            <h4 class="text-dark header-title m-t-0">Total Sales</h4>
-                            <div class="text-center">
-                                <ul class="list-inline chart-detail-list">
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #5fbeaa;"></i>Desktops</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #5d9cec;"></i>Tablets</h5>
-                                    </li>
-                                    <li>
-                                        <h5><i class="fa fa-circle m-r-5" style="color: #ebeff2;"></i>Mobiles</h5>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div id="morris-area-with-dotted" style="height: 300px;"></div>
-                        </div>
-                    </div>
-                    <!-- col -->
-                    <div class="col-lg-6">
-                        <div class="card-box"><a href="#"
-                                                 class="pull-right btn btn-default btn-sm waves-effect waves-light">View
-                            All</a>
-                            <h4 class="text-dark header-title m-t-0">Recent Orders</h4>
-                            <p class="text-muted m-b-30 font-13"> Use the button classes on an element. </p>
-                            <div class="table-responsive">
-                                <table class="table table-actions-bar m-b-0">
-                                    <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Item Name</th>
-                                        <th>Up-Down</th>
-                                        <th style="min-width: 80px;">Manage</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><span data-plugin="peity-bar" data-colors="#5fbeaa,#5fbeaa" data-width="80"
-                                                  data-height="30">5,3,9,6,5,9,7,3,5,2</span></td>
-                                        <td><img src="assets/images/products/iphone.jpg"
-                                                 class="thumb-sm pull-left m-r-10" alt=""> Apple iPhone
-                                        </td>
-                                        <td><span class="text-custom">+$230</span></td>
-                                        <td><a href="#" class="table-action-btn"><i class="md md-edit"></i></a> <a
-                                                href="#" class="table-action-btn"><i
-                                                class="md md-close"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span data-plugin="peity-line" data-fill="#5fbeaa" data-stroke="#5fbeaa"
-                                                  data-width="80" data-height="30">0,-3,-6,-4,-5,-4,-7,-3,-5,-2</span>
-                                        </td>
-                                        <td><img src="assets/images/products/samsung.jpg"
-                                                 class="thumb-sm pull-left m-r-10" alt=""> Samsung Phone
-                                        </td>
-                                        <td><span class="text-danger">-$154</span></td>
-                                        <td><a href="#" class="table-action-btn"><i class="md md-edit"></i></a> <a
-                                                href="#" class="table-action-btn"><i
-                                                class="md md-close"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span data-plugin="peity-line" data-fill="#fff" data-stroke="#5fbeaa"
-                                                  data-width="80" data-height="30">5,3,9,6,5,9,7,3,5,2</span>
-                                        <td><img src="assets/images/products/imac.jpg" class="thumb-sm pull-left m-r-10"
-                                                 alt=""> Apple iPhone
-                                        </td>
-                                        <td><span class="text-custom">+$1850</span></td>
-                                        <td><a href="#" class="table-action-btn"><i class="md md-edit"></i></a> <a
-                                                href="#" class="table-action-btn"><i
-                                                class="md md-close"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span data-plugin="peity-pie" data-colors="#5fbeaa,#ebeff2" data-width="30"
-                                                  data-height="30">1/5</span></td>
-                                        <td><img src="assets/images/products/macbook.jpg"
-                                                 class="thumb-sm pull-left m-r-10" alt=""> Apple iPhone
-                                        </td>
-                                        <td><span class="text-danger">-$560</span></td>
-                                        <td><a href="#" class="table-action-btn"><i class="md md-edit"></i></a> <a
-                                                href="#" class="table-action-btn"><i
-                                                class="md md-close"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span data-plugin="peity-bar" data-colors="#5fbeaa,#ebeff2" data-width="80"
-                                                  data-height="30">5,3,9,6,5,9,7,3,5,2</span></td>
-                                        <td><img src="assets/images/products/lumia.jpg"
-                                                 class="thumb-sm pull-left m-r-10" alt=""> Lumia iPhone
-                                        </td>
-                                        <td><span class="text-custom">+$230</span></td>
-                                        <td><a href="#" class="table-action-btn"><i class="md md-edit"></i></a> <a
-                                                href="#" class="table-action-btn"><i
-                                                class="md md-close"></i></a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col -->
-                </div>
-                <!-- end row -->
+
             </div>
             <!-- container -->
         </div>
         <!-- content -->
-        <footer class="footer text-right"> 2016 &copy; www.divmb.com</footer>
+        <footer class="footer">
+            洞见个人文档智能管理系统 &copy; 2019/05
+        </footer>
     </div>
     <!-- ============================================================== -->
     <!-- End Right content here -->
     <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <div class="side-bar right-bar nicescroll">
-        <h4 class="text-center">Chat</h4>
-        <div class="contact-list nicescroll">
-            <ul class="list-group contacts-list">
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-1.jpg" alt=""></div>
-                    <span class="name">Chadengle</span> <i class="fa fa-circle online"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-2.jpg" alt=""></div>
-                    <span class="name">Tomaslau</span> <i class="fa fa-circle online"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-3.jpg" alt=""></div>
-                    <span class="name">Stillnotdavid</span> <i class="fa fa-circle online"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-4.jpg" alt=""></div>
-                    <span class="name">Kurafire</span> <i class="fa fa-circle online"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-5.jpg" alt=""></div>
-                    <span class="name">Shahedk</span> <i class="fa fa-circle away"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-6.jpg" alt=""></div>
-                    <span class="name">Adhamdannaway</span> <i class="fa fa-circle away"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-7.jpg" alt=""></div>
-                    <span class="name">Ok</span> <i class="fa fa-circle away"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-8.jpg" alt=""></div>
-                    <span class="name">Arashasghari</span> <i class="fa fa-circle offline"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-9.jpg" alt=""></div>
-                    <span class="name">Joshaustin</span> <i class="fa fa-circle offline"></i>
-                </a> <span class="clearfix"></span></li>
-                <li class="list-group-item"><a href="#">
-                    <div class="avatar"><img src="assets/images/users/avatar-10.jpg" alt=""></div>
-                    <span class="name">Sortino</span> <i class="fa fa-circle offline"></i>
-                </a> <span class="clearfix"></span></li>
-            </ul>
-        </div>
-    </div>
-    <!-- /Right-bar -->
+
 </div>
 <!-- END wrapper -->
-<script>
-    var resizefunc = [];
-</script>
 <!-- jQuery  -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -504,7 +327,6 @@
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/jquery.nicescroll.js"></script>
 <script src="assets/js/jquery.scrollTo.min.js"></script>
-<script src="assets/js/jQueryRotate.2.2.js"></script>
 <script src="assets/plugins/peity/jquery.peity.min.js"></script>
 <!-- jQuery  -->
 <script src="assets/plugins/waypoints/lib/jquery.waypoints.js"></script>
@@ -515,16 +337,102 @@
 <script src="assets/pages/jquery.dashboard.js"></script>
 <script src="assets/js/jquery.core.js"></script>
 <script src="assets/js/jquery.app.js"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('.counter').counterUp({
-            delay: 100,
-            time: 1200
-        });
-
-        $(".knob").knob();
-
-    });
+<script>
+    var chart2 = echarts.init(document.getElementById("chart2"));
+    var chart1 = echarts.init(document.getElementById("chart1"));
+    var xNames = [],
+        result = [];
+    for (var i = 0; i < 30; i++) {
+        xNames.push(i + 1);
+        result.push(Math.random() * 800 + 200)
+    }
+    var option1 = {
+        title: {
+            text: '文档类型分布情况',
+            top: 50,
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        color: ['#bababa', '#fa7762', '#42569c', '#aac0d4', '#f7d83c'],
+        series: [{
+            type: 'pie',
+            radius: '55%',
+            center: ['50%', '60%'],
+            data: [{
+                value: 335,
+                name: 'Image'
+            },
+                {
+                    value: 310,
+                    name: 'Document'
+                },
+                {
+                    value: 234,
+                    name: 'Audio'
+                },
+                {
+                    value: 135,
+                    name: 'Video'
+                },
+                {
+                    value: 1548,
+                    name: 'Ohter'
+                }
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }]
+    };
+    var option2 = {
+        grid: {
+            show: false
+        },
+        title: {
+            text: '近30天文档使用数',
+            left: 'center'
+        },
+        tooltip: {},
+        backgroundColor: 'white',
+        //barWidth: 30,
+        splitLine: {
+            show: false
+        },
+        xAxis: {
+            axisLine: {
+                show: true
+            },
+            data: xNames
+        },
+        yAxis: {
+            show: true
+        },
+        series: [{
+            name: '统计',
+            type: 'bar',
+            itemStyle: {
+                normal: {
+                    color: 'cornflowerblue',
+                    label: {
+                        show: false,
+                        position: 'top'
+                    }
+                }
+            },
+            //barGap: 20,
+            barMaxHeight: 40,
+            data: result
+        }]
+    }
+    chart1.setOption(option1)
+    chart2.setOption(option2)
 </script>
 </body>
 </html>

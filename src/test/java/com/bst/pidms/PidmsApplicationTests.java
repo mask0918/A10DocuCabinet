@@ -112,7 +112,6 @@ public class PidmsApplicationTests {
 
     }
 
-
     @Test
     public void addIndex() {
 //        elasticsearchTemplate.createIndex(Comment.class);
@@ -141,11 +140,6 @@ public class PidmsApplicationTests {
         }
     }
 
-    @Test
-    public void hhe() {
-        System.out.println(catalogService.getRootId(1));
-        System.out.println(catalogService.getRootId(3));
-    }
 }
 
 

@@ -42,4 +42,5 @@ public interface OwnFileMapper {
     int setCollectStatus(@Param("id") Integer id, @Param("collection") Integer collection);
 
     int setAttentionStatus(@Param("id") Integer id, @Param("attention") Integer attention);
+
 }

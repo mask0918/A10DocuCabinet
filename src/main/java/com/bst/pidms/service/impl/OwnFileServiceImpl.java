@@ -37,7 +37,7 @@ import java.util.*;
 public class OwnFileServiceImpl implements OwnFileService {
 
 
-    static final String host = "http://hwtya6.natappfree.cc/";
+    static final String host = "http://23snuj.natappfree.cc/";
 
     static final String qiniuUrl = "http://ppxlrdgsm.bkt.clouddn.com/";
 
@@ -277,4 +277,5 @@ public class OwnFileServiceImpl implements OwnFileService {
     public void getOtherResults(OwnFile ownFile, File file) {
         // TODO: 2019/4/20
     }
+
 }

@@ -70,7 +70,7 @@ public class SessionUtil {
         if (isMobile())
             getHttpSession().setMaxInactiveInterval(60 * 60);
         else
-            getHttpSession().setMaxInactiveInterval(20 * 60);
+            getHttpSession().setMaxInactiveInterval(30 * 60);
     }
 
     public void logout() {

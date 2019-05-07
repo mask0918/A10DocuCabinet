@@ -30,27 +30,7 @@ public class LoginController {
     @Autowired
     CatalogService catalogService;
 
-//    @PostMapping("validation")
-//    public Map<String, Object> validUser(@RequestParam("username") String name, @RequestParam("password") String pwd, HttpSession httpSession) {
-//        Map<String, Object> map = new HashMap<>();
-//        User userByName = userService.getUserByName(name);
-//        if (userByName == null) {
-//            map.put("success", false);
-//            map.put("errMsg", "用户不存在!");
-//            return map;
-//        }
-//        if (!userByName.getPassword().equals(MD5.md5(pwd))) {
-//            map.put("success", false);
-//            map.put("errMsg", "密码错误!");
-//            return map;
-//        } else map.put("success", true);
-//        httpSession.setAttribute("ss", userByName);
-//        System.out.println(httpSession.getId());
-//        System.out.println(httpSession.toString());
-//        return map;
-//    }
-
-    @PostMapping("validation")
+    @RequestMapping("validation")
     public Map<String, Object> validUser(@RequestParam("username") String name, @RequestParam("password") String pwd, HttpSession httpSession, HttpServletResponse response) {
         Map<String, Object> map = new HashMap<>();
         User userByName = userService.getUserByName(name);
@@ -72,14 +52,4 @@ public class LoginController {
         return map;
     }
 
-    @GetMapping("zz")
-    public Map<String, Object> zzz(HttpSession session) {
-        User zzz = (User) session.getAttribute("user");
-        System.out.println("李雅静" + zzz);
-        User user = SessionUtil.getInstance().getUser();
-        System.out.println("罗昌文" + user);
-        Map<String, Object> map = new HashMap<>();
-        map.put("userInfo", user);
-        return map;
-    }
 }

@@ -7,28 +7,23 @@
 
 <link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
-<title>敏感词管理</title>
+<title>洞见 · 敏感词管理</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts-en.common.js"></script>
 
 <!--Morris Chart CSS -->
 <link rel="stylesheet" href="assets/plugins/chartist/dist/chartist.min.css">
 
-<link href="assets/plugins/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/plugins/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
 <link href="assets/plugins/custombox/dist/custombox.min.css" rel="stylesheet">
-<link href="assets/plugins/switchery/dist/switchery.min.css" rel="stylesheet"/>
+<link href="assets/plugins/switchery/dist/switchery.min.css" rel="stylesheet" />
 
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/core.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/components.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/pages.css" rel="stylesheet" type="text/css"/>
-<link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 
-<!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-<![endif]-->
 
 <script src="assets/js/modernizr.min.js"></script>
 
@@ -45,8 +40,7 @@
         <!-- LOGO -->
         <div class="topbar-left">
             <div class="text-center">
-                <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Ub<i
-                        class="md md-album"></i>ld</span></a>
+                <a href="index.html" class="logo"><img src="assets/images/logo_w.png" style="width: 50%;margin: 10px;"></a>
             </div>
         </div>
 
@@ -69,8 +63,7 @@
 
                     <ul class="nav navbar-nav navbar-right pull-right">
                         <li class="dropdown hidden-xs">
-                            <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light"
-                               data-toggle="dropdown"
+                            <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown"
                                aria-expanded="true">
                                 <i class="icon-bell"></i> <span class="badge badge-xs badge-danger">3</span>
                             </a>
@@ -180,16 +173,14 @@
                             </ul>
                         </li>
                         <li class="hidden-xs">
-                            <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i
-                                    class="icon-size-fullscreen"></i></a>
+                            <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="icon-size-fullscreen"></i></a>
                         </li>
                         <li class="hidden-xs">
                             <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="icon-settings"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img
-                                    src="assets/images/users/avatar-1.jpg"
-                                    alt="user-img" class="img-circle"> </a>
+                            <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg"
+                                                                                                                        alt="user-img" class="img-circle"> </a>
                             <ul class="dropdown-menu">
                                 <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
                                 <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
@@ -214,47 +205,37 @@
             <div id="sidebar-menu">
                 <ul>
                     <li class="text-muted menu-title">Welcome!</li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-home"></i>
+                    <li><a href="login" class="waves-effect"><i class="ti-home"></i>
                         <span> 首页 </span>
                     </a>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect  active"><i class="ti-paint-bucket"></i>
-                        <span> RBAC管理 </span> <img src="assets/images/下拉.png" width="16px"
-                                                   style="position:absolute;right:25px;padding-top:3px;"></a>
+                    <li class="has_sub"><a href="#" class="waves-effect"><i class=" ti-list"></i>
+                        <span> RBAC管理 </span> <img src="assets/images/下拉.png" width="16px" style="position:absolute;right:25px;padding-top:3px;"></a>
                         <ul class="list-unstyled">
-                            <li><a href="permissionmanage" class="active">权限管理</a></li>
-                            <li><a href="rolemanage">角色管理</a></li>
-                            <li><a href="usermanage">用户管理</a></li>
+                            <li><a href="permissionmanage"><i class=" ti-lock"></i>权限管理</a></li>
+                            <li><a href="rolemanage"><i class="  ti-target"></i>角色管理</a></li>
+                            <li><a href="usermanage"><i class=" ti-user"></i>用户管理</a></li>
                         </ul>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-light-bulb"></i><span>
-										文档管理 </span> <img src="assets/images/下拉.png" width="16px"
-                                                          style="position:absolute;right:25px;padding-top:3px;"></a>
+                    <li class="has_sub"><a href="#" class="waves-effect"><i class=" ti-files"></i><span>
+										文档管理 </span> <img src="assets/images/下拉.png" width="16px" style="position:absolute;right:25px;padding-top:3px;"></a>
                         <ul class="list-unstyled">
-                            <li><a href="components-grid.html">文档信息</a></li>
-                            <li><a href="components-widgets.html">标签管理</a></li>
-                            <li><a href="components-nestable-list.html">评论管理</a></li>
-                            <li><a href="components-range-sliders.html">历史记录</a></li>
+                            <li><a href="documanage"><i class=" ti-file"></i>文档信息</a></li>
+                            <li><a href="oplog"><i class=" ti-book"></i>操作记录</a></li>
                         </ul>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i
-                            class="ti-pencil-alt"></i><span> 消息通知 </span></a>
-                    </li>
-                    <li class="has_sub"><a href="permissionmanage" class="waves-effect"><i
-                            class="ti-pencil-alt"></i><span> 邮箱管理
+                    <li><a href="contactmanage" class="waves-effect"><i class="ti-email"></i><span> 邮箱管理
 									</span></a>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-menu-alt"></i><span> 敏感词管理 </span></a>
+                    <li><a href="taboo" class="waves-effect active"><i class=" ti-panel"></i><span> 敏感词管理 </span></a>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i
-                            class="ti-location-pin"></i><span> 意见反馈 </span></a>
+                    <li><a href="feedback" class="waves-effect"><i class=" ti-pencil-alt"></i><span> 意见反馈 </span></a>
                     </li>
-                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-bar-chart"></i><span>
-										系统运维 </span><img src="assets/images/下拉.png" width="16px"
-                                                         style="position:absolute;right:25px;padding-top:3px;"></i></a>
+                    <li class="has_sub"><a href="#" class="waves-effect"><i class="ti-settings"></i><span>
+										系统运维 </span><img src="assets/images/下拉.png" width="16px" style="position:absolute;right:25px;padding-top:3px;"></i></a>
                         <ul class="list-unstyled">
-                            <li><a href="chart-flot.html"><i class="ti-bar-chart"></i>系统日志</a></li>
-                            <li><a href="chart-morris.html"><i class="ti-bar-chart"></i>系统维护</a></li>
+                            <li><a href="systemlog"><i class=" ti-clipboard"></i>系统日志</a></li>
+                            <li><a href="#"><i class=" ti-server"></i>系统维护</a></li>
                         </ul>
                     </li>
 
@@ -274,23 +255,6 @@
         <div class="content">
             <div class="container">
 
-                <!-- Page-Title -->
-                <!--<div class="row">-->
-                <!--<div class="col-sm-12">-->
-                <!--<h4 class="page-title">Bootstrap Tables</h4>-->
-                <!--<ol class="breadcrumb">-->
-                <!--<li>-->
-                <!--<a href="#">Ubold</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                <!--<a href="#">Tables</a>-->
-                <!--</li>-->
-                <!--<li class="active">-->
-                <!--Bootstrap Tables-->
-                <!--</li>-->
-                <!--</ol>-->
-                <!--</div>-->
-                <!--</div>-->
 
                 <!--Basic Toolbar-->
                 <!--===================================================-->
@@ -309,34 +273,84 @@
                                     zoom: 1;
                                 }
                             </style>
-                            <h4 class="m-t-0 header-title"><b>意见反馈</b></h4>
+                            <h4 class="m-t-0 header-title"><b>敏感词管理</b></h4>
                             <p class="text-muted font-13">
-                                Here are the valuable feedback from user feedback...
+                                Set the system's filtering sensitive words.
                             </p>
-                            <div class="switchery-demo"
-                                 style="line-height: 100%;background-color: #F5F5F5;width: 20%;height: 700px;float:left;width:39%;padding: 15px;">
+                            <div class="switchery-demo" style="line-height: 100%;background-color: #F5F5F5;width: 60%;height: 700px;float:left;padding: 15px;">
                                 <br> <span style="font-size: 20px;margin-left:10px;margin-top: 20px;">敏感词检测控制</span>
-                                <div style="margin: 5px;">
-                                    <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;"
-                                                                                   type="checkbox" checked
-                                                                                   data-plugin="switchery"
-                                                                                   data-color="#81c868"/><span
-                                        style="line-height:100% ;"> 敏感词管理</span></div>
-                                <div style="margin: 5px;line-height: 100%;"><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-                                        style="line-height:100%;"
-                                        type="checkbox" checked data-plugin="switchery" data-color="#81c868"/> <span
-                                        style="line-height:100%;">
-												严格检测</span></div>
-                                <div style="margin: 5px;line-height: 100%;"><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-                                        style="line-height:100%;"
-                                        type="checkbox" data-plugin="switchery" data-color="#81c868"/> <span
-                                        style="line-height:100%;">
-												一般检测</span></div>
-                                <div id="smil-animations" class="ct-chart ct-golden-section"></div>
+                                <div style="display: flex;">
+                                    <div style="width:40%;">
+                                        <div style="margin: 5px;line-height: 100%;">
+                                            <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox" checked
+                                                                                           data-plugin="switchery" data-color="#81c868" /><span style="line-height:100% ;"> 敏感词管理</span></div>
+                                        <div style="margin: 5px;line-height: 100%;"><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100%;"
+                                                                                                                              type="checkbox" checked data-plugin="switchery" data-color="#81c868" /> <span style="line-height:100%;">
+														严格检测</span></div>
+                                        <div style="margin: 5px;line-height: 100%;"><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100%;"
+                                                                                                                              type="checkbox" data-plugin="switchery" data-color="#81c868" /> <span style="line-height:100%;">
+														一般检测</span></div>
+                                    </div>
+                                    <div style="width:20%;">
+                                        <div style="margin: 5px;line-height: 100%;">
+                                            <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox" checked
+                                                                                           data-plugin="switchery" data-color="#1088ED" /><span style="line-height:100% ;"> 过滤SQL脚本</span>
+                                            <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox" checked
+                                                                                           data-plugin="switchery" data-color="#1088ED" /><span style="line-height:100% ;"> 过滤中文字符</span><br>
+                                            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox" checked data-plugin="switchery"
+                                                                                      data-color="#1088ED" /><span style="line-height:100% ;"> 过滤英文字符</span><br> <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox"  data-plugin="switchery"
+                                                                                 data-color="#1088ED" /><span style="line-height:100% ;"> 过滤汉字</span></div>
+                                    </div>
+                                    <div style="width:30%;">
+                                        <div style="margin: 5px;line-height: 100%;">
+                                            <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox" checked
+                                                                                           data-plugin="switchery" data-color="#1088ED" /><span style="line-height:100% ;"> 过滤script标签</span>
+                                            <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox"
+                                                                                           data-plugin="switchery" data-color="#1088ED" /><span style="line-height:100% ;"> 过滤html标签</span><br>
+                                            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox" checked data-plugin="switchery"
+                                                                                      data-color="#1088ED" /><span style="line-height:100% ;"> 过滤数字</span><br> <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="line-height:100% ;" type="checkbox" checked data-plugin="switchery"
+                                                                                 data-color="#1088ED" /><span style="line-height:100% ;"> 过滤字母</span></div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center">——————————————————————————————————————————————————————————————</div>
+                                <div style="text-align: center;padding-top: 20px;"><b>
+                                    <font size="5">近一个月敏感词过滤统计</font>
+                                </b></div>
+                                <div id="chart" style="width: 800px; height: 400px;padding: 20px;margin: 0 auto;"></div>
                             </div>
-                            <div style="background-color: #DDDDDD;width: 79%;height:700px;float:right;width:59%">
+                            <div style="background-color: #F5F5F5;width: 39%;height:700px;float:right;">
                                 <div style="padding: 10px;">
-                                    <textarea class="form-control" rows="33">dsadas</textarea>
+                                    <div id="chart1" style="text-align: center;margin: 0 auto;width: 450px; height: 400px;">
+                                    </div>
+                                    <div style="height: 20px;"></div>
+                                    <div class="form-group m-b-0">
+                                        <div style="margin: 8px;">
+                                            <label style="font-size: 18px;">默认敏感词库:</label><span style="font-size:16px">default.list</span>
+                                            <button type="button" class="btn btn-dropbox waves-effect waves-light" style="margin-left:42.4%">
+                                                查看
+                                            </button>
+                                            <button type="button" class="btn btn-facebook waves-effect waves-light">
+                                                清除
+                                            </button>
+                                        </div>
+                                        <input type="file" class="filestyle" data-buttonname="btn-primary">
+                                    </div>
+                                    <div style="height: 20px;"></div>
+                                    <div class="form-group m-b-0">
+                                        <div style="margin: 8px;">
+                                            <label style="font-size: 18px;">排除词库:</label><span style="font-size:16px">exclude.list</span>
+                                            <button type="button" class="btn btn-dropbox waves-effect waves-light" style="margin-left:48.3%">
+                                                查看
+                                            </button>
+                                            <button type="button" class="btn btn-facebook waves-effect waves-light">
+                                                清除
+                                            </button>
+                                        </div>
+                                        <input type="file" class="filestyle" data-buttonname="btn-primary">
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -348,7 +362,7 @@
             </div> <!-- content -->
 
             <footer class="footer">
-                docuCabinet &copy; 2019/03/30
+                洞见个人文档智能管理系统 &copy; 2019/05
             </footer>
         </div>
 
@@ -356,115 +370,6 @@
         <!-- End Right content here -->
         <!-- ============================================================== -->
 
-        <!-- Right Sidebar -->
-        <div class="side-bar right-bar nicescroll">
-            <h4 class="text-center">Chat</h4>
-            <div class="contact-list nicescroll">
-                <ul class="list-group contacts-list">
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-1.jpg" alt="">
-                            </div>
-                            <span class="name">Chadengle</span>
-                            <i class="fa fa-circle online"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-2.jpg" alt="">
-                            </div>
-                            <span class="name">Tomaslau</span>
-                            <i class="fa fa-circle online"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-3.jpg" alt="">
-                            </div>
-                            <span class="name">Stillnotdavid</span>
-                            <i class="fa fa-circle online"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-4.jpg" alt="">
-                            </div>
-                            <span class="name">Kurafire</span>
-                            <i class="fa fa-circle online"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-5.jpg" alt="">
-                            </div>
-                            <span class="name">Shahedk</span>
-                            <i class="fa fa-circle away"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-6.jpg" alt="">
-                            </div>
-                            <span class="name">Adhamdannaway</span>
-                            <i class="fa fa-circle away"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-7.jpg" alt="">
-                            </div>
-                            <span class="name">Ok</span>
-                            <i class="fa fa-circle away"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-8.jpg" alt="">
-                            </div>
-                            <span class="name">Arashasghari</span>
-                            <i class="fa fa-circle offline"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-9.jpg" alt="">
-                            </div>
-                            <span class="name">Joshaustin</span>
-                            <i class="fa fa-circle offline"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-10.jpg" alt="">
-                            </div>
-                            <span class="name">Sortino</span>
-                            <i class="fa fa-circle offline"></i>
-                        </a>
-                        <span class="clearfix"></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /Right-bar -->
 
 
     </div>
@@ -486,6 +391,7 @@
     <script src="assets/js/jquery.nicescroll.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
     <script src="assets/plugins/switchery/dist/switchery.min.js"></script>
+    <script src="assets/plugins/bootstrap-filestyle/src/bootstrap-filestyle.min.js" type="text/javascript"></script>
 
     <script src="assets/js/jquery.core.js"></script>
     <script src="assets/js/jquery.app.js"></script>
@@ -493,6 +399,87 @@
     <!--Morris Chart-->
     <script src="assets/plugins/chartist/dist/chartist.min.js"></script>
     <script src="assets/pages/jquery.chartist.init.js"></script>
-
+    <script>
+        var chart = echarts.init(document.getElementById("chart"))
+        var xNames = [],
+            result = []
+        for (let i = 0; i < 30; i++) {
+            xNames.push(i)
+            result.push(Math.random() * 200)
+        }
+        var option1 = {
+            xAxis: {
+                type: 'category',
+                data: xNames
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: result,
+                type: 'line'
+            }],
+            grid: {
+                x: 30,
+                y: 5
+            }
+        };
+        chart.setOption(option1)
+    </script>
+    <script>
+        var chart1 = echarts.init(document.getElementById("chart1"))
+        var xNames = [],
+            result = []
+        for (let i = 0; i < 30; i++) {
+            xNames.push(i + 1)
+            result.push(Math.random() * 800 + 200)
+        }
+        var option1 = {
+            title: {
+                text: '敏感词过滤类型',
+                top: 20,
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            color: ['#bababa', '#fa7762', '#42569c', '#aac0d4', '#f7d83c'],
+            series: [{
+                type: 'pie',
+                radius: '55%',
+                center: ['50%', '60%'],
+                data: [{
+                    value: 2396,
+                    name: '国家安全'
+                },
+                    {
+                        value: 566,
+                        name: '广告性质'
+                    },
+                    {
+                        value: 34,
+                        name: '歧视'
+                    },
+                    {
+                        value: 1350,
+                        name: '色情暴力'
+                    },
+                    {
+                        value: 4548,
+                        name: '其他非法内容'
+                    }
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }]
+        };
+        chart1.setOption(option1)
+    </script>
 </body>
 </html>

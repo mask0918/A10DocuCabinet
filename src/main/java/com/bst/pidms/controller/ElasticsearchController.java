@@ -10,6 +10,7 @@ import com.bst.pidms.enums.FileType;
 import com.bst.pidms.service.OwnFileService;
 import com.bst.pidms.utils.SessionUtil;
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -44,6 +45,7 @@ import static java.util.stream.Collectors.toList;
  * @Date: 2019/4/19 19:12
  */
 @RestController
+@Slf4j
 public class ElasticsearchController {
     @Autowired
     ElasticsearchTemplate elasticsearchTemplate;
@@ -57,8 +59,9 @@ public class ElasticsearchController {
     @Autowired
     OwnFileService ownFileService;
 
-    @RequestMapping(value = "search", method = RequestMethod.POST)
+    @RequestMapping(value = "search"/* , method = RequestMethod.POST */)
     public Map<String, Object> search(@RequestParam("way") Integer id, @RequestParam("text") String content) {
+        log.info("way:{},text:{}", id, content);
         Map<String, Object> map = new HashMap<>();
         List<OwnFile> list = null;
         switch (id) {
@@ -370,8 +373,8 @@ public class ElasticsearchController {
                                 .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
                         , new HighlightBuilder.Field("name")
                                 .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
-                        , new HighlightBuilder.Field("info")
-                                .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
+//                        , new HighlightBuilder.Field("info")
+//                                .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
                 ).build();
 
         Page<OwnFile> ownFiles = elasticsearchTemplate.queryForPage(queryBuilder, OwnFile.class, new SearchResultMapper() {
@@ -397,11 +400,11 @@ public class ElasticsearchController {
                     } else {
                         tag = searchHit.getHighlightFields().get("tag").getFragments()[0].toString();
                     }
-                    if (searchHit.getHighlightFields().get("info") == null) {
-                        info = searchHit.getSourceAsMap().get("info").toString();
-                    } else {
-                        info = searchHit.getHighlightFields().get("info").getFragments()[0].toString();
-                    }
+//                    if (searchHit.getHighlightFields().get("info") == null) {
+//                        info = searchHit.getSourceAsMap().get("info").toString();
+//                    } else {
+//                        info = searchHit.getHighlightFields().get("info").getFragments()[0].toString();
+//                    }
                     if (searchHit.getHighlightFields().get("name") == null) {
                         name = searchHit.getSourceAsMap().get("name").toString();
                     } else {
@@ -424,8 +427,8 @@ public class ElasticsearchController {
                     entity.setCollection(Byte.valueOf(searchHit.getSourceAsMap().get("collection").toString()));
                     entity.setDownloads(Integer.parseInt(searchHit.getSourceAsMap().get("downloads").toString()));
                     entity.setRecycle(Byte.valueOf(searchHit.getSourceAsMap().get("recycle").toString()));
+                    entity.setInfo(searchHit.getSourceAsMap().get("info").toString());
 
-                    entity.setInfo(info);
                     entity.setName(name);
                     entity.setKeyword(keyword);
                     entity.setTag(tag);

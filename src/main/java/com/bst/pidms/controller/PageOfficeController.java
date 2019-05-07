@@ -5,11 +5,13 @@ import com.bst.pidms.entity.User;
 import com.bst.pidms.enums.opEnum;
 import com.bst.pidms.service.HistoryService;
 import com.bst.pidms.service.OwnFileService;
+import com.bst.pidms.service.UserService;
 import com.bst.pidms.utils.SessionUtil;
 import com.zhuozhengsoft.pageoffice.FileSaver;
 import com.zhuozhengsoft.pageoffice.OpenModeType;
 import com.zhuozhengsoft.pageoffice.PageOfficeCtrl;
 import com.zhuozhengsoft.pageoffice.poserver.Server;
+import org.apache.commons.io.FileUtils;
 import org.jodconverter.DocumentConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -38,6 +40,9 @@ public class PageOfficeController {
     OwnFileService ownFileService;
 
     @Autowired
+    UserService userService;
+
+    @Autowired
     HistoryService historyService;
 
     @Bean
@@ -49,7 +54,9 @@ public class PageOfficeController {
         srb.addUrlMappings("/poserver.zz");
         srb.addUrlMappings("/assets/js/poserver.zz");
         srb.addUrlMappings("/posetup.exe");
-//        srb.addUrlMappings("/pageoffice.js");
+        srb.addUrlMappings("/assets/js/posetup.exe");
+        srb.addUrlMappings("/pageoffice.js");
+        srb.addUrlMappings("/assets/js/pageoffice.js");
         srb.addUrlMappings("/jquery.min.js");
         srb.addUrlMappings("/pobstyle.css");
         srb.addUrlMappings("/sealsetup.exe");
@@ -72,8 +79,12 @@ public class PageOfficeController {
     @ResponseBody
     public ModelAndView showWord(@PathVariable("id") Integer id, HttpServletRequest request, Map<String, Object> map) {
         User user = SessionUtil.getInstance().getUser();
-        if (user == null) return null;
-        String fileName = ownFileService.getFileById(id).getName();
+        if (user == null) System.out.println("没有用户");
+        else System.out.println("有用户");
+        OwnFile fileById = ownFileService.getFileById(id);
+        Integer userId = fileById.getUserId();
+        String fileName = fileById.getName();
+        String username = userService.getUserById(userId).getUsername();
         //--- PageOffice的调用代码 开始 -----
         PageOfficeCtrl poCtrl = new PageOfficeCtrl(request);
         poCtrl.setServerPage(request.getContextPath() + "/poserver.zz");//设置授权程序servlet
@@ -82,17 +93,14 @@ public class PageOfficeController {
         poCtrl.addCustomToolButton("全屏/还原", "IsFullScreen()", 4);
         poCtrl.addCustomToolButton("关闭", "CloseFile()", 21);
         poCtrl.setSaveFilePage("/save/" + id);//设置保存的action
-
         String substring = fileName.substring(fileName.lastIndexOf(".") + 1);
         OpenModeType openModeType = null;
-
         if (substring.equals("doc") || substring.equals("docx")) openModeType = OpenModeType.docAdmin;
         if (substring.equals("xls") || substring.equals("xlsx")) openModeType = OpenModeType.xlsNormalEdit;
         if (substring.equals("ppt") || substring.equals("pptx")) openModeType = OpenModeType.pptNormalEdit;
 
-        System.out.println(openModeType.toString());
-        poCtrl.webOpen("D:\\InsightPIDMS\\" + user.getUsername() + "\\DOCUMENT\\" + fileName, openModeType, "洞见");
-        poCtrl.setCaption("Insight!!!!!!!!!!!冲冲");
+        poCtrl.webOpen("D:\\InsightPIDMS\\" + username + "\\DOCUMENT\\" + fileName, openModeType, "洞见");
+        poCtrl.setCaption("洞见个人文档智能管理系统");
         map.put("pageoffice", poCtrl.getHtmlCode("PageOfficeCtrl1"));
         //--- PageOffice的调用代码 结束 -----
         ModelAndView mv = new ModelAndView("onlineedit");

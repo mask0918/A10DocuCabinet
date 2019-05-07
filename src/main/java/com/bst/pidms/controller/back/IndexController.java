@@ -7,6 +7,7 @@ import com.bst.pidms.service.impl.OwnFileServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
@@ -36,7 +37,7 @@ public class IndexController {
     }
 
     //    登录流程
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, Map<String, Object> map, HttpSession httpSession) {
         if ("admin".equals(username) && "123456".equals(password)) {
             httpSession.setAttribute("loginUser", username);
@@ -46,6 +47,11 @@ public class IndexController {
             map.put("msg", "用户名密码错误!");
             return "welcome";
         }
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String getIndex() {
+        return "index";
     }
 
     @RequestMapping(value = "oplog")
