@@ -7,36 +7,38 @@
             <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
             <arg column="insight" javaType="java.lang.Boolean" jdbcType="BIT"/>
+            <arg column="pid" javaType="java.lang.Integer" jdbcType="INTEGER"/>
         </constructor>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_label
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from tb_label
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.bst.pidms.entity.Label" keyProperty="id">
-    insert into tb_label (id, user_id, name, 
-      insight)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{insight,jdbcType=BIT})
-  </insert>
+        insert into tb_label (id, user_id, name,
+        insight,pid)
+        values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
+        #{insight,jdbcType=BIT},#{pid,jdbcType=INTEGER})
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.bst.pidms.entity.Label">
-    update tb_label
-    set user_id = #{userId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      insight = #{insight,jdbcType=BIT}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update tb_label
+        set user_id = #{userId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        insight = #{insight,jdbcType=BIT},
+        pid=#{pid,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, user_id, name, insight
-    from tb_label
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, user_id, name, insight,pid
+        from tb_label
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, user_id, name, insight
-    from tb_label
-  </select>
+        select id, user_id, name, insight,pid
+        from tb_label
+    </select>
     <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.bst.pidms.entity.Label">
-        select id,user_id,name,insight
+        select id,user_id,name,insight,pid
         from tb_label
         <where>
             <if test="userId!=null">
@@ -48,6 +50,22 @@
             <if test="insight!=null">
                 and insight=#{insight,jdbcType=BIT}
             </if>
+            <if test="pid!=null">
+                and pid=#{pid,jdbcType=INTEGER}
+            </if>
         </where>
+    </select>
+    <select id="selectTreeByCid" resultMap="BaseResultMap">
+        select *
+        from tb_label
+        where user_id = #{userId,jdbcType=INTEGER}
+        and id=#{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectTreeByPid" resultMap="BaseResultMap">
+        select *
+        from tb_label
+        where user_id = #{userId,jdbcType=INTEGER}
+        and insight=true
+        and pid=#{pid,jdbcType=INTEGER}
     </select>
 </mapper>

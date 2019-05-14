@@ -365,8 +365,12 @@ public class ElasticsearchController {
     }
 
     public List<OwnFile> allSearch(String content) {
+        BoolQueryBuilder bqb = QueryBuilders.boolQuery();
+        bqb.must(QueryBuilders.termQuery("userId", SessionUtil.getInstance().getIdNumber()));
+        bqb.must(QueryBuilders.multiMatchQuery(content, "keyword", "tag", "name", "info"));
+
         SearchQuery queryBuilder = new NativeSearchQueryBuilder()
-                .withQuery(QueryBuilders.multiMatchQuery(content, "keyword", "tag", "name", "info"))
+                .withQuery(bqb)
                 .withHighlightFields(new HighlightBuilder.Field("keyword")
                                 .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
                         , new HighlightBuilder.Field("tag")
@@ -376,6 +380,7 @@ public class ElasticsearchController {
 //                        , new HighlightBuilder.Field("info")
 //                                .preTags("<b><font style='color:#F73634'>").postTags("</font></b>")
                 ).build();
+
 
         Page<OwnFile> ownFiles = elasticsearchTemplate.queryForPage(queryBuilder, OwnFile.class, new SearchResultMapper() {
             @Override

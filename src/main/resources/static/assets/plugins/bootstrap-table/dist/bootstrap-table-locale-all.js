@@ -122,38 +122,38 @@
 
 })(jQuery);
 /**
-* Bootstrap Table German translation
-* Author: Paul Mohr - Sopamo<p.mohr@sopamo.de>
-*/
+ * Bootstrap Table German translation
+ * Author: Paul Mohr - Sopamo<p.mohr@sopamo.de>
+ */
 (function ($) {
-  'use strict';
+    'use strict';
 
-  $.fn.bootstrapTable.locales['de-DE'] = {
-    formatLoadingMessage: function () {
-      return 'Lade, bitte warten...';
-    },
-    formatRecordsPerPage: function (pageNumber) {
-      return pageNumber + ' Einträge pro Seite';
-    },
-    formatShowingRows: function (pageFrom, pageTo, totalRows) {
-      return 'Zeige ' + pageFrom + ' bis ' + pageTo + ' von ' + totalRows + ' Zeile' + ((totalRows > 1) ? "n" : "");
-    },
-    formatSearch: function () {
-      return 'Suchen';
-    },
-    formatNoMatches: function () {
-      return 'Keine passenden Ergebnisse gefunden';
-    },
-    formatRefresh: function () {
-      return 'Neu laden';
-    },
-    formatToggle: function () {
-      return 'Umschalten';
-    },
-    formatColumns: function () {
-      return 'Spalten';
-    }
-  };
+    $.fn.bootstrapTable.locales['de-DE'] = {
+        formatLoadingMessage: function () {
+            return 'Lade, bitte warten...';
+        },
+        formatRecordsPerPage: function (pageNumber) {
+            return pageNumber + ' Einträge pro Seite';
+        },
+        formatShowingRows: function (pageFrom, pageTo, totalRows) {
+            return 'Zeige ' + pageFrom + ' bis ' + pageTo + ' von ' + totalRows + ' Zeile' + ((totalRows > 1) ? "n" : "");
+        },
+        formatSearch: function () {
+            return 'Suchen';
+        },
+        formatNoMatches: function () {
+            return 'Keine passenden Ergebnisse gefunden';
+        },
+        formatRefresh: function () {
+            return 'Neu laden';
+        },
+        formatToggle: function () {
+            return 'Umschalten';
+        },
+        formatColumns: function () {
+            return 'Spalten';
+        }
+    };
 
     $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['de-DE']);
 
@@ -305,7 +305,7 @@
 
 /**
  * Bootstrap Table Spanish (México) translation (Obtenido de traducción de Argentina)
- * Author: Felix Vera (felix.vera@gmail.com) 
+ * Author: Felix Vera (felix.vera@gmail.com)
  * Copiado: Mauricio Vera (mauricioa.vera@gmail.com)
  */
 (function ($) {
@@ -381,9 +381,9 @@
  * Bootstrap Table Spanish (España) translation
  * Author: Antonio Pérez <anpegar@gmail.com>
  */
- (function ($) {
+(function ($) {
     'use strict';
-    
+
     $.fn.bootstrapTable.locales['es-SP'] = {
         formatLoadingMessage: function () {
             return 'Cargando, por favor espera...';
@@ -579,7 +579,7 @@
             return 'ページ当たり最大' + pageNumber + '件';
         },
         formatShowingRows: function (pageFrom, pageTo, totalRows) {
-            return '全' + totalRows + '件から、'+ pageFrom + 'から' + pageTo + '件目まで表示しています';
+            return '全' + totalRows + '件から、' + pageFrom + 'から' + pageTo + '件目まで表示しています';
         },
         formatSearch: function () {
             return '検索';
@@ -612,35 +612,35 @@
     'use strict';
 
     $.fn.bootstrapTable.locales['ka-GE'] = {
-        formatLoadingMessage: function() {
+        formatLoadingMessage: function () {
             return 'იტვირთება, გთხოვთ მოიცადოთ...';
         },
-        formatRecordsPerPage: function(pageNumber) {
+        formatRecordsPerPage: function (pageNumber) {
             return pageNumber + ' ჩანაწერი თითო გვერდზე';
         },
-        formatShowingRows: function(pageFrom, pageTo, totalRows) {
+        formatShowingRows: function (pageFrom, pageTo, totalRows) {
             return 'ნაჩვენებია ' + pageFrom + '-დან ' + pageTo + '-მდე ჩანაწერი ჯამური ' + totalRows + '-დან';
         },
-        formatSearch: function() {
+        formatSearch: function () {
             return 'ძებნა';
         },
-        formatNoMatches: function() {
+        formatNoMatches: function () {
             return 'მონაცემები არ არის';
         },
-        formatPaginationSwitch: function() {
+        formatPaginationSwitch: function () {
             return 'გვერდების გადამრთველის დამალვა/გამოჩენა';
         },
-        formatRefresh: function() {
+        formatRefresh: function () {
             return 'განახლება';
         },
-        formatToggle: function() {
+        formatToggle: function () {
             return 'ჩართვა/გამორთვა';
         },
-        formatColumns: function() {
+        formatColumns: function () {
             return 'სვეტები';
         }
     };
-    
+
     $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['ka-GE']);
 
 })(jQuery);
@@ -845,19 +845,19 @@
         formatShowingRows: function (pageFrom, pageTo, totalRows) {
             return 'Exibindo ' + pageFrom + ' até ' + pageTo + ' de ' + totalRows + ' linhas';
         },
-        formatSearch: function () { 
+        formatSearch: function () {
             return 'Pesquisar';
         },
-        formatRefresh: function () { 
+        formatRefresh: function () {
             return 'Recarregar';
         },
-        formatToggle: function () { 
+        formatToggle: function () {
             return 'Alternar';
         },
-        formatColumns: function () { 
+        formatColumns: function () {
             return 'Colunas';
         },
-        formatPaginationSwitch: function () { 
+        formatPaginationSwitch: function () {
             return 'Ocultar/Exibir paginação';
         },
         formatNoMatches: function () {
@@ -1134,9 +1134,9 @@
  * Bootstrap Table Ukrainian translation
  * Author: Vitaliy Timchenko <vitaliy.timchenko@gmail.com>
  */
- (function ($) {
+(function ($) {
     'use strict';
-    
+
     $.fn.bootstrapTable.locales['uk-UA'] = {
         formatLoadingMessage: function () {
             return 'Завантаження, будь ласка, зачекайте...';
@@ -1183,7 +1183,7 @@
             return pageNumber + ' ریکارڈز فی صفہ ';
         },
         formatShowingRows: function (pageFrom, pageTo, totalRows) {
-            return 'دیکھیں ' + pageFrom + ' سے ' + pageTo + ' کے ' +  totalRows + 'ریکارڈز';
+            return 'دیکھیں ' + pageFrom + ' سے ' + pageTo + ' کے ' + totalRows + 'ریکارڈز';
         },
         formatSearch: function () {
             return 'تلاش';

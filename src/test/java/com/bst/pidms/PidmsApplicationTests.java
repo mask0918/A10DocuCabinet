@@ -121,11 +121,11 @@ public class PidmsApplicationTests {
 //        List<Catalog> all = catalogService.getAll();
 //        esCatalogMapper.saveAll(all);
 //        elasticsearchTemplate.createIndex(OwnFile.class);
-        List<OwnFile> all1 = ownFileService.getAll();
-        esFileMapper.saveAll(all1);
-//        elasticsearchTemplate.createIndex(Label.class);
-//        List<Label> labels = labelMapper.selectAll();
-//        esLabelMapper.saveAll(labels);
+//        List<OwnFile> all1 = ownFileService.getAll();
+//        esFileMapper.saveAll(all1);
+        elasticsearchTemplate.createIndex(Label.class);
+        List<Label> labels = labelMapper.selectAll();
+        esLabelMapper.saveAll(labels);
     }
 
     @Test

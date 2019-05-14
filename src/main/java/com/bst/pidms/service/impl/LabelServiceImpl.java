@@ -35,15 +35,12 @@ public class LabelServiceImpl implements LabelService {
         temp.setUserId(userId);
         temp.setName(name);
         temp.setInsight(insight);
+        temp.setPid(0);
         List<Label> labels = labelMapper.selectByCondition(temp);
         if (labels.size() > 0) return labels.get(0).getId();
-        Label label = new Label();
-        label.setUserId(userId);
-        label.setName(name);
-        label.setInsight(insight);
-        labelMapper.insert(label);
-        esLabelMapper.save(label);
-        return label.getId();
+        labelMapper.insert(temp);
+        esLabelMapper.save(temp);
+        return temp.getId();
     }
 
     @Override
@@ -68,5 +65,15 @@ public class LabelServiceImpl implements LabelService {
             if (i > 0) labelList.add(label);
         }
         return labelList;
+    }
+
+    @Override
+    public List<Label> getLabelByCid(Integer userId, Integer cid) {
+        return labelMapper.selectTreeByCid(userId, cid);
+    }
+
+    @Override
+    public List<Label> getLabelByPid(Integer userId, Integer pid) {
+        return labelMapper.selectTreeByPid(userId, pid);
     }
 }

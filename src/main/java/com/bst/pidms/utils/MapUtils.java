@@ -43,15 +43,7 @@ public class MapUtils {
         String[] split = dd.split("°");
         String[] split1 = split[1].trim().split("'");
         String[] split2 = split1[1].trim().split("\"");
-        double v = Double.valueOf(split[0]) + Double.valueOf(split1[0]) / 60 + Double.valueOf(split2[0]) / 3600;
-        return v;
-    }
-
-    public static void main(String[] args) throws Exception {
-        String s = "星期六 十二月 01 14:41:09 +08:00 2018";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E dd hh:mm:ss +08:00 y");
-        Date date = simpleDateFormat.parse(s);
-        System.out.println(date.getTime());
+        return Double.valueOf(split[0]) + Double.valueOf(split1[0]) / 60 + Double.valueOf(split2[0]) / 3600;
     }
 
     public static Map<String, List<OwnFile>> sortMapByKey(Map<String, List<OwnFile>> oriMap, final boolean isRise) {

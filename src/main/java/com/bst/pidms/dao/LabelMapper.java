@@ -17,4 +17,8 @@ public interface LabelMapper {
     List<Label> selectAll();
 
     int updateByPrimaryKey(Label record);
+
+    List<Label> selectTreeByCid(@Param("userId") Integer userId, @Param("id") Integer id);
+
+    List<Label> selectTreeByPid(@Param("userId") Integer userId, @Param("pid") Integer id);
 }

@@ -116,6 +116,7 @@ public class GoogleVideo {
                 shotLabel.setSegments(segments);
                 shotLabels.add(shotLabel);
             }
+
             videoResults.setVideoLabels(videoLabels);
             videoResults.setShotLabels(shotLabels);
         }

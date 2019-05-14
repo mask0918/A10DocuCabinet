@@ -10,40 +10,40 @@
         </constructor>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_label_file
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from tb_label_file
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.bst.pidms.entity.BindLabelFile">
-    insert into tb_label_file (id, label_id, file_id, 
-      category)
-    values (#{id,jdbcType=INTEGER}, #{labelId,jdbcType=INTEGER}, #{fileId,jdbcType=INTEGER}, 
-      #{category,jdbcType=INTEGER})
-  </insert>
+        insert into tb_label_file (id, label_id, file_id,
+        category)
+        values (#{id,jdbcType=INTEGER}, #{labelId,jdbcType=INTEGER}, #{fileId,jdbcType=INTEGER},
+        #{category,jdbcType=INTEGER})
+    </insert>
     <update id="updateByPrimaryKey" parameterType="com.bst.pidms.entity.BindLabelFile">
-    update tb_label_file
-    set label_id = #{labelId,jdbcType=INTEGER},
-      file_id = #{fileId,jdbcType=INTEGER},
-      category = #{category,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update tb_label_file
+        set label_id = #{labelId,jdbcType=INTEGER},
+        file_id = #{fileId,jdbcType=INTEGER},
+        category = #{category,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, label_id, file_id, category
-    from tb_label_file
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+        select id, label_id, file_id, category
+        from tb_label_file
+        where id = #{id,jdbcType=INTEGER}
+    </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select id, label_id, file_id, category
-    from tb_label_file
-  </select>
+        select id, label_id, file_id, category
+        from tb_label_file
+    </select>
     <select id="selectCountByCategory" resultType="java.lang.Integer">
-select count(id)
-from tb_label_file
-where label_id = #{labelId,jdbcType=INTEGER}
-and category = #{category,jdbcType=INTEGER}
-</select>
+        select count(id)
+        from tb_label_file
+        where label_id = #{labelId,jdbcType=INTEGER}
+        and category = #{category,jdbcType=INTEGER}
+    </select>
     <select id="selectFileIdByLabelId" resultType="java.lang.Integer">
-select file_id
-from tb_label_file
-where label_id=#{labelId,jdbcType=INTEGER}
+        select file_id
+        from tb_label_file
+        where label_id=#{labelId,jdbcType=INTEGER}
     </select>
 </mapper>

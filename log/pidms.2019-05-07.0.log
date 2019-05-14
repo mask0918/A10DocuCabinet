@@ -1,0 +1,778 @@
+2019-05-07 12:42:06,988 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 9980 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 12:42:06,988 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 12:42:07,331 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 12:42:07,331 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 12:42:09,948 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:42:09,948 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:42:10,120 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 172ms. Found 4 repository interfaces.
+2019-05-07 12:42:10,136 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:42:10,136 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:42:10,183 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 12:42:10,183 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 12:42:10,183 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 12:42:10,183 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 12:42:10,183 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 32ms. Found 0 repository interfaces.
+2019-05-07 12:42:10,854 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$819482d4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:42:10,870 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$861479a9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:42:11,633 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 12:42:11,664 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:42:11,664 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 12:42:11,664 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 12:42:11,680 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 12:42:11,883 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 12:42:11,898 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 4567 ms
+2019-05-07 12:42:12,211 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 12:42:12,726 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 12:42:12,992 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 12:42:12,992 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 12:42:13,555 INFO (OfficeProcess.java:402)- Started process; pid = 70376
+2019-05-07 12:42:15,446 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 12:42:16,446 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 12:42:16,446 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 12:42:16,446 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 12:42:16,446 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 12:42:16,446 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 12:42:16,446 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 12:42:18,852 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 12:42:21,868 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 12:42:22,540 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 12:42:22,899 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 12:42:22,930 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 12:42:25,072 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:42:25,103 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 12:42:25,103 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 19.055 seconds (JVM running for 21.978)
+2019-05-07 12:42:47,605 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 12:42:47,606 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 12:42:47,660 INFO (FrameworkServlet.java:546)- Completed initialization in 48 ms
+2019-05-07 12:42:47,977 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 12:42:49,191 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 12:48:42,859 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 69540 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 12:48:42,864 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 12:48:43,117 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 12:48:43,117 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 12:48:45,475 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:48:45,477 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:48:45,683 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 198ms. Found 4 repository interfaces.
+2019-05-07 12:48:45,719 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:48:45,723 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:48:45,768 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 12:48:45,772 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 12:48:45,773 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 12:48:45,774 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 12:48:45,775 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 25ms. Found 0 repository interfaces.
+2019-05-07 12:48:47,311 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$3cae7b4c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:48:47,359 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$412e7221] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:48:48,406 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 12:48:48,519 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:48:48,532 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 12:48:48,532 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 12:48:48,542 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 12:48:48,802 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 12:48:48,803 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 5683 ms
+2019-05-07 12:48:49,109 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 12:48:49,565 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 12:48:49,916 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 12:48:49,917 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 12:48:50,402 INFO (OfficeProcess.java:402)- Started process; pid = 71352
+2019-05-07 12:48:52,254 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 12:48:53,692 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 12:48:53,693 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 12:48:53,695 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 12:48:53,696 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 12:48:53,696 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 12:48:53,697 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 12:48:57,412 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 12:49:01,256 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 12:49:01,974 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 12:49:02,149 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 12:49:02,199 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 12:49:04,251 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:49:04,278 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 12:49:04,281 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 22.921 seconds (JVM running for 26.987)
+2019-05-07 12:49:10,826 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 12:49:10,826 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 12:49:10,843 INFO (FrameworkServlet.java:546)- Completed initialization in 17 ms
+2019-05-07 12:49:10,939 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 12:49:11,216 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 12:49:14,960 ERROR (DirectJDKLog.java:175)- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: java.util.HashMap cannot be cast to java.util.NavigableMap] with root cause
+java.lang.ClassCastException: java.util.HashMap cannot be cast to java.util.NavigableMap
+	at com.bst.pidms.controller.FileController.tiemstamp(FileController.java:265)
+	at com.bst.pidms.controller.FileController$$FastClassBySpringCGLIB$$41c39e15.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at com.bst.pidms.controller.FileController$$EnhancerBySpringCGLIB$$41ff12d2.tiemstamp(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-07 12:52:02,167 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 66580 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 12:52:02,172 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 12:52:02,401 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 12:52:02,402 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 12:52:04,325 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:52:04,328 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:52:04,557 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 220ms. Found 4 repository interfaces.
+2019-05-07 12:52:04,581 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:52:04,584 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:52:04,659 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 12:52:04,660 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 12:52:04,662 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 12:52:04,663 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 12:52:04,663 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 40ms. Found 0 repository interfaces.
+2019-05-07 12:52:05,498 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$9fa8fcd7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:52:05,509 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a428f3ac] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:52:06,199 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 12:52:06,221 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:52:06,234 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 12:52:06,234 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 12:52:06,243 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 12:52:06,481 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 12:52:06,481 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 4079 ms
+2019-05-07 12:52:06,773 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 12:52:07,139 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 12:52:07,440 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 12:52:07,441 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 12:52:07,864 INFO (OfficeProcess.java:402)- Started process; pid = 71436
+2019-05-07 12:52:08,949 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 12:52:10,253 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 12:52:10,255 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 12:52:10,255 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 12:52:10,256 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 12:52:10,257 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 12:52:10,258 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 12:52:12,865 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 12:52:16,058 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 12:52:16,703 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 12:52:16,868 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 12:52:16,908 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 12:52:18,687 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:52:18,706 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 12:52:18,710 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 17.444 seconds (JVM running for 20.337)
+2019-05-07 12:52:27,413 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 12:52:27,413 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 12:52:27,431 INFO (FrameworkServlet.java:546)- Completed initialization in 18 ms
+2019-05-07 12:52:27,504 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 12:52:27,729 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 12:55:16,309 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 71120 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 12:55:16,313 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 12:55:16,471 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 12:55:16,471 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 12:55:18,722 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:55:18,728 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:55:18,982 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 246ms. Found 4 repository interfaces.
+2019-05-07 12:55:19,038 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:55:19,041 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:55:19,089 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 12:55:19,090 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 12:55:19,091 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 12:55:19,093 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 12:55:19,094 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 31ms. Found 0 repository interfaces.
+2019-05-07 12:55:20,073 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$6d4386d3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:55:20,096 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$71c37da8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:55:21,474 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 12:55:21,502 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:55:21,517 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 12:55:21,518 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 12:55:21,531 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 12:55:21,808 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 12:55:21,808 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 5336 ms
+2019-05-07 12:55:22,178 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 12:55:22,626 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 12:55:22,952 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 12:55:22,953 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 12:55:23,427 INFO (OfficeProcess.java:402)- Started process; pid = 69452
+2019-05-07 12:55:24,777 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 12:55:25,904 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 12:55:25,906 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 12:55:25,906 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 12:55:25,907 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 12:55:25,907 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 12:55:25,907 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 12:55:28,597 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 12:55:31,790 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 12:55:32,472 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 12:55:32,641 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 12:55:32,683 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 12:55:34,455 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:55:34,476 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 12:55:34,480 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 19.288 seconds (JVM running for 21.886)
+2019-05-07 12:56:48,885 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 12:56:48,885 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 12:56:48,900 INFO (FrameworkServlet.java:546)- Completed initialization in 15 ms
+2019-05-07 12:56:49,045 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 12:56:49,265 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 12:58:18,171 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 71080 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 12:58:18,176 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 12:58:18,354 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 12:58:18,355 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 12:58:20,128 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:58:20,130 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:58:20,432 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 271ms. Found 4 repository interfaces.
+2019-05-07 12:58:20,478 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 12:58:20,480 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 12:58:20,551 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 12:58:20,552 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 12:58:20,553 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 12:58:20,554 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 12:58:20,555 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 25ms. Found 0 repository interfaces.
+2019-05-07 12:58:22,038 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$cb4f4f3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:58:22,062 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cfcf460f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 12:58:22,970 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 12:58:22,994 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:58:23,008 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 12:58:23,008 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 12:58:23,016 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 12:58:23,296 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 12:58:23,297 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 4942 ms
+2019-05-07 12:58:23,585 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 12:58:24,037 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 12:58:24,372 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 12:58:24,373 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 12:58:24,900 INFO (OfficeProcess.java:402)- Started process; pid = 8660
+2019-05-07 12:58:26,138 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 12:58:27,200 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 12:58:27,201 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 12:58:27,202 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 12:58:27,202 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 12:58:27,203 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 12:58:27,203 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 12:58:29,776 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 12:58:32,899 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 12:58:33,532 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 12:58:33,706 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 12:58:33,765 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 12:58:35,664 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 12:58:35,686 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 12:58:35,690 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 18.553 seconds (JVM running for 21.259)
+2019-05-07 13:00:43,253 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 13:00:43,253 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 13:00:43,272 INFO (FrameworkServlet.java:546)- Completed initialization in 19 ms
+2019-05-07 13:00:43,408 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:00:43,635 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 13:12:36,157 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 25776 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 13:12:36,162 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 13:12:36,325 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 13:12:36,325 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 13:12:38,468 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:12:38,470 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:12:38,618 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 141ms. Found 4 repository interfaces.
+2019-05-07 13:12:38,651 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:12:38,655 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:12:38,700 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 13:12:38,701 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 13:12:38,702 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 13:12:38,703 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 13:12:38,705 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 28ms. Found 0 repository interfaces.
+2019-05-07 13:12:39,685 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$75029e3a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:12:39,799 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7982950f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:12:41,182 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 13:12:41,208 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:12:41,221 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 13:12:41,221 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 13:12:41,231 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 13:12:41,482 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 13:12:41,482 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 5157 ms
+2019-05-07 13:12:41,814 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 13:12:42,333 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 13:12:42,678 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 13:12:42,679 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 13:12:43,188 INFO (OfficeProcess.java:402)- Started process; pid = 66328
+2019-05-07 13:12:45,060 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:12:46,174 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 13:12:46,176 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 13:12:46,177 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 13:12:46,178 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 13:12:46,178 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 13:12:46,179 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 13:12:48,860 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 13:12:52,198 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 13:12:52,917 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:12:53,110 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 13:12:53,156 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 13:12:55,306 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:12:55,326 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 13:12:55,329 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 20.337 seconds (JVM running for 23.502)
+2019-05-07 13:12:55,567 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 13:12:55,567 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 13:12:55,583 INFO (FrameworkServlet.java:546)- Completed initialization in 16 ms
+2019-05-07 13:12:55,763 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:12:56,143 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 13:14:51,219 INFO (ElasticsearchController.java:64)- way:6,text:哈哈
+2019-05-07 13:19:48,185 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 71300 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 13:19:48,190 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 13:19:48,383 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 13:19:48,383 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 13:19:50,570 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:19:50,572 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:19:50,734 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 156ms. Found 4 repository interfaces.
+2019-05-07 13:19:50,756 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:19:50,758 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:19:50,797 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 13:19:50,798 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 13:19:50,800 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 13:19:50,801 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 13:19:50,802 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 28ms. Found 0 repository interfaces.
+2019-05-07 13:19:52,134 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$e18560eb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:19:52,154 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e60557c0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:19:53,445 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 13:19:53,468 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:19:53,478 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 13:19:53,478 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 13:19:53,488 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 13:19:53,783 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 13:19:53,784 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 5400 ms
+2019-05-07 13:19:54,087 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 13:19:54,621 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 13:19:54,940 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 13:19:54,942 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 13:19:55,393 INFO (OfficeProcess.java:402)- Started process; pid = 49672
+2019-05-07 13:19:57,247 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:19:58,364 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 13:19:58,365 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 13:19:58,366 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 13:19:58,366 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 13:19:58,367 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 13:19:58,367 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 13:20:01,055 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 13:20:04,481 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 13:20:05,157 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:20:05,351 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 13:20:05,401 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 13:20:07,286 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:20:07,375 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 13:20:07,379 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 20.384 seconds (JVM running for 23.595)
+2019-05-07 13:20:09,400 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 13:20:09,400 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 13:20:09,414 INFO (FrameworkServlet.java:546)- Completed initialization in 14 ms
+2019-05-07 13:20:09,526 INFO (ElasticsearchController.java:64)- way:6,text:哈哈
+2019-05-07 13:20:09,610 INFO (ElasticsearchController.java:64)- way:6,text:哈哈
+2019-05-07 13:20:09,757 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:20:09,967 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 13:20:50,652 ERROR (DirectJDKLog.java:175)- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "2018年12月"] with root cause
+java.lang.NumberFormatException: For input string: "2018年12月"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at com.bst.pidms.utils.MapUtils.lambda$sortMapByKey$0(MapUtils.java:73)
+	at java.util.TreeMap.compare(TreeMap.java:1295)
+	at java.util.TreeMap.put(TreeMap.java:538)
+	at java.util.AbstractMap.putAll(AbstractMap.java:281)
+	at java.util.TreeMap.putAll(TreeMap.java:327)
+	at com.bst.pidms.utils.MapUtils.sortMapByKey(MapUtils.java:74)
+	at com.bst.pidms.controller.FileController.tiemstamp(FileController.java:274)
+	at com.bst.pidms.controller.FileController$$FastClassBySpringCGLIB$$41c39e15.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at com.bst.pidms.controller.FileController$$EnhancerBySpringCGLIB$$cdd2b475.tiemstamp(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:800)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-07 13:21:02,408 INFO (ElasticsearchController.java:64)- way:6,text:哈哈
+2019-05-07 13:21:43,502 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 68932 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 13:21:43,506 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 13:21:43,686 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 13:21:43,686 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 13:21:45,246 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:21:45,249 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:21:45,376 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 121ms. Found 4 repository interfaces.
+2019-05-07 13:21:45,400 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:21:45,402 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:21:45,433 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 13:21:45,434 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 13:21:45,435 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 13:21:45,436 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 13:21:45,436 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2019-05-07 13:21:46,421 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$d2542e1c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:21:46,442 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d6d424f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:21:47,633 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 13:21:47,656 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:21:47,671 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 13:21:47,672 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 13:21:47,680 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 13:21:47,934 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 13:21:47,934 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 4248 ms
+2019-05-07 13:21:48,199 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 13:21:48,554 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 13:21:48,878 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 13:21:48,879 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 13:21:49,257 INFO (OfficeProcess.java:402)- Started process; pid = 9532
+2019-05-07 13:21:50,395 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:21:51,477 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 13:21:51,479 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 13:21:51,479 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 13:21:51,479 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 13:21:51,480 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 13:21:51,480 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 13:21:53,975 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 13:21:57,208 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 13:21:57,887 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:21:58,075 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 13:21:58,119 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 13:22:00,054 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:22:00,078 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 13:22:00,081 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 17.678 seconds (JVM running for 20.696)
+2019-05-07 13:23:28,748 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 13:23:28,748 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 13:23:28,765 INFO (FrameworkServlet.java:546)- Completed initialization in 16 ms
+2019-05-07 13:23:28,846 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:23:29,107 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 13:23:44,071 INFO (ElasticsearchController.java:64)- way:5,text:哈哈
+2019-05-07 13:23:54,135 INFO (ElasticsearchController.java:64)- way:6,text:哈哈
+2019-05-07 13:23:59,326 INFO (ElasticsearchController.java:64)- way:5,text:哈哈
+2019-05-07 13:24:13,712 INFO (ElasticsearchController.java:64)- way:4,text:哈哈
+2019-05-07 13:24:18,962 INFO (ElasticsearchController.java:64)- way:3,text:哈哈
+2019-05-07 13:24:31,687 INFO (ElasticsearchController.java:64)- way:2,text:哈哈
+2019-05-07 13:24:35,823 INFO (ElasticsearchController.java:64)- way:6,text:哈哈
+2019-05-07 13:24:41,061 INFO (ElasticsearchController.java:64)- way:3,text:哈哈
+2019-05-07 13:25:10,577 INFO (ElasticsearchController.java:64)- way:1,text:哈哈
+2019-05-07 13:25:18,811 INFO (ElasticsearchController.java:64)- way:1,text:哈哈
+2019-05-07 13:25:20,838 INFO (ElasticsearchController.java:64)- way:1,text:哈哈
+2019-05-07 13:25:27,028 INFO (ElasticsearchController.java:64)- way:1,text:哈哈
+2019-05-07 13:25:39,565 INFO (ElasticsearchController.java:64)- way:3,text:哈哈
+2019-05-07 13:26:37,035 INFO (ElasticsearchController.java:64)- way:6,text:哈哈
+2019-05-07 13:26:40,080 INFO (ElasticsearchController.java:64)- way:1,text:哈哈
+2019-05-07 13:26:43,128 INFO (ElasticsearchController.java:64)- way:2,text:哈哈
+2019-05-07 13:26:46,684 INFO (ElasticsearchController.java:64)- way:3,text:哈哈
+2019-05-07 13:26:57,279 INFO (ElasticsearchController.java:64)- way:4,text:哈哈
+2019-05-07 13:27:27,651 INFO (ElasticsearchController.java:64)- way:5,text:哈哈
+2019-05-07 13:30:03,056 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 49948 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 13:30:03,060 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 13:30:03,216 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 13:30:03,216 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 13:30:05,780 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:30:05,782 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:30:05,901 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 114ms. Found 4 repository interfaces.
+2019-05-07 13:30:05,920 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:30:05,923 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:30:05,947 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 13:30:05,948 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 13:30:05,948 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 13:30:05,949 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 13:30:05,949 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2019-05-07 13:30:06,529 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$3e89fb06] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:30:06,546 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4309f1db] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:30:07,290 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 13:30:07,313 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:30:07,329 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 13:30:07,329 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 13:30:07,338 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 13:30:07,614 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 13:30:07,615 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 4398 ms
+2019-05-07 13:30:07,898 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 13:30:08,474 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 13:30:08,800 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 13:30:08,801 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 13:30:09,238 INFO (OfficeProcess.java:402)- Started process; pid = 14756
+2019-05-07 13:30:11,075 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:30:12,198 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 13:30:12,200 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 13:30:12,200 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 13:30:12,201 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 13:30:12,201 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 13:30:12,201 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 13:30:14,912 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 13:30:18,315 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 13:30:18,997 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:30:19,167 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 13:30:19,214 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 13:30:21,272 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:30:21,296 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 13:30:21,299 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 19.116 seconds (JVM running for 21.863)
+2019-05-07 13:30:23,465 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 13:30:23,465 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 13:30:23,483 INFO (FrameworkServlet.java:546)- Completed initialization in 18 ms
+2019-05-07 13:30:23,572 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:30:23,837 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 13:37:13,707 INFO (StartupInfoLogger.java:50)- Starting PidmsApplicationTests on DESKTOP-EOHH9H4 with PID 71296 (started by BST in D:\IdeaProjects\pidms)
+2019-05-07 13:37:13,713 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 13:37:16,033 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:37:16,039 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:37:16,362 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 311ms. Found 4 repository interfaces.
+2019-05-07 13:37:16,400 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:37:16,404 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:37:16,454 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 13:37:16,458 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 13:37:16,465 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 13:37:16,467 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 13:37:16,467 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 43ms. Found 0 repository interfaces.
+2019-05-07 13:37:18,113 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$91154d38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:37:18,128 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9595440d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:37:20,709 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 13:37:20,711 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 13:37:20,712 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 13:37:20,712 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 13:37:20,713 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 13:37:20,713 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 13:37:24,828 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 13:37:27,937 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 13:37:28,423 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 13:37:28,752 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 13:37:28,753 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 13:37:29,147 INFO (OfficeProcess.java:402)- Started process; pid = 70148
+2019-05-07 13:37:30,272 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:37:33,560 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:37:34,515 WARN (TemplateMode.java:150)- [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 13:37:34,670 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 13:37:37,833 INFO (StartupInfoLogger.java:59)- Started PidmsApplicationTests in 25.087 seconds (JVM running for 29.669)
+2019-05-07 13:37:38,439 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:37:39,345 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 13:37:39,633 INFO (ExecutorConfigurationSupport.java:208)- Shutting down ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:37:39,691 INFO (AbstractOfficeManagerPool.java:195)- Stopping the office manager pool...
+2019-05-07 13:37:39,692 INFO (OfficeProcessManager.java:294)- Submitting task 'Stop' and waiting...
+2019-05-07 13:37:39,726 INFO (OfficeConnection.java:200)- Disconnected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:37:39,960 INFO (OfficeProcessManager.java:77)- process exited with code 0
+2019-05-07 13:37:40,273 INFO (AbstractOfficeManagerPool.java:213)- Office manager stopped
+2019-05-07 13:37:40,702 INFO (HikariDataSource.java:350)- HikariPool-1 - Shutdown initiated...
+2019-05-07 13:37:40,713 INFO (HikariDataSource.java:352)- HikariPool-1 - Shutdown completed.
+2019-05-07 13:42:49,705 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 70488 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 13:42:49,710 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 13:42:49,891 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 13:42:49,892 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 13:42:51,604 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:42:51,606 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:42:51,747 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 136ms. Found 4 repository interfaces.
+2019-05-07 13:42:51,765 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:42:51,766 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:42:51,792 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 13:42:51,793 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 13:42:51,793 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 13:42:51,794 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 13:42:51,794 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-05-07 13:42:52,500 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$33dff152] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:42:52,522 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$385fe827] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:42:53,249 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 13:42:53,268 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:42:53,282 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 13:42:53,282 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 13:42:53,290 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 13:42:53,890 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 13:42:53,891 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 3998 ms
+2019-05-07 13:42:54,384 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 13:42:55,049 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 13:42:55,050 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 13:42:55,633 INFO (OfficeProcess.java:402)- Started process; pid = 71448
+2019-05-07 13:42:57,641 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:42:59,123 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 13:42:59,125 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 13:42:59,125 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 13:42:59,126 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 13:42:59,126 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 13:42:59,127 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 13:43:03,196 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 13:43:07,921 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 13:43:09,230 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:43:09,434 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 13:43:09,485 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 13:43:11,721 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:43:11,742 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 13:43:11,746 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 23.675 seconds (JVM running for 30.061)
+2019-05-07 13:43:16,814 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 13:43:16,815 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 13:43:16,833 INFO (FrameworkServlet.java:546)- Completed initialization in 18 ms
+2019-05-07 13:43:41,036 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:43:41,713 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 13:45:12,190 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 67588 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 13:45:12,194 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 13:45:12,337 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 13:45:12,338 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 13:45:13,500 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:45:13,503 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:45:13,644 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 135ms. Found 4 repository interfaces.
+2019-05-07 13:45:13,664 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:45:13,666 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:45:13,699 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 13:45:13,700 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 13:45:13,701 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 13:45:13,703 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 13:45:13,704 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 24ms. Found 0 repository interfaces.
+2019-05-07 13:45:14,268 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$4204a94b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:45:14,280 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4684a020] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:45:15,030 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 13:45:15,053 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:45:15,065 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 13:45:15,066 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 13:45:15,075 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 13:45:15,318 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 13:45:15,319 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 2981 ms
+2019-05-07 13:45:15,599 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 13:45:15,925 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 13:45:16,258 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 13:45:16,259 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 13:45:16,743 INFO (OfficeProcess.java:402)- Started process; pid = 60412
+2019-05-07 13:45:17,852 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:45:18,949 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 13:45:18,951 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 13:45:18,951 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 13:45:18,952 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 13:45:18,952 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 13:45:18,953 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 13:45:21,456 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 13:45:24,674 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 13:45:25,355 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:45:25,526 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 13:45:25,573 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 13:45:27,339 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:45:27,359 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 13:45:27,362 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 16.185 seconds (JVM running for 19.27)
+2019-05-07 13:46:47,434 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 13:46:47,434 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 13:46:47,448 INFO (FrameworkServlet.java:546)- Completed initialization in 14 ms
+2019-05-07 13:46:47,559 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:46:47,764 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.
+2019-05-07 13:47:48,498 INFO (StartupInfoLogger.java:50)- Starting PidmsApplication on DESKTOP-EOHH9H4 with PID 70956 (D:\IdeaProjects\pidms\target\classes started by BST in D:\IdeaProjects\pidms)
+2019-05-07 13:47:48,503 INFO (SpringApplication.java:675)- No active profile set, falling back to default profiles: default
+2019-05-07 13:47:48,663 INFO (DeferredLog.java:227)- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-05-07 13:47:48,663 INFO (DeferredLog.java:227)- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-05-07 13:47:51,192 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:47:51,195 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:47:51,397 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 195ms. Found 4 repository interfaces.
+2019-05-07 13:47:51,435 INFO (RepositoryConfigurationDelegate.java:244)- Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-07 13:47:51,438 INFO (RepositoryConfigurationDelegate.java:126)- Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-07 13:47:51,480 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCatalogMapper.
+2019-05-07 13:47:51,481 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsCommentMapper.
+2019-05-07 13:47:51,482 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsFileMapper.
+2019-05-07 13:47:51,484 INFO (RepositoryConfigurationExtensionSupport.java:363)- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.bst.pidms.esmapper.EsLabelMapper.
+2019-05-07 13:47:51,484 INFO (RepositoryConfigurationDelegate.java:182)- Finished Spring Data repository scanning in 24ms. Found 0 repository interfaces.
+2019-05-07 13:47:52,332 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'redisConfig' of type [com.bst.pidms.config.RedisConfig$$EnhancerBySpringCGLIB$$d8f607df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:47:52,361 INFO (PostProcessorRegistrationDelegate.java:330)- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$dd75feb4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-07 13:47:53,896 INFO (TomcatWebServer.java:90)- Tomcat initialized with port(s): 8080 (http)
+2019-05-07 13:47:53,930 INFO (DirectJDKLog.java:173)- Initializing ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:47:53,953 INFO (DirectJDKLog.java:173)- Starting service [Tomcat]
+2019-05-07 13:47:53,954 INFO (DirectJDKLog.java:173)- Starting Servlet engine: [Apache Tomcat/9.0.16]
+2019-05-07 13:47:53,966 INFO (DirectJDKLog.java:173)- The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Java\jdk1.8.0_162\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Java\jdk1.8.0_162\bin;D:\apache-tomcat-8.0.52\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Common Files\Thunder Network\KanKan\Codecs;D:\apache-maven-3.5.3\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\BST\Desktop\PanDownload\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;Z:\cvsnt;C:\Program Files (x86)\cvsnt;Z:\ShadowsocksR-4.7.0\;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\WinNT;C:\Program Files (x86)\Microsoft Visual Studio\Common\MSDev98\Bin;C:\Program Files (x86)\Microsoft Visual Studio\Common\Tools;C:\Program Files (x86)\Microsoft Visual Studio\VC98\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;Z:\Bandizip\;D:\Java\jdk1.8.0_162\bin;C:\PortableGit\bin;C:\Users\BST\AppData\Local\GitHubDesktop\bin;C:\Users\BST\AppData\Local\Microsoft\WindowsApps;C:\Users\BST\AppData\Roaming\npm;Z:\CVSNT\;.]
+2019-05-07 13:47:54,413 INFO (DirectJDKLog.java:173)- Initializing Spring embedded WebApplicationContext
+2019-05-07 13:47:54,414 INFO (ServletWebServerApplicationContext.java:296)- Root WebApplicationContext: initialization completed in 5750 ms
+2019-05-07 13:47:54,706 INFO (OfficeProcessManager.java:294)- Submitting task 'Start' and waiting...
+2019-05-07 13:47:55,021 WARN (OfficeProcess.java:297)- Profile dir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1' already exists; deleting
+2019-05-07 13:47:55,437 INFO (OfficeDescriptor.java:97)- soffice info (from exec path): Product: OpenOffice - Version: ??? - useLongOptionNameGnuStyle: false
+2019-05-07 13:47:55,438 INFO (OfficeProcess.java:395)- Starting process with acceptString 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager' and profileDir 'C:\Users\BST\AppData\Local\Temp\.jodconverter_socket_host-127.0.0.1_port-8100_tcpNoDelay-1'
+2019-05-07 13:47:55,851 INFO (OfficeProcess.java:402)- Started process; pid = 48684
+2019-05-07 13:47:57,006 INFO (OfficeConnection.java:159)- Connected: 'socket,host=127.0.0.1,port=8100,tcpNoDelay=1'
+2019-05-07 13:47:58,175 INFO (PluginsService.java:190)- no modules loaded
+2019-05-07 13:47:58,177 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin]
+2019-05-07 13:47:58,177 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.join.ParentJoinPlugin]
+2019-05-07 13:47:58,178 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+2019-05-07 13:47:58,178 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.script.mustache.MustachePlugin]
+2019-05-07 13:47:58,178 INFO (PluginsService.java:193)- loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+2019-05-07 13:48:00,797 INFO (TransportClientFactoryBean.java:88)- Adding transport node : 127.0.0.1:9300
+2019-05-07 13:48:03,925 INFO (OptionalLiveReloadServer.java:57)- LiveReload server is running on port 35729
+2019-05-07 13:48:04,669 INFO (ExecutorConfigurationSupport.java:171)- Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-07 13:48:04,832 WARN (TemplateMode.java:150)- [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2019-05-07 13:48:04,872 INFO (WelcomePageHandlerMapping.java:61)- Adding welcome page template: index
+2019-05-07 13:48:06,665 INFO (DirectJDKLog.java:173)- Starting ProtocolHandler ["http-nio-8080"]
+2019-05-07 13:48:06,689 INFO (TomcatWebServer.java:204)- Tomcat started on port(s): 8080 (http) with context path ''
+2019-05-07 13:48:06,693 INFO (StartupInfoLogger.java:59)- Started PidmsApplication in 19.619 seconds (JVM running for 23.846)
+2019-05-07 13:48:54,366 INFO (DirectJDKLog.java:173)- Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-07 13:48:54,366 INFO (FrameworkServlet.java:524)- Initializing Servlet 'dispatcherServlet'
+2019-05-07 13:48:54,386 INFO (FrameworkServlet.java:546)- Completed initialization in 20 ms
+2019-05-07 13:48:54,524 INFO (HikariDataSource.java:110)- HikariPool-1 - Starting...
+2019-05-07 13:48:54,740 INFO (HikariDataSource.java:123)- HikariPool-1 - Start completed.

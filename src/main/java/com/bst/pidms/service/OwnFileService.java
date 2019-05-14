@@ -39,13 +39,13 @@ public interface OwnFileService {
 
     public void setAttention(Integer id, Integer flag);
 
-    public void getImageResults(OwnFile ownFile, File file);
+    public void getImageResults(OwnFile ownFile, File file, Integer idNumber);
 
     public void getAudioResults(OwnFile ownFile, File file);
 
-    public void getVideoResults(OwnFile ownFile, File file);
+    public void getVideoResults(OwnFile ownFile, File file, Integer idNumber);
 
-    public void getDocumentResults(OwnFile ownFile, File file);
+    public void getDocumentResults(OwnFile ownFile, File file, Integer idNumber);
 
     public void getOtherResults(OwnFile ownFile, File file);
 

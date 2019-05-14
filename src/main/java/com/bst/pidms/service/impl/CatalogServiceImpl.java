@@ -58,4 +58,9 @@ public class CatalogServiceImpl implements CatalogService {
     public Integer getRootId(Integer userId) {
         return catalogMapper.selectRootByUserId(userId);
     }
+
+    @Override
+    public Integer getDeal(Integer userId) {
+        return catalogMapper.selectIdByDeal(userId);
+    }
 }

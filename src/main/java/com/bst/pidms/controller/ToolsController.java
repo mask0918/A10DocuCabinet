@@ -3,6 +3,7 @@ package com.bst.pidms.controller;
 import com.bst.pidms.entity.OwnFile;
 import com.bst.pidms.entity.User;
 import com.bst.pidms.enums.FileType;
+import com.bst.pidms.service.CatalogService;
 import com.bst.pidms.service.OwnFileService;
 import com.bst.pidms.utils.CutUtils;
 import com.bst.pidms.utils.ImageUtils;
@@ -27,6 +28,9 @@ public class ToolsController {
 
     @Autowired
     OwnFileService ownFileService;
+
+    @Autowired
+    CatalogService catalogService;
 
     private static final String header = "D:/InsightPIDMS/";
 
@@ -57,7 +61,7 @@ public class ToolsController {
         // 设置上传时间(创作时间)
         ownFile.setUploadTime(System.currentTimeMillis());
         // 设置目录id
-        ownFile.setCatalogId(48);
+        ownFile.setCatalogId(catalogService.getDeal(user.getId()));
         // 设置用户id
         ownFile.setUserId(user.getId());
         // 设置文件url
@@ -66,7 +70,8 @@ public class ToolsController {
         ownFile.setCategory(FileType.IMAGE.getValue());
         // 同步添加到数据库
         ownFileService.addFile(ownFile);
-        ownFileService.getImageResults(ownFile, file);
+        map.put("index", ownFile.getId());
+        ownFileService.getImageResults(ownFile, file, user.getId());
         return map;
     }
 
@@ -90,7 +95,7 @@ public class ToolsController {
         // 设置上传时间(创作时间)
         ownFile.setUploadTime(System.currentTimeMillis());
         // 设置目录id
-        ownFile.setCatalogId(48);
+        ownFile.setCatalogId(catalogService.getDeal(user.getId()));
         // 设置用户id
         ownFile.setUserId(user.getId());
         // 设置文件url
@@ -99,7 +104,8 @@ public class ToolsController {
         ownFile.setCategory(FileType.VIDEO.getValue());
         // 同步添加到数据库
         ownFileService.addFile(ownFile);
-        ownFileService.getVideoResults(ownFile, file);
+        map.put("index", ownFile.getId());
+        ownFileService.getVideoResults(ownFile, file, user.getId());
         return map;
     }
 
@@ -122,7 +128,7 @@ public class ToolsController {
         // 设置上传时间(创作时间)
         ownFile.setUploadTime(System.currentTimeMillis());
         // 设置目录id
-        ownFile.setCatalogId(48);
+        ownFile.setCatalogId(catalogService.getDeal(user.getId()));
         // 设置用户id
         ownFile.setUserId(user.getId());
         // 设置文件url
@@ -131,7 +137,8 @@ public class ToolsController {
         ownFile.setCategory(FileType.VIDEO.getValue());
         // 同步添加到数据库
         ownFileService.addFile(ownFile);
-        ownFileService.getVideoResults(ownFile, file);
+        map.put("index", ownFile.getId());
+        ownFileService.getVideoResults(ownFile, file, user.getId());
         return map;
     }
 
@@ -160,7 +167,7 @@ public class ToolsController {
         // 设置上传时间(创作时间)
         ownFile.setUploadTime(System.currentTimeMillis());
         // 设置目录id
-        ownFile.setCatalogId(48);
+        ownFile.setCatalogId(catalogService.getDeal(user.getId()));
         // 设置用户id
         ownFile.setUserId(user.getId());
         // 设置文件url
@@ -169,7 +176,8 @@ public class ToolsController {
         ownFile.setCategory(FileType.DOCUMENT.getValue());
         // 同步添加到数据库
         ownFileService.addFile(ownFile);
-        ownFileService.getDocumentResults(ownFile, file);
+        map.put("index", ownFile.getId());
+        ownFileService.getDocumentResults(ownFile, file, user.getId());
         return map;
     }
 
@@ -192,7 +200,7 @@ public class ToolsController {
         // 设置上传时间(创作时间)
         ownFile.setUploadTime(System.currentTimeMillis());
         // 设置目录id
-        ownFile.setCatalogId(48);
+        ownFile.setCatalogId(catalogService.getDeal(user.getId()));
         // 设置用户id
         ownFile.setUserId(user.getId());
         // 设置文件url
@@ -201,7 +209,8 @@ public class ToolsController {
         ownFile.setCategory(FileType.DOCUMENT.getValue());
         // 同步添加到数据库
         ownFileService.addFile(ownFile);
-        ownFileService.getDocumentResults(ownFile, file);
+        map.put("index", ownFile.getId());
+        ownFileService.getDocumentResults(ownFile, file, user.getId());
         return map;
     }
 
@@ -224,7 +233,7 @@ public class ToolsController {
         // 设置上传时间(创作时间)
         ownFile.setUploadTime(System.currentTimeMillis());
         // 设置目录id
-        ownFile.setCatalogId(48);
+        ownFile.setCatalogId(catalogService.getDeal(user.getId()));
         // 设置用户id
         ownFile.setUserId(user.getId());
         // 设置文件url
@@ -233,7 +242,8 @@ public class ToolsController {
         ownFile.setCategory(FileType.IMAGE.getValue());
         // 同步添加到数据库
         ownFileService.addFile(ownFile);
-        ownFileService.getImageResults(ownFile, file);
+        map.put("index", ownFile.getId());
+        ownFileService.getImageResults(ownFile, file, user.getId());
         return map;
     }
 }

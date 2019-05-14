@@ -1,5 +1,6 @@
 package com.bst.pidms.utils;
 
+import com.bst.pidms.entity.reader.OfficeReader;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
 
@@ -17,6 +19,13 @@ import java.net.URLEncoder;
  * @Date: 2019/4/18 19:40
  */
 public class NLPUtils {
+    public static void main(String[] args) throws Exception {
+        File file = new File("C:\\Users\\BST\\Desktop\\服务外包\\第八届省赛项目\\赛题\\11-2019第八届浙江省大学生服务外包创新应用大赛_统一命题\\赛题10_自动化院_个人文档智能管理系统.docx");
+        String info = OfficeReader.getInfo(file.getAbsolutePath(), "docx");
+        String keywords = getKeywords("http://yzny6c.natappfree.cc/keywords", info, file.getName());
+        System.out.println(keywords);
+    }
+
     public static String getKeywords(String url, String val, String title) {
         HttpClient httpclient = HttpClientBuilder.create().build();
         try {

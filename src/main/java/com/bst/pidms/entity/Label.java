@@ -6,6 +6,8 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Document(indexName = "label", type = "label", shards = 1, replicas = 0)
 public class Label implements Serializable {
@@ -18,17 +20,23 @@ public class Label implements Serializable {
     @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String name;
 
+    private Integer pid;
+
     @Field(type = FieldType.Boolean)
     private Boolean insight;
 
+    private List<Label> nodes = new ArrayList<Label>();
+
     private static final long serialVersionUID = 1L;
 
-    public Label(Integer id, Integer userId, String name, Boolean insight) {
+    public Label(Integer id, Integer userId, String name, Boolean insight, Integer pid) {
         this.id = id;
         this.userId = userId;
         this.name = name;
+        this.pid = pid;
         this.insight = insight;
     }
+
 
     public Label() {
         super();
@@ -66,17 +74,31 @@ public class Label implements Serializable {
         this.insight = insight;
     }
 
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
+    public List<Label> getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(List<Label> nodes) {
+        this.nodes = nodes;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", name=").append(name);
-        sb.append(", insight=").append(insight);
-        sb.append("]");
-        return sb.toString();
+        return "Label{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", pid=" + pid +
+                ", insight=" + insight +
+                ", nodes=" + nodes +
+                '}';
     }
 }

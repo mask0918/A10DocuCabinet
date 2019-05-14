@@ -26,18 +26,18 @@ function addUser() {
         success: function (data) {
             if (data.success == true) {
                 var content = {   //要插入的数据，这里要和table列名一致
-                        id: data.result.toString(),
-                        name: name,
-                        smtp: smtp,
-                        pop3: pop3,
-                        acc: acc,
-                        pwd: pwd,
-                        role: $(".roleadd").find("option:selected").text(),
-                        options: "<button onclick=\"modify(this)\" type=\"button\" class=\"btn btn-rounded waves-effect waves-light\" style=\"background-color: #73cab8; color: #FFFFFF\"> 修改\n" +
-                        "                                        </button>\n" +
-                        "<button type=\"button\" class=\"btn btn-rounded waves-effect waves-light mydel\" style=\"background-color: #6eadec; color: #FFFFFF\"> 删除\n" +
-                        "                                        </button>"
-                    }
+                    id: data.result.toString(),
+                    name: name,
+                    smtp: smtp,
+                    pop3: pop3,
+                    acc: acc,
+                    pwd: pwd,
+                    role: $(".roleadd").find("option:selected").text(),
+                    options: "<button onclick=\"modify(this)\" type=\"button\" class=\"btn btn-rounded waves-effect waves-light\" style=\"background-color: #73cab8; color: #FFFFFF\"> 修改\n" +
+                    "                                        </button>\n" +
+                    "<button type=\"button\" class=\"btn btn-rounded waves-effect waves-light mydel\" style=\"background-color: #6eadec; color: #FFFFFF\"> 删除\n" +
+                    "                                        </button>"
+                }
                 //Bootstrap 异步添加
                 $('#user_table').bootstrapTable('insertRow', {
                     index: $('#user_table').bootstrapTable('getData').length,

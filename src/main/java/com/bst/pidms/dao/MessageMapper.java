@@ -1,6 +1,7 @@
 package com.bst.pidms.dao;
 
 import com.bst.pidms.entity.Message;
+
 import java.util.List;
 
 public interface MessageMapper {

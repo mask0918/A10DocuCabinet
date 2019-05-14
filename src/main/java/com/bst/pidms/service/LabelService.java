@@ -17,4 +17,8 @@ public interface LabelService {
 
     public List<Label> getLabelByCategory(Integer userId, Integer Category, Boolean insight);
 
+    public List<Label> getLabelByCid(Integer userId, Integer cid);
+
+    public List<Label> getLabelByPid(Integer userId, Integer pid);
+
 }

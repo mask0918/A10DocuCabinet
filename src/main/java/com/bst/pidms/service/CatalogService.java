@@ -21,4 +21,6 @@ public interface CatalogService {
 
     Integer getRootId(Integer userId);
 
+    Integer getDeal(Integer userId);
+
 }

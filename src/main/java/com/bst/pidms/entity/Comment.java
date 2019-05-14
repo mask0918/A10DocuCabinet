@@ -18,7 +18,7 @@ public class Comment implements Serializable {
     @Field(type = FieldType.Integer)
     private Integer fileId;
 
-    @Field(type = FieldType.Text,analyzer = "ik_max_word")
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String content;
 
     private static final long serialVersionUID = 1L;

@@ -1,6 +1,6 @@
 $(document).on("click", ".mydel", function () {
     delRole(this);
-})
+});
 
 function modify(obj) {
     var tmp = $(obj);

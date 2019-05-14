@@ -49,7 +49,6 @@ public class FileController {
     @Autowired
     HistoryService historyService;
 
-
     // 上传文件
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @Transactional
@@ -65,10 +64,11 @@ public class FileController {
         }
         String fileName = file.getOriginalFilename().toLowerCase();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
+        String category = FileType.mFileTypes.get(suffix) != null ? FileType.mFileTypes.get(suffix) : "OTHER";
         // 创建用户文件夹
         File dir = new File("D:\\InsightPIDMS\\" + user.getUsername());
         if (!dir.exists()) dir.mkdir();
-        File dir1 = new File(dir.getAbsolutePath() + "\\" + FileType.mFileTypes.get(suffix));
+        File dir1 = new File(dir.getAbsolutePath() + "\\" + category);
         if (!dir1.exists()) dir1.mkdir();
         // 上传文件
         File toFile = new File(dir1.getAbsolutePath() + "\\" + fileName);
@@ -87,7 +87,7 @@ public class FileController {
         // 设置用户id
         ownFile.setUserId(user.getId());
         // 设置文件url
-        String category = FileType.mFileTypes.get(suffix) != null ? FileType.mFileTypes.get(suffix) : "OTHER";
+
         ownFile.setUrl(user.getUsername() + "/" + category + "/" + fileName);
         // 设置文件类型
         ownFile.setCategory(FileType.valueOf(category).getValue());
@@ -101,15 +101,15 @@ public class FileController {
         // 异步分析
         switch (category) {
             case "DOCUMENT":
-                ownFileService.getDocumentResults(ownFile, toFile);
+                ownFileService.getDocumentResults(ownFile, toFile, user.getId());
                 break;
             case "IMAGE":
-                ownFileService.getImageResults(ownFile, toFile);
+                ownFileService.getImageResults(ownFile, toFile, user.getId());
             case "AUDIO":
                 ownFileService.getAudioResults(ownFile, toFile);
                 break;
             case "VIDEO":
-                ownFileService.getVideoResults(ownFile, toFile);
+                ownFileService.getVideoResults(ownFile, toFile, user.getId());
                 break;
             case "OTHER":
                 ownFileService.getOtherResults(ownFile, toFile);
@@ -256,24 +256,13 @@ public class FileController {
      *
      * @return
      */
-//    @RequestMapping(value = "sortimage", method = RequestMethod.GET)
-//    public Map<String, List<OwnFile>> tiemstamp() {
-//        Integer userId = SessionUtil.getInstance().getIdNumber();
-//        if (userId == -1) return null;
-//        List<OwnFile> ownFiles = ownFileService.getCategory(FileType.IMAGE.getValue(), userId);
-//        TreeMap<String, List<OwnFile>> collect = ownFiles.stream().collect(Collectors.groupingBy(OwnFile::sortByMonth, TreeMap::new, Collectors.toList()));
-////        collect = ((TreeMap) collect).descendingMap();
-//        return collect.descendingMap();
-//    }
     @RequestMapping(value = "sortimage", method = RequestMethod.GET)
     public Map<String, List<OwnFile>> tiemstamp() {
         Integer userId = SessionUtil.getInstance().getIdNumber();
         if (userId == -1) return null;
         List<OwnFile> ownFiles = ownFileService.getCategory(FileType.IMAGE.getValue(), userId);
         Map<String, List<OwnFile>> collect = ownFiles.stream().collect(Collectors.groupingBy(OwnFile::sortByMonth, LinkedHashMap::new, Collectors.toList()));
-//        return collect;
         return MapUtils.sortMapByKey(collect, false);
-//        return collect;
     }
 
     @RequestMapping(value = "deletefile", method = RequestMethod.POST)

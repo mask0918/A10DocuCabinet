@@ -1,5 +1,7 @@
 package com.bst.pidms.controller;
 
+import com.bst.pidms.entity.Catalog;
+import com.bst.pidms.entity.User;
 import com.bst.pidms.enums.FileType;
 import com.bst.pidms.entity.Label;
 import com.bst.pidms.service.BindLabelFileService;
@@ -30,6 +32,30 @@ public class LabelController {
 
     @Autowired
     OwnFileService ownFileService;
+
+
+    @RequestMapping(value = "labeltree", method = RequestMethod.GET)
+    public List<Label> recursive() {
+        User user = SessionUtil.getInstance().getUser();
+        if (user == null) return null;
+        // 根据cid获取节点对象(SELECT * FROM tb_tree t WHERE t.cid=?)
+        List<Label> node = labelService.getLabelByPid(user.getId(), 0);
+        for (Label label : node) {
+            recursiveTree(user.getId(), label.getId(), label);
+        }
+        return node;
+    }
+
+    public Label recursiveTree(Integer userId, Integer cid, Label label) {
+        // 查询cid下的所有子节点(SELECT * FROM tb_tree t WHERE t.pid=?)
+        List<Label> childTreeNodes = labelService.getLabelByPid(userId, cid);
+        // 遍历子节点
+        for (Label child : childTreeNodes) {
+            label.getNodes().add(child);
+        }
+        return label;
+    }
+
 
     /**
      * 获取智能归档 虚拟目录

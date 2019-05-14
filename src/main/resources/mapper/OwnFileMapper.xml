@@ -24,9 +24,9 @@
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, name, url, user_id, catalog_id, category, size, server_time, upload_time, keyword, 
-    tag, info, collection, attention, downloads, views, scale, recycle
-  </sql>
+        id, name, url, user_id, catalog_id, category, size, server_time, upload_time, keyword,
+        tag, info, collection, attention, downloads, views, scale, recycle
+    </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -34,50 +34,50 @@
         where id = #{id,jdbcType=INTEGER}
     </select>
     <select id="selectCategory" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-    select *
-    from tb_file
-    where category=#{id,jdbcType=INTEGER}
-    and user_id=#{userId,jdbcType=INTEGER}
-  </select>
+        select *
+        from tb_file
+        where category=#{id,jdbcType=INTEGER}
+        and user_id=#{userId,jdbcType=INTEGER}
+    </select>
     <select id="selectByCatalogId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select *
         from tb_file
         where catalog_id=#{catalogId,jdbcType=INTEGER}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
-    select *
-    from tb_file
-  </select>
+        select *
+        from tb_file
+    </select>
     <select id="selectIfCollect" resultMap="BaseResultMap">
-    select *
-    from tb_file
-    where collection = 1
-    and user_id=#{userId,jdbcType=INTEGER}
-  </select>
+        select *
+        from tb_file
+        where collection = 1
+        and user_id=#{userId,jdbcType=INTEGER}
+    </select>
     <select id="selectIfAttention" resultMap="BaseResultMap">
-    select *
-    from tb_file
-    where attention = 1
-    and user_id=#{userId,jdbcType=INTEGER}
-  </select>
+        select *
+        from tb_file
+        where attention = 1
+        and user_id=#{userId,jdbcType=INTEGER}
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tb_file
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from tb_file
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.bst.pidms.entity.OwnFile" keyProperty="id">
-    insert into tb_file (id, name, url, 
-      user_id, catalog_id, category, 
-      size, server_time, upload_time, 
-      keyword, tag, info, collection, 
-      attention, downloads, views, 
-      scale, recycle)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
-      #{userId,jdbcType=INTEGER}, #{catalogId,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, 
-      #{size,jdbcType=BIGINT}, #{serverTime,jdbcType=BIGINT}, #{uploadTime,jdbcType=BIGINT}, 
-      #{keyword,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{info,jdbcType=CHAR}, #{collection,jdbcType=TINYINT}, 
-      #{attention,jdbcType=TINYINT}, #{downloads,jdbcType=INTEGER}, #{views,jdbcType=INTEGER}, 
-      #{scale,jdbcType=INTEGER}, #{recycle,jdbcType=TINYINT})
-  </insert>
+        insert into tb_file (id, name, url,
+        user_id, catalog_id, category,
+        size, server_time, upload_time,
+        keyword, tag, info, collection,
+        attention, downloads, views,
+        scale, recycle)
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR},
+        #{userId,jdbcType=INTEGER}, #{catalogId,jdbcType=INTEGER}, #{category,jdbcType=INTEGER},
+        #{size,jdbcType=BIGINT}, #{serverTime,jdbcType=BIGINT}, #{uploadTime,jdbcType=BIGINT},
+        #{keyword,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{info,jdbcType=CHAR}, #{collection,jdbcType=TINYINT},
+        #{attention,jdbcType=TINYINT}, #{downloads,jdbcType=INTEGER}, #{views,jdbcType=INTEGER},
+        #{scale,jdbcType=INTEGER}, #{recycle,jdbcType=TINYINT})
+    </insert>
     <insert id="insertSelective" parameterType="com.bst.pidms.entity.OwnFile" keyProperty="id">
         insert into tb_file
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -251,26 +251,26 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.bst.pidms.entity.OwnFile">
-    update tb_file
-    set name = #{name,jdbcType=VARCHAR},
-      url = #{url,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=INTEGER},
-      catalog_id = #{catalogId,jdbcType=INTEGER},
-      category = #{category,jdbcType=INTEGER},
-      size = #{size,jdbcType=BIGINT},
-      server_time = #{serverTime,jdbcType=BIGINT},
-      upload_time = #{uploadTime,jdbcType=BIGINT},
-      keyword = #{keyword,jdbcType=VARCHAR},
-      tag = #{tag,jdbcType=VARCHAR},
-      info = #{info,jdbcType=CHAR},
-      collection = #{collection,jdbcType=TINYINT},
-      attention = #{attention,jdbcType=TINYINT},
-      downloads = #{downloads,jdbcType=INTEGER},
-      views = #{views,jdbcType=INTEGER},
-      scale = #{scale,jdbcType=INTEGER},
-      recycle = #{recycle,jdbcType=TINYINT}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        update tb_file
+        set name = #{name,jdbcType=VARCHAR},
+        url = #{url,jdbcType=VARCHAR},
+        user_id = #{userId,jdbcType=INTEGER},
+        catalog_id = #{catalogId,jdbcType=INTEGER},
+        category = #{category,jdbcType=INTEGER},
+        size = #{size,jdbcType=BIGINT},
+        server_time = #{serverTime,jdbcType=BIGINT},
+        upload_time = #{uploadTime,jdbcType=BIGINT},
+        keyword = #{keyword,jdbcType=VARCHAR},
+        tag = #{tag,jdbcType=VARCHAR},
+        info = #{info,jdbcType=CHAR},
+        collection = #{collection,jdbcType=TINYINT},
+        attention = #{attention,jdbcType=TINYINT},
+        downloads = #{downloads,jdbcType=INTEGER},
+        views = #{views,jdbcType=INTEGER},
+        scale = #{scale,jdbcType=INTEGER},
+        recycle = #{recycle,jdbcType=TINYINT}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <update id="setCollectStatus" parameterType="java.lang.Integer">
         update tb_file
         set collection = #{collection,jdbcType=TINYINT}
@@ -295,15 +295,15 @@
         </where>
     </select>
     <select id="selectTimelineByUserId" parameterType="java.lang.Integer" resultType="java.lang.String">
-     SELECT FROM_UNIXTIME(upload_time/1000,'%Y年%m月') days
-     FROM tb_file
-     where user_id=#{userId,jdbcType=INTEGER}
-     group by FROM_UNIXTIME(upload_time/1000,'%Y%m')
+        SELECT FROM_UNIXTIME(upload_time/1000,'%Y年%m月') days
+        FROM tb_file
+        where user_id=#{userId,jdbcType=INTEGER}
+        group by FROM_UNIXTIME(upload_time/1000,'%Y%m')
     </select>
     <select id="selectFileByTimeline" resultMap="BaseResultMap">
-     SELECT *
-     FROM tb_file
-     where user_id=#{userId,jdbcType=INTEGER}
-     and FROM_UNIXTIME(upload_time/1000,'%Y年%m月')=#{timeline,jdbcType=VARCHAR}
+        SELECT *
+        FROM tb_file
+        where user_id=#{userId,jdbcType=INTEGER}
+        and FROM_UNIXTIME(upload_time/1000,'%Y年%m月')=#{timeline,jdbcType=VARCHAR}
     </select>
 </mapper>

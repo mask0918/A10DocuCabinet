@@ -1,14 +1,14 @@
 /**
  * Add getComputedStyle support to elements
  */
-(function ( w ) {
-    if ( !w.getComputedStyle ) {
-        w.getComputedStyle = function( el ) {
+(function (w) {
+    if (!w.getComputedStyle) {
+        w.getComputedStyle = function (el) {
             this.el = el;
-            this.getPropertyValue = function( prop ) {
+            this.getPropertyValue = function (prop) {
                 var re = /(\-([a-z]){1})/g;
-                if ( prop == 'float' ) prop = 'styleFloat';
-                if ( re.test(prop) ) {
+                if (prop == 'float') prop = 'styleFloat';
+                if (re.test(prop)) {
                     prop = prop.replace(re, function () {
                         return arguments[2].toUpperCase();
                     });
@@ -43,7 +43,8 @@ if (!Function.prototype.bind) {
 
         var aArgs = Array.prototype.slice.call(arguments, 1),
             fToBind = this,
-            FNOP = function () {},
+            FNOP = function () {
+            },
             fBound = function () {
                 return fToBind.apply(
                     this instanceof FNOP && oThis ? this : oThis,
@@ -107,8 +108,7 @@ if (!Function.prototype.bind) {
                     }
 
                     if ((hasOwnProp.call(descriptor, "get") ||
-                        hasOwnProp.call(descriptor, "set")))
-                    {
+                        hasOwnProp.call(descriptor, "set"))) {
                         // descriptor has a value prop but accessor already exists
                         throw new TypeError("Cannot specify an accessor and a value");
                     }
@@ -117,8 +117,7 @@ if (!Function.prototype.bind) {
                 // can't switch off these features in ECMAScript 3
                 // so throw a TypeError if any are false
                 if (!(descriptor.writable && descriptor.enumerable &&
-                    descriptor.configurable))
-                {
+                    descriptor.configurable)) {
                     throw new TypeError(
                         "This implementation of Object.defineProperty does not support" +
                         " false for configurable, enumerable, or writable."
@@ -146,8 +145,8 @@ if (!Function.prototype.bind) {
 
                 var descriptor = {
                         configurable: true,
-                        enumerable  : true,
-                        writable    : true
+                        enumerable: true,
+                        writable: true
                     },
                     getter = lookupGetter.call(obj, prop),
                     setter = lookupSetter.call(obj, prop);
@@ -193,9 +192,9 @@ if (!Function.prototype.bind) {
 // Begin dataset code
 
 if (!document.documentElement.dataset &&
-        // FF is empty while IE gives empty object
-    (!Object.getOwnPropertyDescriptor(Element.prototype, 'dataset')  ||
-    !Object.getOwnPropertyDescriptor(Element.prototype, 'dataset').get)
+    // FF is empty while IE gives empty object
+    (!Object.getOwnPropertyDescriptor(Element.prototype, 'dataset') ||
+        !Object.getOwnPropertyDescriptor(Element.prototype, 'dataset').get)
 ) {
     var propDescriptor = {
         enumerable: true,
@@ -221,7 +220,8 @@ if (!document.documentElement.dataset &&
                 };
             try { // Simulate DOMStringMap w/accessor support
                 // Test setting accessor on normal object
-                ({}).__defineGetter__('test', function () {});
+                ({}).__defineGetter__('test', function () {
+                });
                 HTML5_DOMStringMap = {};
             }
             catch (e1) { // Use a DOM object for IE8
@@ -292,21 +292,21 @@ if ("document" in self) {
                 , elemCtrProto = view.Element[protoProp]
                 , objCtr = Object
                 , strTrim = String[protoProp].trim || function () {
-                        return this.replace(/^\s+|\s+$/g, "");
-                    }
+                    return this.replace(/^\s+|\s+$/g, "");
+                }
                 , arrIndexOf = Array[protoProp].indexOf || function (item) {
-                        var
-                            i = 0
-                            , len = this.length
-                            ;
-                        for (; i < len; i++) {
-                            if (i in this && this[i] === item) {
-                                return i;
-                            }
+                    var
+                        i = 0
+                        , len = this.length
+                    ;
+                    for (; i < len; i++) {
+                        if (i in this && this[i] === item) {
+                            return i;
                         }
-                        return -1;
                     }
-            // Vendors: please allow content code to instantiate DOMExceptions
+                    return -1;
+                }
+                // Vendors: please allow content code to instantiate DOMExceptions
                 , DOMEx = function (type, message) {
                     this.name = type;
                     this.code = DOMException[type];
@@ -333,7 +333,7 @@ if ("document" in self) {
                         , classes = trimmedClasses ? trimmedClasses.split(/\s+/) : []
                         , i = 0
                         , len = classes.length
-                        ;
+                    ;
                     for (; i < len; i++) {
                         this.push(classes[i]);
                     }
@@ -345,7 +345,7 @@ if ("document" in self) {
                 , classListGetter = function () {
                     return new ClassList(this);
                 }
-                ;
+            ;
 // Most DOMException implementations don't allow calling DOMException's toString()
 // on non-DOMExceptions. Error's toString() is sufficient here.
             DOMEx[protoProp] = Error[protoProp];
@@ -363,7 +363,7 @@ if ("document" in self) {
                     , l = tokens.length
                     , token
                     , updated = false
-                    ;
+                ;
                 do {
                     token = tokens[i] + "";
                     if (checkTokenAndGetIndex(this, token) === -1) {
@@ -385,7 +385,7 @@ if ("document" in self) {
                     , token
                     , updated = false
                     , index
-                    ;
+                ;
                 do {
                     token = tokens[i] + "";
                     index = checkTokenAndGetIndex(this, token);
@@ -408,9 +408,9 @@ if ("document" in self) {
                     result = this.contains(token)
                     , method = result ?
                     force !== true && "remove"
-                        :
+                    :
                     force !== false && "add"
-                    ;
+                ;
 
                 if (method) {
                     this[method](token);
@@ -460,10 +460,10 @@ if ("document" in self) {
             // Polyfill for IE 10/11 and Firefox <26, where classList.add and
             // classList.remove exist but support only one argument at a time.
             if (!testElement.classList.contains("c2")) {
-                var createMethod = function(method) {
+                var createMethod = function (method) {
                     var original = DOMTokenList.prototype[method];
 
-                    DOMTokenList.prototype[method] = function(token) {
+                    DOMTokenList.prototype[method] = function (token) {
                         var i, len = arguments.length;
 
                         for (i = 0; i < len; i++) {
@@ -483,7 +483,7 @@ if ("document" in self) {
             if (testElement.classList.contains("c3")) {
                 var _toggle = DOMTokenList.prototype.toggle;
 
-                DOMTokenList.prototype.toggle = function(token, force) {
+                DOMTokenList.prototype.toggle = function (token, force) {
                     if (1 in arguments && !this.contains(token) === !force) {
                         return force;
                     } else {
@@ -504,10 +504,10 @@ if ("document" in self) {
  * Running the following code before any other code will create trim() if it's not natively available.
  */
 if (!String.prototype.trim) {
-    (function() {
+    (function () {
         // Make sure we trim BOM and NBSP
         var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-        String.prototype.trim = function() {
+        String.prototype.trim = function () {
             return this.replace(rtrim, '');
         };
     })();
@@ -519,7 +519,7 @@ if (!String.prototype.trim) {
 // Production steps of ECMA-262, Edition 5, 15.4.4.14
 // Reference: http://es5.github.io/#x15.4.4.14
 if (!Array.prototype.indexOf) {
-    Array.prototype.indexOf = function(searchElement, fromIndex) {
+    Array.prototype.indexOf = function (searchElement, fromIndex) {
 
         var k;
 
@@ -645,8 +645,12 @@ if (!Array.prototype.indexOf) {
                     'on' + type,
                     listener_set(self, listener, function (e) {
                         e = e || window.event;
-                        e.preventDefault = e.preventDefault || function () { e.returnValue = false };
-                        e.stopPropagation = e.stopPropagation || function () { e.cancelBubble = true };
+                        e.preventDefault = e.preventDefault || function () {
+                            e.returnValue = false
+                        };
+                        e.stopPropagation = e.stopPropagation || function () {
+                            e.cancelBubble = true
+                        };
                         e.target = e.target || e.srcElement || document.documentElement;
                         e.currentTarget = e.currentTarget || self;
                         e.timeStamp = e.timeStamp || (new Date()).getTime();
@@ -700,8 +704,10 @@ if (!Array.prototype.indexOf) {
             /**
              * IE < 8
              */
-                //Make sure we also init at domReady
-            document.attachEvent('onreadystatechange', function () { addListen(document.all) });
+            //Make sure we also init at domReady
+            document.attachEvent('onreadystatechange', function () {
+                addListen(document.all)
+            });
             docHijack('getElementsByTagName');
             docHijack('getElementById');
             docHijack('createElement');
@@ -723,11 +729,11 @@ if (!Array.prototype.forEach) {
         }
 
         var kValue,
-        // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
+            // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
             O = Object(this),
 
-        // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".
-        // 3. Let len be ToUint32(lenValue).
+            // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".
+            // 3. Let len be ToUint32(lenValue).
             len = O.length >>> 0; // Hack to convert O.length to a UInt32
 
         // 4. If IsCallable(callback) is false, throw a TypeError exception.
@@ -772,13 +778,13 @@ if (!Array.prototype.forEach) {
  * :scope polyfill
  * http://stackoverflow.com/questions/6481612/queryselector-search-immediate-children
  */
-(function(doc, proto) {
+(function (doc, proto) {
     try { // check if browser supports :scope natively
         doc.querySelector(':scope body');
     } catch (err) { // polyfill native methods if it doesn't
-        ['querySelector', 'querySelectorAll'].forEach(function(method) {
+        ['querySelector', 'querySelectorAll'].forEach(function (method) {
             var native = proto[method];
-            proto[method] = function(selectors) {
+            proto[method] = function (selectors) {
                 if (/(^|,)\s*:scope/.test(selectors)) { // only if selectors contains :scope
                     var id = this.id; // remember current element id
                     this.id = 'ID_' + Date.now(); // assign new unique id
@@ -804,7 +810,7 @@ if (navigator.appVersion.indexOf('MSIE 8.') === -1 && navigator.appVersion.index
             enumerable: false,
             configurable: true,
             writable: true,
-            value: function(target, firstSource) {
+            value: function (target, firstSource) {
                 'use strict';
                 if (target === undefined || target === null) {
                     throw new TypeError('Cannot convert first argument to object');
@@ -837,15 +843,15 @@ if (navigator.appVersion.indexOf('MSIE 8.') === -1 && navigator.appVersion.index
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
  */
 if (!Array.isArray) {
-    Array.isArray = function(arg) {
+    Array.isArray = function (arg) {
         return Object.prototype.toString.call(arg) === '[object Array]';
     };
 }
 
-function cbExtendObjects () {
-    for ( var i = 1, arg = arguments.length; i < arg; i++ ) {
-        for ( var key in arguments[i] ) {
-            if( arguments[i].hasOwnProperty(key) ) {
+function cbExtendObjects() {
+    for (var i = 1, arg = arguments.length; i < arg; i++) {
+        for (var key in arguments[i]) {
+            if (arguments[i].hasOwnProperty(key)) {
                 arguments[0][key] = arguments[i][key];
             }
         }

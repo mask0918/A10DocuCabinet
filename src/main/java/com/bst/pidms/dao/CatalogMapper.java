@@ -18,4 +18,6 @@ public interface CatalogMapper {
     int updateByPrimaryKey(Catalog record);
 
     Integer selectRootByUserId(Integer userId);
+
+    Integer selectIdByDeal(Integer userId);
 }

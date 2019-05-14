@@ -43,10 +43,9 @@ public class GoogleVision {
         Image img = Image.newBuilder().setContent(imgBytes).build();
         Feature feat = Feature.newBuilder().setType(Feature.Type.IMAGE_PROPERTIES).build();
         Feature feat2 = Feature.newBuilder().setType(Feature.Type.LABEL_DETECTION).build();
-        Feature feat3 = Feature.newBuilder().setType(Feature.Type.OBJECT_LOCALIZATION).build();
         Feature feat4 = Feature.newBuilder().setType(Feature.Type.TEXT_DETECTION).build();
         AnnotateImageRequest request =
-                AnnotateImageRequest.newBuilder().addFeatures(feat).addFeatures(feat2).addFeatures(feat3).addFeatures(feat4).setImage(img).build();
+                AnnotateImageRequest.newBuilder().addFeatures(feat).addFeatures(feat2).addFeatures(feat4).setImage(img).build();
 //        AnnotateImageRequest request1 = AnnotateImageRequest.newBuilder().addFeatures(feat2).addFeatures(feat3).addFeatures(feat4).setImage(img).build();
         requests.add(request);
 
@@ -70,7 +69,6 @@ public class GoogleVision {
                 double sum = colors.getColorsList().stream().mapToDouble(ColorInfo::getScore).sum();
 
                 for (ColorInfo color : colors.getColorsList()) {
-                    double v = color.getScore() / sum;
                     float red = color.getColor().getRed();
                     float green = color.getColor().getGreen();
                     float blue = color.getColor().getBlue();

@@ -16,6 +16,7 @@ import com.bst.pidms.service.BindLabelFileService;
 import com.bst.pidms.service.LabelService;
 import com.bst.pidms.service.OwnFileService;
 import com.bst.pidms.utils.NLPUtils;
+import com.bst.pidms.utils.SessionUtil;
 import com.bst.pidms.utils.ThumbUtils;
 import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
@@ -37,9 +38,9 @@ import java.util.*;
 public class OwnFileServiceImpl implements OwnFileService {
 
 
-    static final String host = "http://23snuj.natappfree.cc/";
+    public static final String host = "http://yzny6c.natappfree.cc/";
 
-    static final String qiniuUrl = "http://ppxlrdgsm.bkt.clouddn.com/";
+    public static final String qiniuUrl = "http://ppxlrdgsm.bkt.clouddn.com/";
 
     @Resource
     DocumentConverter documentConverter;
@@ -138,7 +139,7 @@ public class OwnFileServiceImpl implements OwnFileService {
 
     @Override
     @Async
-    public void getImageResults(OwnFile ownFile, File file) {
+    public void getImageResults(OwnFile ownFile, File file, Integer idNumber) {
         List<String> topLabels = new ArrayList<>();
         try {
             PicInfo picInfo = ExifReader.readEXIF(file);
@@ -151,7 +152,7 @@ public class OwnFileServiceImpl implements OwnFileService {
             List<String> labels = (List<String>) fileMap.get("labels");
             for (String s : labels) {
                 // 默认为3个标签
-                if (labels.indexOf(s) > 2) break;
+                if (labels.indexOf(s) > 5) break;
                 topLabels.add(s);
             }
             ownFile.setKeyword(Joiner.on("|").join(labels));
@@ -163,8 +164,7 @@ public class OwnFileServiceImpl implements OwnFileService {
             esFileMapper.save(ownFile);
             for (String topLabel : topLabels) {
                 // 默认UserID=1;
-                Label temp = new Label();
-                Integer id = labelService.addLabelIfNotExist(1, topLabel, true);
+                Integer id = labelService.addLabelIfNotExist(idNumber, topLabel, true);
                 bindLabelFileService.addBind(id, ownFile.getId(), ownFile.getCategory());
             }
         }
@@ -176,7 +176,7 @@ public class OwnFileServiceImpl implements OwnFileService {
     }
 
     @Override
-    public void getVideoResults(OwnFile ownFile, File file) {
+    public void getVideoResults(OwnFile ownFile, File file, Integer idNumber) {
         List<String> topLabels = new ArrayList<>();
         String fileName = ownFile.getName();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -209,7 +209,7 @@ public class OwnFileServiceImpl implements OwnFileService {
             int temp1 = 0;
             for (Object o : themeSet) {
                 // 默认为3个标签
-                if (temp1 > 2) break;
+                if (temp1 > 5) break;
                 topLabels.add((String) o);
                 temp1++;
             }
@@ -227,7 +227,7 @@ public class OwnFileServiceImpl implements OwnFileService {
             for (String topLabel : topLabels) {
                 // 默认UserID=1;
                 Label temp = new Label();
-                Integer id = labelService.addLabelIfNotExist(1, topLabel, true);
+                Integer id = labelService.addLabelIfNotExist(idNumber, topLabel, true);
                 bindLabelFileService.addBind(id, ownFile.getId(), ownFile.getCategory());
             }
         }
@@ -235,7 +235,7 @@ public class OwnFileServiceImpl implements OwnFileService {
 
     @Override
     @Async
-    public void getDocumentResults(OwnFile ownFile, File file) {
+    public void getDocumentResults(OwnFile ownFile, File file, Integer idNumber) {
         List<String> topLabels = new ArrayList<>();
         String fileName = ownFile.getName();
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -243,11 +243,11 @@ public class OwnFileServiceImpl implements OwnFileService {
         try {
             String info = OfficeReader.getInfo(file.getAbsolutePath(), suffix);
             String keywords = NLPUtils.getKeywords(host + "keywords", info, prefix);
-            String[] split = keywords.split("|");
+            String[] split = keywords.split("[|]");
             int temp = 0;
             for (String s : split) {
                 // 默认为3个标签
-                if (temp > 2) break;
+                if (temp > 4) break;
                 topLabels.add(s);
                 temp++;
             }
@@ -267,7 +267,7 @@ public class OwnFileServiceImpl implements OwnFileService {
             esFileMapper.save(ownFile);
             for (String topLabel : topLabels) {
                 // 默认UserID=1;
-                Integer id = labelService.addLabelIfNotExist(1, topLabel, true);
+                Integer id = labelService.addLabelIfNotExist(idNumber, topLabel, true);
                 bindLabelFileService.addBind(id, ownFile.getId(), ownFile.getCategory());
             }
         }
