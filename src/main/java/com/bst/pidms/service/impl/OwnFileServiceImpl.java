@@ -40,7 +40,8 @@ public class OwnFileServiceImpl implements OwnFileService {
 
     public static final String host = "http://yzny6c.natappfree.cc/";
 
-    public static final String qiniuUrl = "http://ppxlrdgsm.bkt.clouddn.com/";
+    // 七牛云域名地址
+    public static final String qiniuUrl = "http://prqhw3d3a.bkt.clouddn.com/";
 
     @Resource
     DocumentConverter documentConverter;
